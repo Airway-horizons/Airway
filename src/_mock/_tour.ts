@@ -7,7 +7,7 @@ import { _tags } from './assets';
 
 export const TOUR_DETAILS_TABS = [
   { value: 'content', label: 'Tour Content' },
-  { value: 'bookers', label: 'Booker' },
+  // { value: 'bookers', label: 'Booker' },
 ];
 
 export const TOUR_SORT_OPTIONS = [

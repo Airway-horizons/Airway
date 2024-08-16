@@ -16,6 +16,8 @@ const Page404 = lazy(() => import('src/pages/404'));
 const FaqsPage = lazy(() => import('src/pages/faqs'));
 const AboutPage = lazy(() => import('src/pages/about-us'));
 const ContactPage = lazy(() => import('src/pages/contact-us'));
+const PackagesList = lazy(() => import('src/pages/package-list'));
+const PackagesDetails = lazy(() => import('src/pages/package-details'));
 const PricingPage = lazy(() => import('src/pages/pricing'));
 const PaymentPage = lazy(() => import('src/pages/payment'));
 const ComingSoonPage = lazy(() => import('src/pages/coming-soon'));
@@ -42,6 +44,8 @@ export const mainRoutes = [
     children: [
       { path: 'about-us', element: <AboutPage /> },
       { path: 'contact-us', element: <ContactPage /> },
+      { path: 'packages', element: <PackagesList /> },
+      { path: 'packages-details/:id', element: <PackagesDetails /> },
       { path: 'faqs', element: <FaqsPage /> },
       {
         path: 'product',

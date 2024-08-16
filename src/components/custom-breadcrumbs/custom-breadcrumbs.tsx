@@ -5,7 +5,6 @@ import Typography from '@mui/material/Typography';
 import Breadcrumbs from '@mui/material/Breadcrumbs';
 
 import LinkItem from './link-item';
-import { CustomBreadcrumbsProps } from './types';
 
 // ----------------------------------------------------------------------
 
@@ -17,8 +16,8 @@ export default function CustomBreadcrumbs({
   activeLast,
   sx,
   ...other
-}: CustomBreadcrumbsProps) {
-  const lastLink = links[links.length - 1].name;
+}: any) {
+  const lastLink = links && links[links?.length - 1].name;
 
   return (
     <Box sx={{ ...sx }}>
@@ -32,9 +31,9 @@ export default function CustomBreadcrumbs({
           )}
 
           {/* BREADCRUMBS */}
-          {!!links.length && (
+          {!!links?.length && (
             <Breadcrumbs separator={<Separator />} {...other}>
-              {links.map((link) => (
+              {links?.map((link: any) => (
                 <LinkItem
                   key={link.name || ''}
                   link={link}
@@ -52,7 +51,7 @@ export default function CustomBreadcrumbs({
       {/* MORE LINK */}
       {!!moreLink && (
         <Box sx={{ mt: 2 }}>
-          {moreLink.map((href) => (
+          {moreLink?.map((href: any) => (
             <Link
               key={href}
               href={href}

@@ -11,6 +11,11 @@ export const navConfig = [
     path: '/',
   },
   {
+    title: 'Packages',
+    icon: <Iconify icon="solar:atom-bold-duotone" />,
+    path: paths.packages,
+  },
+  {
     title: 'About us',
     icon: <Iconify icon="solar:atom-bold-duotone" />,
     path: paths.about,

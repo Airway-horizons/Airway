@@ -1,17 +1,17 @@
 import { Helmet } from 'react-helmet-async';
 
-import { HomeView } from 'src/sections/home/view';
+import { TourListView } from 'src/sections/packages/view';
 
 // ----------------------------------------------------------------------
 
-export default function HomePage() {
+export default function PackagesList() {
   return (
     <>
       <Helmet>
-        <title>Air Way: Home</title>
+        <title>Air Way: Package List</title>
       </Helmet>
 
-      <HomeView />
+      <TourListView />
     </>
   );
 }
