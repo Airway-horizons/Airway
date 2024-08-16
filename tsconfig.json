@@ -26,16 +26,7 @@
     "forceConsistentCasingInFileNames": true,
   },
   "exclude": [
-    "node_modules"
-  ],
-  "include": [
-    "**/*.ts",
-    "**/*.tsx",
+    "node_modules",
     "src/**/*",
   ],
-  "references": [
-    {
-      "path": "./tsconfig.node.json"
-    }
-  ]
 }
