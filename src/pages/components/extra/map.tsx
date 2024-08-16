@@ -11,7 +11,7 @@ export default function MapPage() {
         <title> Components: Map</title>
       </Helmet>
 
-      <MapView />
+      {/* <MapView /> */}
     </>
   );
 }

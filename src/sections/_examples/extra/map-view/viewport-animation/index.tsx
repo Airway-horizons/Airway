@@ -28,21 +28,22 @@ function MapViewportAnimation({ data, ...other }: Props) {
   );
 
   return (
-    <Map
-      initialViewState={{
-        latitude: 37.7751,
-        longitude: -122.4193,
-        zoom: 11,
-        bearing: 0,
-        pitch: 0,
-      }}
-      ref={mapRef}
-      {...other}
-    >
-      <MapControl />
+    <>ssd</>
+    // <Map
+    //   initialViewState={{
+    //     latitude: 37.7751,
+    //     longitude: -122.4193,
+    //     zoom: 11,
+    //     bearing: 0,
+    //     pitch: 0,
+    //   }}
+    //   ref={mapRef}
+    //   {...other}
+    // >
+    //   <MapControl />
 
-      <ControlPanel data={data} selectedCity={selectedCity} onSelectCity={onSelectCity} />
-    </Map>
+    //   <ControlPanel data={data} selectedCity={selectedCity} onSelectCity={onSelectCity} />
+    // </Map>
   );
 }
 

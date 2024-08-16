@@ -43,7 +43,7 @@ function MapHeatmap({ ...other }: MapBoxProps) {
 
   return (
     <>
-      <Map
+      {/* <Map
         initialViewState={{
           latitude: 40,
           longitude: -100,
@@ -56,7 +56,7 @@ function MapHeatmap({ ...other }: MapBoxProps) {
             <Layer {...heatmapLayer} />
           </Source>
         )}
-      </Map>
+      </Map> */}
 
       <ControlPanel
         startTime={timeRange[0]}

@@ -20,7 +20,7 @@ function MapChangeTheme({ themes, ...other }: Props) {
 
   return (
     <>
-      <Map
+      {/* <Map
         initialViewState={{
           latitude: 37.785164,
           longitude: -100,
@@ -32,7 +32,7 @@ function MapChangeTheme({ themes, ...other }: Props) {
         {...other}
       >
         <MapControl />
-      </Map>
+      </Map> */}
 
       <ControlPanel themes={themes} selectTheme={selectTheme} onChangeTheme={handleChangeTheme} />
     </>

@@ -152,7 +152,7 @@ export const componentsRoutes = [
               { path: 'image', element: <ImagePage /> },
               { path: 'label', element: <LabelPage /> },
               { path: 'lightbox', element: <LightboxPage /> },
-              { path: 'map', element: <MapPage /> },
+              // { path: 'map', element: <MapPage /> },
               { path: 'mega-menu', element: <MegaMenuPage /> },
               { path: 'multi-language', element: <MultiLanguagePage /> },
               { path: 'navigation-bar', element: <NavigationBarPage /> },

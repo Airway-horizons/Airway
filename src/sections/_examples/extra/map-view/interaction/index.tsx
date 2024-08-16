@@ -35,21 +35,22 @@ function MapInteraction({ ...other }: MapBoxProps) {
   );
 
   return (
-    <Map
-      {...settings}
-      initialViewState={{
-        latitude: 37.729,
-        longitude: -122.36,
-        zoom: 11,
-        bearing: 0,
-        pitch: 50,
-      }}
-      {...other}
-    >
-      <MapControl />
+    <>sd</>
+    // <Map
+    //   {...settings}
+    //   initialViewState={{
+    //     latitude: 37.729,
+    //     longitude: -122.36,
+    //     zoom: 11,
+    //     bearing: 0,
+    //     pitch: 50,
+    //   }}
+    //   {...other}
+    // >
+    //   <MapControl />
 
-      <ControlPanel settings={settings} onChange={updateSettings} />
-    </Map>
+    //   <ControlPanel settings={settings} onChange={updateSettings} />
+    // </Map>
   );
 }
 

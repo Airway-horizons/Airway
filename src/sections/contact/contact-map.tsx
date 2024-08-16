@@ -43,7 +43,7 @@ export default function ContactMap({ contacts }: Props) {
 
   return (
     <StyledRoot>
-      <Map
+      {/* <Map
         initialViewState={{
           latitude: 12,
           longitude: 42,
@@ -99,7 +99,7 @@ export default function ContactMap({ contacts }: Props) {
             </Typography>
           </MapPopup>
         )}
-      </Map>
+      </Map> */}
     </StyledRoot>
   );
 }

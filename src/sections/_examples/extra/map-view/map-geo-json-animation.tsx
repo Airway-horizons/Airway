@@ -42,23 +42,24 @@ function MapGeoJSONAnimation({ ...other }: MapBoxProps) {
   });
 
   return (
-    <Map
-      initialViewState={{
-        latitude: 0,
-        longitude: -100,
-        zoom: 3,
-      }}
-      mapStyle="mapbox://styles/mapbox/satellite-streets-v11"
-      {...other}
-    >
-      <MapControl />
+    <>sds</>
+    // <Map
+    //   initialViewState={{
+    //     latitude: 0,
+    //     longitude: -100,
+    //     zoom: 3,
+    //   }}
+    //   mapStyle="mapbox://styles/mapbox/satellite-streets-v11"
+    //   {...other}
+    // >
+    //   <MapControl />
 
-      {pointData && (
-        <Source type="geojson" data={pointData}>
-          <Layer {...pointLayer} />
-        </Source>
-      )}
-    </Map>
+    //   {pointData && (
+    //     <Source type="geojson" data={pointData}>
+    //       <Layer {...pointLayer} />
+    //     </Source>
+    //   )}
+    // </Map>
   );
 }
 
