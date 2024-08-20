@@ -19,6 +19,8 @@ import { bgBlur, bgGradient, textGradient } from 'src/theme/css';
 
 import Iconify from 'src/components/iconify';
 import { varFade, MotionContainer } from 'src/components/animate';
+import { IconButton } from '@mui/material';
+import { socials } from 'src/helper';
 
 // ----------------------------------------------------------------------
 
@@ -181,18 +183,6 @@ export default function HomeHero() {
       }}
     >
       <m.div variants={varFade().in}>
-        <Typography
-          variant="h2"
-          sx={{
-            textAlign: 'center',
-          }}
-        >
-          Explore a different <br />
-          way to travel
-        </Typography>
-      </m.div>
-
-      <m.div variants={varFade().in}>
         <StyledTextGradient
           animate={{ backgroundPosition: '200% center' }}
           transition={{
@@ -202,12 +192,23 @@ export default function HomeHero() {
             repeat: Infinity,
           }}
         >
-          AirWay
+          Airway Horizons
         </StyledTextGradient>
       </m.div>
 
+        <m.div variants={varFade().in}>
+        <Typography
+          variant="h4"
+          sx={{
+            textAlign: 'center',
+          }}
+        >   
+          Explore Beyond Limits
+        </Typography>
+      </m.div>
+
       <m.div variants={varFade().in}>
-        <Typography variant="body2" sx={{ textAlign: 'center' }}>
+        <Typography variant="body2" sx={{ textAlign: 'center', mt:5 }}>
           A place to call home on your next adventure Experience the joy of an entire place to
           yourself
         </Typography>
@@ -244,57 +245,33 @@ export default function HomeHero() {
             >
               View all packages
             </Button>
-
-            {/* <Link
-              color="inherit"
-              variant="caption"
-              target="_blank"
-              rel="noopener"
-              href={paths.freeUI}
-              sx={{
-                textDecoration: 'underline',
-                display: 'inline-flex',
-                alignItems: 'center',
-              }}
-            >
-              <Iconify icon="eva:external-link-fill" width={16} sx={{ mr: 0.5 }} />
-              Get Free Version
-            </Link> */}
           </Stack>
 
-          {/* <Button
-            color="inherit"
-            size="large"
-            variant="outlined"
-            startIcon={<Iconify icon="eva:external-link-fill" width={24} />}
-            target="_blank"
-            rel="noopener"
-            href={paths.figma}
-            sx={{ borderColor: 'text.primary' }}
-          >
-            Design Preview
-          </Button> */}
         </Stack>
       </m.div>
 
       <Stack spacing={3} sx={{ textAlign: 'center' }}>
         <m.div variants={varFade().in}>
           <Typography variant="overline" sx={{ opacity: 0.48 }}>
-            Available For
+            Available at
           </Typography>
         </m.div>
 
         <Stack spacing={2} direction="row" justifyContent="center">
-          {['js', 'ts', 'figma', 'nextjs', 'vite'].map((icon) => (
-            <m.div key={icon} variants={varFade().in}>
-              <Box
-                component="img"
-                alt={icon}
-                src={`/assets/icons/platforms/ic_${icon}.svg`}
-                sx={{ width: 24, height: 24 }}
-              />
-            </m.div>
-          ))}
+          {socials?.map((social: any) => (
+             <a href={social?.path} target="_blank" rel="noopener noreferrer">
+                <IconButton
+                  key={social.name}
+                  sx={{
+                    '&:hover': {
+                      bgcolor: alpha(social.color, 0.08),
+                    },
+               }}
+                >
+                  <Iconify color={social.color} icon={social.icon} />
+               </IconButton>
+               </a>
+           ))}
         </Stack>
       </Stack>
     </Stack>

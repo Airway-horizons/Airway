@@ -33,7 +33,7 @@ export default function HomeAdvertisement() {
         sx={{ color: 'common.white', mb: 5, typography: 'h2' }}
       >
         Get started with
-        <br /> Minimal kit today
+        <br /> Airway Horizons
       </Box>
 
       <Stack
@@ -41,23 +41,7 @@ export default function HomeAdvertisement() {
         justifyContent={{ xs: 'center', md: 'flex-start' }}
         spacing={2}
       >
-        {/* <m.div variants={varFade().inRight}>
-          <Button
-            color="inherit"
-            size="large"
-            variant="contained"
-            target="_blank"
-            rel="noopener"
-            href={paths.minimalUI}
-            sx={{
-              color: 'grey.800',
-              bgcolor: 'common.white',
-            }}
-          >
-            Purchase Now
-          </Button>
-        </m.div> */}
-
+    
         <m.div variants={varFade().inRight}>
           <Button
             color="inherit"

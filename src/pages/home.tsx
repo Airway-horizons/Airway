@@ -8,7 +8,7 @@ export default function HomePage() {
   return (
     <>
       <Helmet>
-        <title>Air Way: Home</title>
+        <title>Airway Horizons: Home</title>
       </Helmet>
 
       <HomeView />

@@ -8,7 +8,7 @@ export default function PackagesList() {
   return (
     <>
       <Helmet>
-        <title>Air Way: Package List</title>
+        <title>Airway Horizons: Package List</title>
       </Helmet>
 
       <TourListView />

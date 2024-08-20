@@ -18,7 +18,6 @@ type Props = {
     id: string;
     title: string;
     coverUrl: string;
-    description: string;
   }[];
 };
 
@@ -73,7 +72,6 @@ export default function CarouselCenterMode({ data }: Props) {
 type CarouselItemProps = {
   item: {
     title: string;
-    description: string;
     coverUrl: string;
   };
 };

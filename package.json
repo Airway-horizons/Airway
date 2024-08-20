@@ -1,8 +1,8 @@
 {
-  "name": "@minimal-kit/vite-ts",
-  "author": "Minimals",
-  "version": "5.7.0",
-  "description": "Vite & TypeScript",
+  "name": "airway-horizons",
+  "author": "Sherin Shaju",
+  "version": "0.0.1",
+  "description": "Discover the World with Airway Horizons",
   "private": true,
   "type": "module",
   "scripts": {

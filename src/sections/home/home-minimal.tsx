@@ -48,13 +48,13 @@ export default function HomeMinimal() {
       >
         <m.div variants={varFade().inUp}>
           <Typography component="div" variant="overline" sx={{ color: 'text.disabled' }}>
-            Air Way
+            Airway Horizons
           </Typography>
         </m.div>
 
         <m.div variants={varFade().inDown}>
           <Typography variant="h2">
-            What Air Way <br /> helps you?
+            What we helps you?
           </Typography>
         </m.div>
       </Stack>

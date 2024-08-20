@@ -26,7 +26,7 @@ const _carouselsExample = [...Array(20)].map((_, index) => ({
   id: _mock.id(index),
   title: _mock.postTitle(index),
   coverUrl: '/assets/image.png',
-  description: _mock.description(index),
+  // description: _mock.description(index),
 }));
 
 // ----------------------------------------------------------------------
@@ -68,11 +68,11 @@ export default function HomeView() {
                 sx={{
                   textAlign: 'center',
                   mb: { xs: 5, md: 5 },
-                  mt: 6,
+                  mt: 0,
                 }}
               >
                 <m.div variants={varFade().inDown}>
-                  <Typography variant="h2">Our favorite destinations</Typography>
+                  <Typography variant="h2">Type of Programs <br/> We provide</Typography>
                 </m.div>
                 <m.div variants={varFade().inUp}>
                   <Typography component="div" variant="overline" sx={{ color: 'text.disabled' }}>
