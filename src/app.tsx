@@ -31,7 +31,7 @@ import { AuthProvider } from 'src/auth/context/jwt';
 export default function App() {
   const charAt = `
 
-  ░░░    ░░░
+  ttt    ttt
   ▒▒▒▒  ▒▒▒▒
   ▒▒ ▒▒▒▒ ▒▒
   ▓▓  ▓▓  ▓▓

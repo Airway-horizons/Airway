@@ -14,7 +14,9 @@
     "re:start": "yarn rm:all && yarn install && yarn dev",
     "re:build": "yarn rm:all && yarn install && yarn build",
     "re:build-npm": "npm run rm:all && npm install && npm run build",
-    "dev:host": "vite --host"
+    "dev:host": "vite --host",
+    "sync": "aws s3 sync ./dist 's3://airwayhorizons.com/'",
+    "invalidate": "aws cloudfront create-invalidation --distribution-id E1V98UJVRW065 --paths '/*'"
   },
   "dependencies": {
     "@auth0/auth0-react": "^2.2.3",
