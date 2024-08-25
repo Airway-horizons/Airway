@@ -37,7 +37,7 @@ export default function AboutWhat() {
     <Container
       component={MotionViewport}
       sx={{
-        py: { xs: 10, md: 15 },
+        py: { xs: 10, md: 15, },
         textAlign: { xs: 'center', md: 'unset' },
       }}
     >
@@ -81,35 +81,11 @@ export default function AboutWhat() {
                 color: theme.palette.mode === 'light' ? 'text.secondary' : 'common.white',
               }}
             >
-              Fusce convallis metus id felis luctus adipiscing. Etiam imperdiet imperdiet orci.
-              Vestibulum eu odio. Phasellus nec sem in justo pellentesque facilisis. Donec pede
-              justo, fringilla vel, aliquet nec, vulputate eget, arcu. Maecenas nec odio et ante
-              tincidunt tempus. Suspendisse enim turpis, dictum sed, iaculis a, condimentum nec,
-              nisi. Vestibulum eu odio. Curabitur ullamcorper ultricies nisi.
+              At Airway Horizons, we believe that travel is more than just visiting new places—it's about transforming the way you see the world. With a passion for exploration and a commitment to excellence, we offer unique holiday packages and cultural expeditions tailored for both students and adults. Our programs span the globe, providing enriching experiences that blend adventure, education, and authentic cultural immersion.
+Founded on the principle of exploring beyond limits, Airway Horizons is dedicated to creating unforgettable journeys that inspire and connect people across cultures. Whether you're seeking a serene escape, a thrilling adventure, or a deep dive into a new culture, we're here to turn your travel dreams into reality. Let us guide you on a journey where every destination becomes a story, and every experience leaves a lasting impression.
             </Typography>
           </m.div>
 
-          {/* <Stack spacing={3} sx={{ my: 5 }}>
-            {SKILLS.map((progress, index) => (
-              <Box component={m.div} key={progress.label} variants={varFade().inRight}>
-                <Stack direction="row" alignItems="center" sx={{ mb: 1 }}>
-                  <Typography variant="subtitle2" sx={{ flexGrow: 1, textAlign: 'left' }}>
-                    {progress.label}
-                  </Typography>
-
-                  <Typography variant="body2" sx={{ color: 'text.secondary' }}>
-                    {fPercent(progress.value)}
-                  </Typography>
-                </Stack>
-
-                <LinearProgress
-                  color={(index === 0 && 'primary') || (index === 1 && 'warning') || 'error'}
-                  variant="determinate"
-                  value={progress.value}
-                />
-              </Box>
-            ))}
-          </Stack> */}
 
           <Button
             variant="outlined"

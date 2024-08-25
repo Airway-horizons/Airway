@@ -15,6 +15,7 @@ import HomeHero from '../home-hero';
 import HomeMinimal from '../home-minimal';
 import HomePricing from '../home-pricing';
 import CarouselCenterMode from './carousel-center-mode';
+import AboutTestimonials from 'src/sections/about/about-testimonials';
 
 // ----------------------------------------------------------------------
 
@@ -89,7 +90,7 @@ export default function HomeView() {
           </Box>
         </Container>
 
-        <Container maxWidth="xl">
+        <Container maxWidth="xl" sx={{mb:10}}>
           <Stack
             spacing={3}
             sx={{
@@ -125,8 +126,9 @@ export default function HomeView() {
 
         <HomeCleanInterfaces /> */}
 
-        <HomePricing />
 
+        <AboutTestimonials />
+        <HomePricing />
         {/* <HomeLookingFor /> */}
 
         {/* <HomeAdvertisement /> */}

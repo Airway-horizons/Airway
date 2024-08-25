@@ -53,7 +53,7 @@ export default function HomePricing() {
   return (
     <Box
       sx={{
-        py: { xs: 10, md: 3 },
+        py:10,
         bgcolor: (theme) => alpha(theme.palette.grey[500], 0.04),
       }}
     >

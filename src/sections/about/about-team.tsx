@@ -9,7 +9,7 @@ import Container from '@mui/material/Container';
 import IconButton from '@mui/material/IconButton';
 import Typography from '@mui/material/Typography';
 
-import { _socials, _carouselsMembers } from 'src/_mock';
+import { _socials,  } from 'src/_mock';
 
 import Image from 'src/components/image';
 import Iconify from 'src/components/iconify';
@@ -17,6 +17,31 @@ import { varFade, MotionViewport } from 'src/components/animate';
 import Carousel, { useCarousel, CarouselArrows } from 'src/components/carousel';
 
 // ----------------------------------------------------------------------
+
+const _carouselsMembers  = [{
+  id: 1,
+  name: "Mr. Ameer Ali Thangal",
+  role: "Managing Partner",
+  avatarUrl: "/about/ameer.jpeg",
+},
+{
+  id: 2,
+  name: " Mr. Sakeer Ahmed",
+  role: "Advisor & Managing Partner",
+  avatarUrl: "/about/sakeer.jpeg",
+},
+{
+  id: 3,
+  name: "Shafeer Abdul Azeez",
+  role: "Advisor & Managing Partner",
+  avatarUrl: "/about/shafeer.jpeg",
+},
+{
+  id: 4,
+  name: "Abin Joseph",
+  role: "Operations Chief & Manager",
+  avatarUrl: "/about/abin.jpeg",
+}]
 
 export default function AboutTeam() {
   const carousel = useCarousel({
@@ -39,7 +64,7 @@ export default function AboutTeam() {
   });
 
   return (
-    <Container component={MotionViewport} sx={{ textAlign: 'center', py: { xs: 10, md: 15 } }}>
+    <Container component={MotionViewport} sx={{ textAlign: 'center',pb:5}}>
       <m.div variants={varFade().inDown}>
         <Typography variant="overline" sx={{ color: 'text.disabled' }}>
           Dream team
@@ -102,7 +127,7 @@ export default function AboutTeam() {
         </CarouselArrows>
       </Box>
 
-      <Button
+      {/* <Button
         size="large"
         color="inherit"
         variant="outlined"
@@ -110,7 +135,7 @@ export default function AboutTeam() {
         sx={{ mx: 'auto' }}
       >
         All Members
-      </Button>
+      </Button> */}
     </Container>
   );
 }

@@ -175,6 +175,7 @@ function TestimonialCard({ testimonial, sx, ...other }: TestimonialCardProps) {
         borderRadius: 2,
         color: 'common.white',
         ...sx,
+        mt:5,
       }}
       {...other}
     >
