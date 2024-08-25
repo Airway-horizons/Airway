@@ -11,6 +11,7 @@ import { alpha, styled, useTheme } from '@mui/material/styles';
 
 import { paths } from 'src/routes/paths';
 import { RouterLink } from 'src/routes/components';
+import { useRouter } from 'src/routes/hooks';
 
 import { useResponsive } from 'src/hooks/use-responsive';
 
@@ -130,6 +131,7 @@ export default function HomeHero() {
   const mdUp = useResponsive('up', 'md');
 
   const theme = useTheme();
+  const router = useRouter();
 
   const heroRef = useRef<HTMLDivElement | null>(null);
 
@@ -236,12 +238,11 @@ export default function HomeHero() {
         <Stack spacing={1.5} direction={{ xs: 'column-reverse', sm: 'row' }} sx={{ mb: 5, mt: 2 }}>
           <Stack alignItems="center" spacing={2}>
             <Button
-              component={RouterLink}
-              href={paths.packages}
               color="inherit"
               size="large"
               variant="contained"
               startIcon={<Iconify icon="eva:flash-fill" width={24} />}
+              onClick={()=>{router.push(paths.packages)}}
             >
               View all packages
             </Button>

@@ -5,12 +5,14 @@ import Container from '@mui/material/Container';
 import Grid from '@mui/material/Unstable_Grid2';
 import Typography from '@mui/material/Typography';
 import { alpha, useTheme } from '@mui/material/styles';
+import { useRouter } from 'src/routes/hooks';
 
 import { useResponsive } from 'src/hooks/use-responsive';
 
 import Image from 'src/components/image';
 import Iconify from 'src/components/iconify';
 import { varFade, MotionViewport } from 'src/components/animate';
+import { paths } from 'src/routes/paths';
 
 // ----------------------------------------------------------------------
 
@@ -23,7 +25,8 @@ export const SKILLS = [...Array(3)].map((_, index) => ({
 
 export default function AboutWhat() {
   const theme = useTheme();
-
+  const router = useRouter();
+  
   const mdUp = useResponsive('up', 'md');
 
   const lightMode = theme.palette.mode === 'light';
@@ -93,6 +96,7 @@ Founded on the principle of exploring beyond limits, Airway Horizons is dedicate
             size="large"
             endIcon={<Iconify icon="eva:arrow-ios-forward-fill" />}
             sx={{ mt: 5 }}
+            onClick={()=>{router.push(paths.packages)}}
           >
             View all packages
           </Button>
