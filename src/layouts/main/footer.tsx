@@ -36,7 +36,7 @@ const LINKS = [
   },
   {
     headline: 'Contact',
-    children: [{ name: 'support@airway.cc', href: '#' }],
+    children: [{ name: 'info@airwayhorizons.com', href: '#' }],
   },
 ];
 

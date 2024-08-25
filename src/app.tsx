@@ -20,31 +20,11 @@ import { SettingsDrawer, SettingsProvider } from 'src/components/settings';
 
 import { CheckoutProvider } from 'src/sections/checkout/context';
 
-import { AuthProvider } from 'src/auth/context/jwt';
-// import { AuthProvider } from 'src/auth/context/auth0';
-// import { AuthProvider } from 'src/auth/context/amplify';
-// import { AuthProvider } from 'src/auth/context/firebase';
-// import { AuthProvider } from 'src/auth/context/supabase';
-
-// ----------------------------------------------------------------------
-
 export default function App() {
-  const charAt = `
-
-  ttt    ttt
-  ▒▒▒▒  ▒▒▒▒
-  ▒▒ ▒▒▒▒ ▒▒
-  ▓▓  ▓▓  ▓▓
-  ██      ██
-
-  `;
-
-  console.info(`%c${charAt}`, 'color: #5BE49B');
 
   useScrollToTop();
 
   return (
-    <AuthProvider>
       <LocalizationProvider>
         <SettingsProvider
           defaultSettings={{
@@ -70,6 +50,5 @@ export default function App() {
           </ThemeProvider>
         </SettingsProvider>
       </LocalizationProvider>
-    </AuthProvider>
   );
 }
