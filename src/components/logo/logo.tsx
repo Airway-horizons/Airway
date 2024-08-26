@@ -3,7 +3,7 @@ import { forwardRef } from 'react';
 import Link from '@mui/material/Link';
 import { useTheme } from '@mui/material/styles';
 import Box, { BoxProps } from '@mui/material/Box';
-import { useResponsive } from 'src/hooks/use-responsive';
+
 import { RouterLink } from 'src/routes/components';
 
 // ----------------------------------------------------------------------
@@ -15,7 +15,6 @@ export interface LogoProps extends BoxProps {
 const Logo = forwardRef<HTMLDivElement, LogoProps>(
   ({ disabledLink = false, sx, ...other }, ref) => {
     const theme = useTheme();
-    const mdUp = useResponsive('up', 'md');
 
     const PRIMARY_LIGHT = theme.palette.primary.light;
 
@@ -30,7 +29,7 @@ const Logo = forwardRef<HTMLDivElement, LogoProps>(
       <Box
         component="img"
         src="/logo/airwaylogo.png"
-        sx={{ width: mdUp? 185 :120, height: mdUp? 65:40, cursor: 'pointer', ...sx }}
+        sx={{ width: 140, height: 50, cursor: 'pointer', ...sx }}
       />
     );
 
