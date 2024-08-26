@@ -51,7 +51,7 @@ export default function Header() {
           }),
         }}
       >
-        <Container maxWidth="xl" sx={{ height: 1, display: 'flex', alignItems: 'center' }}>
+        <Container maxWidth="xl" sx={{ display: 'flex', alignItems: 'center',mt:1,pb:1 }}>
           <Logo />
 
           <Box sx={{ flexGrow: 1 }} />
