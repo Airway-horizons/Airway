@@ -209,12 +209,12 @@ export default function HomeHero() {
         </Typography>
       </m.div>
 
-      <m.div variants={varFade().in}>
+      {/* <m.div variants={varFade().in}>
         <Typography variant="body2" sx={{ textAlign: 'center', mt:5 }}>
           A place to call home on your next adventure Experience the joy of an entire place to
           yourself
         </Typography>
-      </m.div>
+      </m.div> */}
 
       {/* <m.div variants={varFade().in}>
         <Stack
