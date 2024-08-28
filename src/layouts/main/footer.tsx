@@ -36,7 +36,7 @@ const LINKS = [
   },
   {
     headline: 'Contact',
-    children: [{ name: 'Email: info@airwayhorizons.com', href: '#' },{ name: 'Call us on : +91-7902778773'}],
+    children: [{ name: 'Email: info@airwayhorizons.com', href: '#' },{ name: 'Call us on : +91-7902778773', href: '#'}],
   },
 ];
 

@@ -1,0 +1,1 @@
+import{m as a,j as i,f as t,s as e}from"./index-9PXStj3N.js";import{v as r}from"./motion-container-iiVPjhqC.js";function w({children:n,disableAnimatedMobile:s=!0,...o}){return a("down","sm")&&s?i.jsx(t,{...o,children:n}):i.jsx(t,{component:e.div,initial:"initial",whileInView:"animate",viewport:{once:!0,amount:.3},variants:r(),...o,children:n})}export{w as M};
