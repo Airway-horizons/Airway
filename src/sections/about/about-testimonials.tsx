@@ -29,11 +29,6 @@ export default function AboutTestimonials() {
 
   const mdUp = useResponsive('up', 'md');
 
-  const renderLink = (
-    <Button color="primary" endIcon={<Iconify icon="eva:arrow-ios-forward-fill" />}>
-      Read more testimonials
-    </Button>
-  );
 
   const renderDescription = (
     <Box
@@ -63,15 +58,7 @@ export default function AboutTestimonials() {
         </Typography>
       </m.div>
 
-      {!mdUp && (
-        <Box
-          component={m.div}
-          variants={varFade().inUp}
-          sx={{ mt: 3, display: 'flex', justifyContent: 'center' }}
-        >
-          {renderLink}
-        </Box>
-      )}
+     
     </Box>
   );
 
@@ -131,16 +118,7 @@ export default function AboutTestimonials() {
             {renderContent}
           </Grid>
         </Grid>
-
-        {mdUp && (
-          <Box
-            component={m.div}
-            variants={varFade().inUp}
-            sx={{ bottom: 60, position: 'absolute' }}
-          >
-            {renderLink}
-          </Box>
-        )}
+       
       </Container>
     </Box>
   );

@@ -13,19 +13,19 @@ import { varFade, MotionViewport } from 'src/components/animate';
 
 const CARDS = [
   {
-    icon: ' /assets/icons/home/ic_make_brand.svg',
+    icon: '/home/traveller.png',
     title: 'Professional tour guides',
-    description: 'Nunc nonummy metus. Donec elit libero',
+    description: 'Professional guides offering in-depth knowledge and commentary on attractions.',
   },
   {
-    icon: ' /assets/icons/home/ic_design.svg',
+    icon: '/home/customer-satisfaction.png',
     title: 'Customer satisfaction',
-    description: 'Nunc nonummy metus. Donec elit libero',
+    description: 'Meeting or exceeding customer expectations for a positive and fulfilling experience.',
   },
   {
-    icon: ' /assets/icons/home/ic_development.svg',
+    icon: '/home/secure-payment.png',
     title: 'Secure payment',
-    description: 'Nunc nonummy metus. Donec elit libero',
+    description: 'A system ensuring safe and protected transactions for financial data.',
   },
 ];
 
@@ -91,10 +91,10 @@ export default function HomeMinimal() {
                 component="img"
                 src={card.icon}
                 alt={card.title}
-                sx={{ mx: 'auto', width: 48, height: 48 }}
+                sx={{ mx: 'auto', width: 64, height: 64 }}
               />
 
-              <Typography variant="h5" sx={{ mt: 8, mb: 2 }}>
+              <Typography variant="h5" sx={{ mt: 2, mb: 2 }}>
                 {card.title}
               </Typography>
 

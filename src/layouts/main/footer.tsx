@@ -36,7 +36,7 @@ const LINKS = [
   },
   {
     headline: 'Contact',
-    children: [{ name: 'info@airwayhorizons.com', href: '#' }],
+    children: [{ name: 'Email: info@airwayhorizons.com', href: '#' },{ name: 'Call us on : +91-7902778773'}],
   },
 ];
 
@@ -77,31 +77,13 @@ export default function Footer() {
                 mx: { xs: 'auto', md: 'unset' },
               }}
             >
-              Lorem ipsum dolor sit amet consectetur adipisicing elit. Maxime mollitia, molestiae
-              quas vel sint commodi repudiandae consequuntur
+              Discover the World with Airway HorizonsExplore beyond limits with our meticulously crafted
+              holiday packages and cultural expeditions designed for both students and adults. Whether
+              you&#39;re seeking a relaxing getaway or an immersive cultural experience, our global programs
+              cater to all your travel dreams. Join us as we take you on unforgettable journeys that combine
+              adventure, education, and the joy of discovery.
             </Typography>
 
-            <Stack
-              direction="row"
-              justifyContent={{ xs: 'center', md: 'flex-start' }}
-              sx={{
-                mt: 3,
-                mb: { xs: 5, md: 0 },
-              }}
-            >
-              {_socials.map((social) => (
-                <IconButton
-                  key={social.name}
-                  sx={{
-                    '&:hover': {
-                      bgcolor: alpha(social.color, 0.08),
-                    },
-                  }}
-                >
-                  <Iconify color={social.color} icon={social.icon} />
-                </IconButton>
-              ))}
-            </Stack>
           </Grid>
 
           <Grid xs={12} md={6}>

@@ -18,3 +18,12 @@
 @import 'yet-another-react-lightbox/styles.css';
 @import 'yet-another-react-lightbox/plugins/captions.css';
 @import 'yet-another-react-lightbox/plugins/thumbnails.css';
+
+
+
+
+/* Custom styles for the carousel with class .custom-carousel */
+.custom-carousel .slick-track{
+    min-height: 400px;
+
+}
