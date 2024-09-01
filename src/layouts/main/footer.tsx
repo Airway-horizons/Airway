@@ -59,6 +59,7 @@ export default function Footer() {
           pb: 5,
           textAlign: { xs: 'center', md: 'unset' },
         }}
+        maxWidth="xl"
       >
         <Logo sx={{ mb: 3 }} />
 

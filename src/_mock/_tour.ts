@@ -106,8 +106,6 @@ export const _tours = [...Array(12)].map((_, index) => {
     endDate: _mock.time(index),
   };
 
-  const publish = index % 3 ? 'published' : 'draft';
-
   const destination = countries.map((option) => option.label)[index];
 
   const services = (index % 2 && ['Audio guide', 'Food and drinks']) ||
@@ -131,7 +129,7 @@ export const _tours = [...Array(12)].map((_, index) => {
   return {
     id: _mock.id(index),
     images,
-    publish,
+    publish: 'published',
     services,
     available,
     tourGuides,

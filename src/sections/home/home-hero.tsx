@@ -50,22 +50,23 @@ const StyledWrapper = styled('div')(({ theme }) => ({
 }));
 
 const StyledTextGradient = styled(m.h1)(({ theme }) => ({
-  ...textGradient(
-    `300deg, ${theme.palette.primary.main} 0%, ${theme.palette.warning.main} 25%, ${theme.palette.primary.main} 50%, ${theme.palette.warning.main} 75%, ${theme.palette.primary.main} 100%`
-  ),
+  // ...textGradient(
+  //   `300deg, ${theme.palette.primary.main} 0%, ${theme.palette.warning.main} 25%, ${theme.palette.primary.main} 50%, ${theme.palette.warning.main} 75%, ${theme.palette.primary.main} 100%`
+  // ),
   padding: 0,
-  marginTop: 8,
+  marginTop: 0,
   lineHeight: 1,
   fontWeight: 900,
-  marginBottom: 24,
-  letterSpacing: 8,
+  marginBottom: 0,
+  letterSpacing: 0,
   textAlign: 'center',
   backgroundSize: '400%',
   fontSize: `${64 / 16}rem`,
   fontFamily: theme.typography.fontSecondaryFamily,
-  [theme.breakpoints.up('md')]: {
-    fontSize: `${96 / 16}rem`,
-  },
+  // [theme.breakpoints.up('md')]: {
+  //   fontSize: `${96 / 16}rem`,
+  // },
+  color:"#0f5e55",
 }));
 
 const StyledEllipseTop = styled('div')(({ theme }) => ({
@@ -172,7 +173,7 @@ export default function HomeHero() {
 
   const renderDescription = (
     <Stack
-      alignItems="center"
+      alignItems="self-end"
       justifyContent="center"
       sx={{
         height: 1,
@@ -184,6 +185,8 @@ export default function HomeHero() {
         },
       }}
     >
+     
+       
       <m.div variants={varFade().in}>
         <StyledTextGradient
           animate={{ backgroundPosition: '200% center' }}
@@ -197,18 +200,19 @@ export default function HomeHero() {
           Airway Horizons
         </StyledTextGradient>
       </m.div>
-
-        <m.div variants={varFade().in}>
+      <m.div variants={varFade().in}>
         <Typography
           variant="h4"
           sx={{
             textAlign: 'center',
+            color:"#1b7d77",
+            fontStyle:"italic",
+            mb:4
           }}
         >   
           Explore Beyond Limits
         </Typography>
       </m.div>
-
       {/* <m.div variants={varFade().in}>
         <Typography variant="body2" sx={{ textAlign: 'center', mt:5 }}>
           A place to call home on your next adventure Experience the joy of an entire place to
@@ -233,48 +237,49 @@ export default function HomeHero() {
           </Typography>
         </Stack>
       </m.div> */}
-
+    <Box sx={{width:"100%", display:"flex", flexDirection:"column", alignItems:"center"}}>
       <m.div variants={varFade().in}>
-        <Stack spacing={1.5} direction={{ xs: 'column-reverse', sm: 'row' }} sx={{ mb: 5, mt: 2 }}>
-          <Stack alignItems="center" spacing={2}>
-            <Button
-              color="inherit"
-              size="large"
-              variant="contained"
-              startIcon={<Iconify icon="eva:flash-fill" width={24} />}
-              onClick={()=>{router.push(paths.packages)}}
-            >
-              View all packages
-            </Button>
-          </Stack>
-
-        </Stack>
-      </m.div>
-
-      <Stack spacing={3} sx={{ textAlign: 'center' }}>
-        <m.div variants={varFade().in}>
-          <Typography variant="overline" sx={{ opacity: 0.48 }}>
-            Available at
-          </Typography>
-        </m.div>
-
-        <Stack spacing={2} direction="row" justifyContent="center">
-          {socials?.map((social: any) => (
-             <a href={social?.path} target="_blank" rel="noopener noreferrer">
-                <IconButton
-                  key={social.name}
-                  sx={{
-                    '&:hover': {
-                      bgcolor: alpha(social.color, 0.08),
-                    },
-               }}
+            <Stack spacing={1.5} direction={{ xs: 'column-reverse', sm: 'row' }} sx={{ mb: 5, mt: 2 }}>
+              <Stack alignItems="center" spacing={2}>
+                <Button
+                  color="inherit"
+                  size="large"
+                  variant="contained"
+                  startIcon={<Iconify icon="eva:flash-fill" width={24} />}
+                  onClick={()=>{router.push(paths.packages)}}
                 >
-                  <Iconify color={social.color} icon={social.icon} />
-               </IconButton>
-               </a>
-           ))}
-        </Stack>
-      </Stack>
+                  View all packages
+                </Button>
+              </Stack>
+
+            </Stack>
+          </m.div>
+
+          <Stack spacing={3} sx={{ textAlign: 'center' }}>
+            <m.div variants={varFade().in}>
+              <Typography variant="overline" sx={{ opacity: 0.48 }}>
+                Available at
+              </Typography>
+            </m.div>
+
+            <Stack spacing={2} direction="row" justifyContent="center">
+              {socials?.map((social: any) => (
+                <a href={social?.path} target="_blank" rel="noopener noreferrer">
+                    <IconButton
+                      key={social.name}
+                      sx={{
+                        '&:hover': {
+                          bgcolor: alpha(social.color, 0.08),
+                        },
+                  }}
+                    >
+                      <Iconify color={social.color} icon={social.icon} />
+                  </IconButton>
+                  </a>
+              ))}
+            </Stack>
+          </Stack>
+    </Box>
     </Stack>
   );
 
@@ -386,8 +391,8 @@ export default function HomeHero() {
         }}
       >
         <StyledWrapper>
-          <Container component={MotionContainer} sx={{ height: 1 }}>
-            <Grid container columnSpacing={{ md: 10 }} sx={{ height: 1 }}>
+          <Container component={MotionContainer} sx={{ height: 1 }}  maxWidth="xl">
+            <Grid container columnSpacing={{ md: 0 }} sx={{ height: 1 }} >
               <Grid xs={12} md={6}>
                 {renderDescription}
               </Grid>

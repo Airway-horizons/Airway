@@ -33,7 +33,7 @@ export default function HomeAdvertisement() {
         sx={{ color: 'common.white', mb: 5, typography: 'h2' }}
       >
         Get started with
-        <br /> Airway Horizons
+        <br />Airway Horizons
       </Box>
 
       <Stack
