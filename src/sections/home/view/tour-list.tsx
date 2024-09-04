@@ -5,14 +5,13 @@ import Box from '@mui/material/Box';
 import { paths } from 'src/routes/paths';
 import { useRouter } from 'src/routes/hooks';
 
-import { ITourItem } from 'src/types/tour';
 
 import TourItem from './tour-item';
 
 // ----------------------------------------------------------------------
 
 type Props = {
-  tours: ITourItem[];
+  tours: any
 };
 
 export default function TourList({ tours }: Props) {
@@ -25,16 +24,6 @@ export default function TourList({ tours }: Props) {
     [router]
   );
 
-  const handleEdit = useCallback(
-    (id: string) => {
-      router.push(paths.dashboard.tour.edit(id));
-    },
-    [router]
-  );
-
-  const handleDelete = useCallback((id: string) => {
-    console.info('DELETE', id);
-  }, []);
 
   return (
     <Box
@@ -46,13 +35,11 @@ export default function TourList({ tours }: Props) {
         md: 'repeat(4, 1fr)',
       }}
     >
-      {tours.map((tour) => (
+      {tours?.map((tour:any) => (
         <TourItem
           key={tour.id}
           tour={tour}
           onView={() => handleView(tour.id)}
-          onEdit={() => handleEdit(tour.id)}
-          onDelete={() => handleDelete(tour.id)}
         />
       ))}
     </Box>

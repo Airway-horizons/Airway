@@ -1,4 +1,4 @@
-import Box from '@mui/material/Box';
+import {Box,Button} from '@mui/material';
 import Link from '@mui/material/Link';
 import Card from '@mui/material/Card';
 import Stack from '@mui/material/Stack';
@@ -24,11 +24,9 @@ import { ITourItem } from 'src/types/tour';
 type Props = {
   tour: ITourItem;
   onView: VoidFunction;
-  onEdit: VoidFunction;
-  onDelete: VoidFunction;
 };
 
-export default function TourItem({ tour, onView, onEdit, onDelete }: Props) {
+export default function TourItem({ tour, onView,  }: any) {
   const popover = usePopover();
 
   const {
@@ -42,9 +40,9 @@ export default function TourItem({ tour, onView, onEdit, onDelete }: Props) {
     priceSale,
     destination,
     ratingNumber,
+    durations
   } = tour;
 
-  const shortLabel = shortDateLabel(available.startDate, available.endDate);
 
   const renderRating = (
     <Stack
@@ -115,11 +113,13 @@ export default function TourItem({ tour, onView, onEdit, onDelete }: Props) {
       sx={{
         p: (theme) => theme.spacing(2.5, 2.5, 2, 2.5),
       }}
-      primary={`Posted date: ${fDateTime(createdAt)}`}
+      // primary={`Posted date: ${fDateTime(createdAt)}`}
       secondary={
-        <Link component={RouterLink} href={paths.dashboard.tour.details(id)} color="inherit">
+        <span onClick={() => onView()} style={{ cursor: "pointer", textDecoration: "none" }}
+          onMouseOver={(e:any) => e.target.style.textDecoration = "underline"}
+          onMouseOut={(e:any) => e.target.style.textDecoration = "none"}>
           {name}
-        </Link>
+        </span>
       }
       primaryTypographyProps={{
         typography: 'caption',
@@ -143,22 +143,14 @@ export default function TourItem({ tour, onView, onEdit, onDelete }: Props) {
         p: (theme) => theme.spacing(0, 2.5, 2.5, 2.5),
       }}
     >
-      <IconButton onClick={popover.onOpen} sx={{ position: 'absolute', bottom: 20, right: 8 }}>
-        <Iconify icon="eva:more-vertical-fill" />
-      </IconButton>
-
       {[
         {
           label: destination,
           icon: <Iconify icon="mingcute:location-fill" sx={{ color: 'error.main' }} />,
         },
         {
-          label: shortLabel,
+          label: durations,
           icon: <Iconify icon="solar:clock-circle-bold" sx={{ color: 'info.main' }} />,
-        },
-        {
-          label: `${bookers.length} Booked`,
-          icon: <Iconify icon="solar:users-group-rounded-bold" sx={{ color: 'primary.main' }} />,
         },
       ].map((item) => (
         <Stack
@@ -172,6 +164,19 @@ export default function TourItem({ tour, onView, onEdit, onDelete }: Props) {
           {item.label}
         </Stack>
       ))}
+       <Box sx={{mt:2,display:"flex", justifyContent:"flex-end" }}>
+        <Button
+          size="small"
+          variant="contained"
+          onClick={() => onView()}
+          sx={{height:42, width:"100%"}}
+        >
+          
+            <Iconify icon="solar:eye-bold" style={{marginRight:10}} />
+
+            View Package
+          </Button>
+        </Box>
     </Stack>
   );
 
@@ -184,23 +189,6 @@ export default function TourItem({ tour, onView, onEdit, onDelete }: Props) {
 
         {renderInfo}
       </Card>
-
-      <CustomPopover
-        open={popover.open}
-        onClose={popover.onClose}
-        arrow="right-top"
-        sx={{ width: 140 }}
-      >
-        <MenuItem
-          onClick={() => {
-            popover.onClose();
-            onView();
-          }}
-        >
-          <Iconify icon="solar:eye-bold" />
-          View
-        </MenuItem>
-      </CustomPopover>
     </>
   );
 }

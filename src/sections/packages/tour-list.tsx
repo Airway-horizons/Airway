@@ -7,8 +7,8 @@ import { paths } from 'src/routes/paths';
 import { useRouter } from 'src/routes/hooks';
 
 import { ITourItem } from 'src/types/tour';
+import TourItem from '../home/view/tour-item';
 
-import TourItem from './tour-item';
 
 // ----------------------------------------------------------------------
 
@@ -26,17 +26,6 @@ export default function TourList({ tours }: Props) {
     [router]
   );
 
-  const handleEdit = useCallback(
-    (id: string) => {
-      router.push(paths.dashboard.tour.edit(id));
-    },
-    [router]
-  );
-
-  const handleDelete = useCallback((id: string) => {
-    console.info('DELETE', id);
-  }, []);
-
   return (
     <>
       <Box
@@ -49,18 +38,16 @@ export default function TourList({ tours }: Props) {
         }}
         sx={{ mb: 8 }}
       >
-        {tours.map((tour) => (
+        {tours?.map((tour) => (
           <TourItem
             key={tour.id}
             tour={tour}
             onView={() => handleView(tour.id)}
-            onEdit={() => handleEdit(tour.id)}
-            onDelete={() => handleDelete(tour.id)}
           />
         ))}
       </Box>
 
-      {tours.length > 8 && (
+      {/* {tours.length > 8 && (
         <Pagination
           count={8}
           sx={{
@@ -71,7 +58,7 @@ export default function TourList({ tours }: Props) {
             },
           }}
         />
-      )}
+      )} */}
     </>
   );
 }

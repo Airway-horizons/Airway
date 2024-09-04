@@ -202,23 +202,23 @@ export default function HomeHero() {
       </m.div>
       <m.div variants={varFade().in}>
         <Typography
-          variant="h4"
+          // variant="h4"
           sx={{
             textAlign: 'center',
             color:"#1b7d77",
-            fontStyle:"italic",
-            mb:4
+            fontStyle: "italic",
+            fontSize:18
+            // mb:4
           }}
         >   
-          Explore Beyond Limits
-        </Typography>
+          -Explore Beyond Limits</Typography>
       </m.div>
-      {/* <m.div variants={varFade().in}>
-        <Typography variant="body2" sx={{ textAlign: 'center', mt:5 }}>
+      <m.div variants={varFade().in}>
+        <Typography variant="body2" sx={{ textAlign: 'center', mb:2,mt:4 }}>
           A place to call home on your next adventure Experience the joy of an entire place to
           yourself
         </Typography>
-      </m.div> */}
+      </m.div>
 
       {/* <m.div variants={varFade().in}>
         <Stack

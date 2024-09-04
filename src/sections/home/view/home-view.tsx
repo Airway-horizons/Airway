@@ -5,8 +5,6 @@ import Card from '@mui/material/Card';
 import CardContent from '@mui/material/CardContent';
 import { Stack, Container, Typography } from '@mui/material';
 
-import { _mock, _tours } from 'src/_mock';
-
 import { varFade } from 'src/components/animate';
 import ScrollProgress from 'src/components/scroll-progress';
 
@@ -18,6 +16,7 @@ import CarouselCenterMode from './carousel-center-mode';
 import AboutTestimonials from 'src/sections/about/about-testimonials';
 import ProgramCard from './program-card';
 import ProgramCarousel from './program-carousel';
+import { tourData } from './helper';
 
 // ----------------------------------------------------------------------
 
@@ -79,12 +78,12 @@ const carouselsData=[{
   id: 10,
   title: "Indonesia 2 tours",
   coverUrl: '/home/des/10.jpg',
-}]
+  }]
 
-// ----------------------------------------------------------------------
 
 export default function HomeView() {
   const { scrollYProgress } = useScroll();
+
 
   return (
     <>
@@ -159,7 +158,7 @@ export default function HomeView() {
             </m.div>
           </Stack>
 
-          <TourList tours={_tours} />
+          <TourList tours={tourData} />
         </Container>
 
         {/* <HomeHugePackElements /> */}

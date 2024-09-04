@@ -27,6 +27,7 @@ import TourSort from '../tour-sort';
 import TourSearch from '../tour-search';
 import TourFilters from '../tour-filters';
 import TourFiltersResult from '../tour-filters-result';
+import { tourData } from 'src/sections/home/view/helper';
 
 // ----------------------------------------------------------------------
 
@@ -57,7 +58,7 @@ export default function TourListView() {
   const dateError = isAfter(filters.startDate, filters.endDate);
 
   const dataFiltered = applyFilter({
-    inputData: _tours,
+    inputData: tourData,
     filters,
     sortBy,
     dateError,
@@ -94,8 +95,8 @@ export default function TourListView() {
       }));
 
       if (inputValue) {
-        const results = _tours.filter(
-          (tour) => tour.name.toLowerCase().indexOf(search.query.toLowerCase()) !== -1
+        const results :any = tourData.filter(
+          (tour:any) => tour.name.toLowerCase().indexOf(search.query.toLowerCase()) !== -1
         );
 
         setSearch((prevState) => ({
@@ -192,14 +193,14 @@ const applyFilter = ({
   sortBy,
   dateError,
 }: {
-  inputData: ITourItem[];
-  filters: ITourFilters;
+  inputData: any;
+  filters: any;
   sortBy: string;
   dateError: boolean;
 }) => {
   const { services, destination, startDate, endDate, tourGuides } = filters;
 
-  const tourGuideIds = tourGuides.map((tourGuide) => tourGuide.id);
+  const tourGuideIds = tourGuides?.map((tourGuide:any) => tourGuide.id);
 
   // SORT BY
   if (sortBy === 'latest') {
@@ -216,22 +217,22 @@ const applyFilter = ({
 
   // FILTERS
   if (destination.length) {
-    inputData = inputData.filter((tour) => destination.includes(tour.destination));
+    inputData = inputData.filter((tour:any) => destination.includes(tour.destination));
   }
 
   if (tourGuideIds.length) {
-    inputData = inputData.filter((tour) =>
-      tour.tourGuides.some((filterItem) => tourGuideIds.includes(filterItem.id))
+    inputData = inputData.filter((tour:any) =>
+      tour.tourGuides.some((filterItem:any) => tourGuideIds.includes(filterItem.id))
     );
   }
 
   if (services.length) {
-    inputData = inputData.filter((tour) => tour.services.some((item) => services.includes(item)));
+    inputData = inputData.filter((tour:any) => tour.services.some((item:any) => services.includes(item)));
   }
 
   if (!dateError) {
     if (startDate && endDate) {
-      inputData = inputData.filter((tour) =>
+      inputData = inputData.filter((tour:any) =>
         isBetween(startDate, tour.available.startDate, tour.available.endDate)
       );
     }

@@ -22,8 +22,9 @@ const settings = {
   infinite: true,
   centerMode: true,
   centerPadding: '20px',
-  speed: 100,
+  speed: 700,
   dots: true, 
+   fade: true,
   responsive: [
     {
       breakpoint: 1024,
@@ -67,7 +68,7 @@ const ProgramCarousel = () => {
             <Box key={i} sx={{
               px: 1,
               transition: 'transform 0.3s ease',
-              // transform: `scale(${carousel.currentIndex === i ? 1.2 : 1})`, // Zoom effect
+              transform: `scale(${carousel.currentIndex === i ? 1.0 : 0.9})`, // Zoom effect
               // zIndex: carousel.currentIndex === i ? 2 : 1, // Bring center item to front
               height: "100px"
             }}>
