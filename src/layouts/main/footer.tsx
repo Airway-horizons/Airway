@@ -2,7 +2,6 @@ import Box from '@mui/material/Box';
 import Link from '@mui/material/Link';
 import Stack from '@mui/material/Stack';
 import Divider from '@mui/material/Divider';
-import { alpha } from '@mui/material/styles';
 import Container from '@mui/material/Container';
 import Grid from '@mui/material/Unstable_Grid2';
 import IconButton from '@mui/material/IconButton';
@@ -20,11 +19,20 @@ import Iconify from 'src/components/iconify';
 
 const LINKS = [
   {
-    headline: 'Lorem',
+    headline: 'POPULAR ATTRACTIONS',
+    children: [
+      { name: 'Golden Triangie', href: '#' },
+      { name: 'Chitwannational Pork', href: '#' },
+      { name: 'Muktashwal', href: '#' },
+      { name: 'Andaman and Nicobar Islands', href: '#' },
+    ],
+  },
+  {
+    headline: 'Quick Access',
     children: [
       { name: 'About us', href: paths.about },
       { name: 'Contact us', href: paths.contact },
-      // { name: 'FAQs', href: paths.faqs },
+      { name: 'FAQs', href: paths.faqs },
     ],
   },
   {
@@ -36,7 +44,10 @@ const LINKS = [
   },
   {
     headline: 'Contact',
-    children: [{ name: 'Email: info@airwayhorizons.com', href: '#' },{ name: 'Call us on : +91-7902778773', href: '#'}],
+    children: [
+      { name: 'Email: info@airwayhorizons.com', href: '#' },
+      { name: 'Call us on : +91-7902778773', href: '#' },
+    ],
   },
 ];
 
@@ -61,8 +72,6 @@ export default function Footer() {
         }}
         maxWidth="xl"
       >
-        <Logo sx={{ mb: 3 }} />
-
         <Grid
           container
           justifyContent={{
@@ -70,24 +79,24 @@ export default function Footer() {
             md: 'space-between',
           }}
         >
-          <Grid xs={8} md={3}>
+          <Grid xs={12} md={4}>
+            <Logo sx={{ mb: 3 }} />
             <Typography
               variant="body2"
               sx={{
-                maxWidth: 270,
-                mx: { xs: 'auto', md: 'unset' },
+                pr: 6,
               }}
             >
-              Discover the World with Airway HorizonsExplore beyond limits with our meticulously crafted
-              holiday packages and cultural expeditions designed for both students and adults. Whether
-              you&#39;re seeking a relaxing getaway or an immersive cultural experience, our global programs
-              cater to all your travel dreams. Join us as we take you on unforgettable journeys that combine
-              adventure, education, and the joy of discovery.
+              Discover the World with Airway Horizons Explore beyond limits with our meticulously
+              crafted holiday packages and cultural expeditions designed for both students and
+              adults. Whether you&#39;re seeking a relaxing getaway or an immersive cultural
+              experience, our global programs cater to all your travel dreams. Join us as we take
+              you on unforgettable journeys that combine adventure, education, and the joy of
+              discovery.
             </Typography>
-
           </Grid>
 
-          <Grid xs={12} md={6}>
+          <Grid xs={12} md={8}>
             <Stack spacing={5} direction={{ xs: 'column', md: 'row' }}>
               {LINKS.map((list) => (
                 <Stack
