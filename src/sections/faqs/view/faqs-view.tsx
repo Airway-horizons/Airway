@@ -29,7 +29,7 @@ export default function FaqsView() {
             my: { xs: 5, md: 10 },
           }}
         >
-          Frequently asked questions
+          Frequently Asked Questions (FAQ)
         </Typography>
 
         <Box
@@ -43,6 +43,28 @@ export default function FaqsView() {
           <FaqsList />
 
           <FaqsForm />
+        </Box>
+        <Box
+          gap={10}
+          display="grid"
+          gridTemplateColumns={{
+            xs: 'repeat(1, 1fr)',
+            md: 'repeat(2, 1fr)',
+          }}
+        >
+          <Typography
+            variant="body1"
+            sx={{
+              my: { xs: 5, md: 10 },
+              display: 'flex',
+              alignItems: 'center',
+            }}
+          >
+            Having more questions contact us at
+            <Typography variant="h6" sx={{ ml: 0.4 }}>
+              info@airwayhorizons.com
+            </Typography>
+          </Typography>
         </Box>
       </Container>
     </>

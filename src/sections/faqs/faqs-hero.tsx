@@ -25,7 +25,7 @@ export default function FaqsHero() {
           color: alpha(theme.palette.grey[900], 0.8),
           imgUrl: '/assets/images/faqs/hero.jpg',
         }),
-        height: { md: 560 },
+        height: { md: 360 },
         py: { xs: 10, md: 0 },
         overflow: 'hidden',
         position: 'relative',
@@ -51,7 +51,7 @@ export default function FaqsHero() {
             </Stack>
           </div>
 
-          <m.div variants={varFade().in}>
+          {/* <m.div variants={varFade().in}>
             <TextField
               fullWidth
               placeholder="Search support..."
@@ -73,7 +73,7 @@ export default function FaqsHero() {
                 },
               }}
             />
-          </m.div>
+          </m.div> */}
         </Box>
       </Container>
     </Box>
