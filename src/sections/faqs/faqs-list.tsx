@@ -38,7 +38,7 @@ const faq = [
   {
     id: 'e99f09a7-dd88-49d5-b1c8-1daf80c2d7b5',
     value: 'panel5',
-    heading: 'Q5. What is your Zero Tolerance for Abuse Policy?',
+    heading: '5. What is your Zero Tolerance for Abuse Policy?',
     detail:
       'We have a strict zero-tolerance policy for any form of abuse, harassment, or misconduct. This policy applies to all travelers, staff, and service providers, ensuring a safe, respectful, and enjoyable experience for everyone involved.',
   },
