@@ -14,6 +14,9 @@ const Page500 = lazy(() => import('src/pages/500'));
 const Page403 = lazy(() => import('src/pages/403'));
 const Page404 = lazy(() => import('src/pages/404'));
 const FaqsPage = lazy(() => import('src/pages/faqs'));
+const PrivacyPolicyPage = lazy(() => import('src/pages/privacy'));
+const ZeroTolerancePage = lazy(() => import('src/pages/zero-tolerance'));
+const TermsAndConditionPage = lazy(() => import('src/pages/terms-and-condition'));
 const AboutPage = lazy(() => import('src/pages/about-us'));
 const ContactPage = lazy(() => import('src/pages/contact-us'));
 const PackagesList = lazy(() => import('src/pages/package-list'));
@@ -47,38 +50,41 @@ export const mainRoutes = [
       { path: 'packages', element: <PackagesList /> },
       { path: 'packages-details/:id', element: <PackagesDetails /> },
       { path: 'faqs', element: <FaqsPage /> },
-      {
-        path: 'product',
-        children: [
-          { element: <ProductListPage />, index: true },
-          { path: 'list', element: <ProductListPage /> },
-          { path: ':id', element: <ProductDetailsPage /> },
-          { path: 'checkout', element: <ProductCheckoutPage /> },
-        ],
-      },
-      {
-        path: 'post',
-        children: [
-          { element: <PostListPage />, index: true },
-          { path: 'list', element: <PostListPage /> },
-          { path: ':title', element: <PostDetailsPage /> },
-        ],
-      },
+      { path: 'privacy-policy', element: <PrivacyPolicyPage /> },
+      { path: 'zero-tolerance', element: <ZeroTolerancePage /> },
+      { path: 'terms-and-condition', element: <TermsAndConditionPage /> },
+      // {
+      //   path: 'product',
+      //   children: [
+      //     { element: <ProductListPage />, index: true },
+      //     { path: 'list', element: <ProductListPage /> },
+      //     { path: ':id', element: <ProductDetailsPage /> },
+      //     { path: 'checkout', element: <ProductCheckoutPage /> },
+      //   ],
+      // },
+      // {
+      //   path: 'post',
+      //   children: [
+      //     { element: <PostListPage />, index: true },
+      //     { path: 'list', element: <PostListPage /> },
+      //     { path: ':title', element: <PostDetailsPage /> },
+      //   ],
+      // },
     ],
   },
-  {
-    element: (
-      <SimpleLayout>
-        <Suspense fallback={<SplashScreen />}>
-          <Outlet />
-        </Suspense>
-      </SimpleLayout>
-    ),
-    children: [
-      { path: 'pricing', element: <PricingPage /> },
-      { path: 'payment', element: <PaymentPage /> },
-    ],
-  },
+  // {
+  //   element: (
+  //     <SimpleLayout>
+  //       <Suspense fallback={<SplashScreen />}>
+  //         <Outlet />
+  //       </Suspense>
+  //     </SimpleLayout>
+  //   ),
+  //   children: [
+  //     { path: 'pricing', element: <PricingPage /> },
+  //     { path: 'payment', element: <PaymentPage /> },
+  //   ],
+  // },
   {
     element: (
       <CompactLayout>

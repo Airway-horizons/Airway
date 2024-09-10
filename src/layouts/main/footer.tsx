@@ -38,8 +38,9 @@ const LINKS = [
   {
     headline: 'Legal',
     children: [
-      { name: 'Terms and Condition', href: '#' },
-      { name: 'Privacy Policy', href: '#' },
+      { name: 'Terms and Condition', href: paths.terms },
+      { name: 'Zero Tolerance Policy', href: paths.zero },
+      { name: 'Privacy Policy', href: paths.privacy },
     ],
   },
   {
@@ -127,7 +128,7 @@ export default function Footer() {
         </Grid>
 
         <Typography variant="body2" sx={{ mt: 10 }}>
-          © 2024. All rights reserved
+          © 2024. All rights reserved Airway Horizons
         </Typography>
       </Container>
     </Box>

@@ -32,17 +32,17 @@ export default function Router() {
     },
 
     // Auth routes
-    ...authRoutes,
-    ...authDemoRoutes,
+    // ...authRoutes,
+    // ...authDemoRoutes,
 
     // Dashboard routes
-    ...dashboardRoutes,
+    // ...dashboardRoutes,
 
     // Main routes
     ...mainRoutes,
 
     // Components routes
-    ...componentsRoutes,
+    // ...componentsRoutes,
 
     // No match 404
     { path: '*', element: <Navigate to="/404" replace /> },
