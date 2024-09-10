@@ -21,35 +21,35 @@ import { varFade, MotionViewport } from 'src/components/animate';
 
 const CATEGORIES = [
   {
-    label: 'Managing your account',
-    icon: '/assets/icons/faqs/ic_account.svg',
+    label: 'Travel Insurance',
+    icon: '/assets/icons/faqs/ic_assurances.svg',
     href: '#',
   },
   {
-    label: 'Payment',
-    icon: '/assets/icons/faqs/ic_payment.svg',
-    href: '#',
-  },
-  {
-    label: 'Delivery',
+    label: 'Sustainability and Responsible Travel',
     icon: '/assets/icons/faqs/ic_delivery.svg',
     href: '#',
   },
   {
-    label: 'Problem with the Product',
-    icon: '/assets/icons/faqs/ic_package.svg',
+    label: 'Special Requirements and Accessibility',
+    icon: '/assets/icons/faqs/ic_account.svg',
     href: '#',
   },
   {
-    label: 'Return & Refund',
-    icon: '/assets/icons/faqs/ic_refund.svg',
+    label: 'Visa and Travel Document Assistance',
+    icon: '/assets/icons/faqs/ic_payment.svg',
     href: '#',
   },
-  {
-    label: 'Guarantees and assurances',
-    icon: '/assets/icons/faqs/ic_assurances.svg',
-    href: '#',
-  },
+  // {
+  //   label: 'Problem with the Product',
+  //   icon: '/assets/icons/faqs/ic_package.svg',
+  //   href: '#',
+  // },
+  // {
+  //   label: 'Return & Refund',
+  //   icon: '/assets/icons/faqs/ic_refund.svg',
+  //   href: '#',
+  // },
 ];
 
 // ----------------------------------------------------------------------
@@ -73,9 +73,7 @@ export default function FaqsCategory() {
 
         <Drawer open={nav.value} onClose={nav.onFalse}>
           <Box gap={1} display="grid" gridTemplateColumns="repeat(2, 1fr)" sx={{ p: 1 }}>
-            {CATEGORIES.map((category) => (
-              <CardMobile key={category.label} category={category} />
-            ))}
+            {CATEGORIES?.map((category) => <CardMobile key={category.label} category={category} />)}
           </Box>
         </Drawer>
       </>
@@ -92,7 +90,7 @@ export default function FaqsCategory() {
         lg: 'repeat(6, 1fr)',
       }}
     >
-      {CATEGORIES.map((category) => (
+      {CATEGORIES?.map((category) => (
         <m.div key={category.label} variants={varFade().in}>
           <CardDesktop category={category} />
         </m.div>
@@ -164,7 +162,7 @@ function CardMobile({ category }: CardDesktopProps) {
     >
       <Image alt={icon} src={icon} sx={{ width: 48, height: 48, mb: 1 }} />
 
-      {category.label}
+      {category?.label}
     </ListItemButton>
   );
 }

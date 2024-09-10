@@ -77,6 +77,34 @@ const faq = [
     detail:
       'If you encounter any issues during your trip, please contact us immediately. We take all complaints seriously and will work to resolve any problems as quickly as possible. Additionally, our Zero Tolerance for Abuse policy ensures that any form of misconduct is addressed promptly.',
   },
+  {
+    id: 'e99f09a7-dd88-49d5-b1c8-1d8af80c2h7b8',
+    value: 'panel11',
+    heading: '11. Do you offer travel insurance?',
+    detail:
+      'If your company offers travel insurance or recommends partners, explain the coverage and how customers can purchase it.',
+  },
+  {
+    id: 'e99f09a7-dd88-49d5-b1c8-1d4af80c2h7b8',
+    value: 'panel12',
+    heading: '12. How does Airway Horizons promote sustainable and responsible travel?',
+    detail: 'Highlight any eco-friendly practices or responsible tourism initiatives you support.',
+  },
+  {
+    id: 'e99f09a7-dd88-49d5-b13c8-1daf80c2h7b8',
+    value: 'panel13',
+    heading:
+      '13. Can Airway Horizons accommodate travelers with special needs or dietary restrictions?',
+    detail:
+      'Provide information on how you cater to travelers with accessibility needs or specific dietary preferences.',
+  },
+  {
+    id: 'e99f09a7-dd688-49d5-b1c8-1daf80c2h7b8',
+    value: 'panel14',
+    heading: '14. Does Airway Horizons assist with visas and other travel documentation?',
+    detail:
+      'If your company provides assistance with visas or travel documents, explain how you help travelers through this process.',
+  },
 ];
 
 export default function FaqsList() {

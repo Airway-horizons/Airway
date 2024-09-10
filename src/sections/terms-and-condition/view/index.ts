@@ -1,1 +1,1 @@
-export { default as FaqsView } from './faqs-view';
+export { default as TermsView } from './terms-view';
