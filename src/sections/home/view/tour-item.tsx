@@ -1,4 +1,4 @@
-import {Box,Button} from '@mui/material';
+import { Box, Button } from '@mui/material';
 import Link from '@mui/material/Link';
 import Card from '@mui/material/Card';
 import Stack from '@mui/material/Stack';
@@ -26,7 +26,7 @@ type Props = {
   onView: VoidFunction;
 };
 
-export default function TourItem({ tour, onView,  }: any) {
+export default function TourItem({ tour, onView }: any) {
   const popover = usePopover();
 
   const {
@@ -40,9 +40,8 @@ export default function TourItem({ tour, onView,  }: any) {
     priceSale,
     destination,
     ratingNumber,
-    durations
+    durations,
   } = tour;
-
 
   const renderRating = (
     <Stack
@@ -99,7 +98,12 @@ export default function TourItem({ tour, onView,  }: any) {
       <Stack flexGrow={1} sx={{ position: 'relative' }}>
         {renderPrice}
         {renderRating}
-        <Image alt={images[0]} src={images[0]} sx={{ borderRadius: 1, height: 164, width: 1 }} />
+        <Image
+          alt={images[0]}
+          src={images[0]}
+          sx={{ borderRadius: 1, height: 164, width: 1 }}
+          objectFit="fill"
+        />
       </Stack>
       <Stack spacing={0.5}>
         <Image alt={images[1]} src={images[1]} ratio="1/1" sx={{ borderRadius: 1, width: 80 }} />
@@ -115,9 +119,12 @@ export default function TourItem({ tour, onView,  }: any) {
       }}
       // primary={`Posted date: ${fDateTime(createdAt)}`}
       secondary={
-        <span onClick={() => onView()} style={{ cursor: "pointer", textDecoration: "none" }}
-          onMouseOver={(e:any) => e.target.style.textDecoration = "underline"}
-          onMouseOut={(e:any) => e.target.style.textDecoration = "none"}>
+        <span
+          onClick={() => onView()}
+          style={{ cursor: 'pointer', textDecoration: 'none' }}
+          onMouseOver={(e: any) => (e.target.style.textDecoration = 'underline')}
+          onMouseOut={(e: any) => (e.target.style.textDecoration = 'none')}
+        >
           {name}
         </span>
       }
@@ -164,19 +171,17 @@ export default function TourItem({ tour, onView,  }: any) {
           {item.label}
         </Stack>
       ))}
-       <Box sx={{mt:2,display:"flex", justifyContent:"flex-end" }}>
+      <Box sx={{ mt: 2, display: 'flex', justifyContent: 'flex-end' }}>
         <Button
           size="small"
           variant="contained"
           onClick={() => onView()}
-          sx={{height:42, width:"100%"}}
+          sx={{ height: 42, width: '100%' }}
         >
-          
-            <Iconify icon="solar:eye-bold" style={{marginRight:10}} />
-
-            View Package
-          </Button>
-        </Box>
+          <Iconify icon="solar:eye-bold" style={{ marginRight: 10 }} />
+          View Package
+        </Button>
+      </Box>
     </Stack>
   );
 

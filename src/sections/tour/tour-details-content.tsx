@@ -11,8 +11,6 @@ import ListItemText from '@mui/material/ListItemText';
 
 import { fDate } from 'src/utils/format-time';
 
-import { TOUR_SERVICE_OPTIONS } from 'src/_mock';
-
 import Image from 'src/components/image';
 import Iconify from 'src/components/iconify';
 import Markdown from 'src/components/markdown';
@@ -20,6 +18,7 @@ import { varTranHover } from 'src/components/animate';
 import Lightbox, { useLightBox } from 'src/components/lightbox';
 
 import { ITourItem } from 'src/types/tour';
+import { TOUR_SERVICE_OPTIONS } from 'src/helper';
 
 // ----------------------------------------------------------------------
 

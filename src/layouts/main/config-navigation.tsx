@@ -16,6 +16,11 @@ export const navConfig = [
     path: paths.packages,
   },
   {
+    title: 'Vision/Mission',
+    icon: <Iconify icon="solar:atom-bold-duotone" />,
+    path: paths.visionMission,
+  },
+  {
     title: 'About us',
     icon: <Iconify icon="solar:atom-bold-duotone" />,
     path: paths.about,

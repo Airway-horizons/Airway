@@ -28,6 +28,7 @@ export const paths = {
   faqs: '/faqs',
   privacy: '/privacy-policy',
   terms: '/terms-and-condition',
+  visionMission: '/vision-mission',
   zero: '/zero-tolerance',
   page403: '/403',
   page404: '/404',

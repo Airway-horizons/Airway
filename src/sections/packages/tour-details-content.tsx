@@ -8,39 +8,52 @@ import Checkbox from '@mui/material/Checkbox';
 import IconButton from '@mui/material/IconButton';
 import Typography from '@mui/material/Typography';
 import ListItemText from '@mui/material/ListItemText';
+import CustomPopover, { usePopover } from 'src/components/custom-popover';
+import {
+  WhatsappShareButton,
+  FacebookShareButton,
+  LinkedinShareButton,
+  WhatsappIcon,
+  FacebookIcon,
+  LinkedinIcon,
+} from 'react-share';
 
 import { fDate } from 'src/utils/format-time';
-
-import { TOUR_SERVICE_OPTIONS } from 'src/_mock';
 
 import Image from 'src/components/image';
 import Iconify from 'src/components/iconify';
 import Markdown from 'src/components/markdown';
 import { varTranHover } from 'src/components/animate';
 import Lightbox, { useLightBox } from 'src/components/lightbox';
+import { Button, MenuItem } from '@mui/material';
+import { TOUR_SERVICE_OPTIONS } from 'src/helper';
+import { fCurrency } from 'src/utils/format-number';
 
-import { ITourItem } from 'src/types/tour';
+export default function TourDetailsContent({ tour }: any) {
+  const popover = usePopover();
+  const shareUrl =
+    'https://airwayhorizons.com/packages-details/e99f09a7-dd88-49d5-b1c8-1daf80c2d7b1';
 
-// ----------------------------------------------------------------------
-
-type Props = {
-  tour: ITourItem;
-};
-
-export default function TourDetailsContent({ tour }: Props) {
   const {
     name,
     images,
     content,
     services,
-    tourGuides,
-    available,
+    priceSale,
     durations,
     destination,
     ratingNumber,
+    price,
+    download,
+    accommodation,
   } = tour;
 
-  const slides = images.map((slide) => ({
+  const handleDownload = () => {
+    const pdfUrl = download;
+    window.open(pdfUrl, '_blank'); // Open the URL in a new tab
+  };
+
+  const slides = images.map((slide: any) => ({
     src: slide,
   }));
 
@@ -82,7 +95,7 @@ export default function TourDetailsContent({ tour }: Props) {
         </m.div>
 
         <Box gap={1} display="grid" gridTemplateColumns="repeat(2, 1fr)">
-          {slides.slice(1, 5).map((slide) => (
+          {slides.slice(1, 5).map((slide: any) => (
             <m.div
               key={slide.src}
               whileHover="hover"
@@ -114,43 +127,64 @@ export default function TourDetailsContent({ tour }: Props) {
 
   const renderHead = (
     <>
-      <Stack direction="row" sx={{ mb: 3 }}>
+      <Stack direction="row" alignItems="center" sx={{ mb: 3 }}>
         <Typography variant="h4" sx={{ flexGrow: 1 }}>
           {name}
         </Typography>
 
-        <IconButton>
+        <IconButton onClick={popover.onOpen}>
           <Iconify icon="solar:share-bold" />
         </IconButton>
 
-        <Checkbox
-          defaultChecked
-          color="error"
-          icon={<Iconify icon="solar:heart-outline" />}
-          checkedIcon={<Iconify icon="solar:heart-bold" />}
-        />
+        <Button
+          size="small"
+          variant="outlined"
+          startIcon={<Iconify icon="eva:download-outline" />}
+          sx={{ ml: 1 }}
+          onClick={handleDownload}
+        >
+          Download Brochure
+        </Button>
       </Stack>
 
       <Stack spacing={3} direction="row" flexWrap="wrap" alignItems="center">
+        <Stack direction="row" alignItems="center" spacing={0.5} sx={{ typography: 'body2' }}>
+          {/* <Iconify icon="eva:star-fill" sx={{ color: 'warning.main' }} /> */}
+          <Stack
+            direction="row"
+            alignItems="center"
+            sx={{
+              zIndex: 9,
+              borderRadius: 1,
+              bgcolor: '#08b0db',
+              p: '5px 6px 5px 5px',
+              color: 'common.white',
+              typography: 'subtitle2',
+            }}
+          >
+            {!!priceSale && (
+              <Box
+                component="span"
+                sx={{ color: 'grey.500', mr: 0.75, textDecoration: 'line-through' }}
+              >
+                {fCurrency(priceSale)}
+              </Box>
+            )}
+            {fCurrency(price)}/-
+          </Stack>
+          {/* <Link sx={{ color: 'text.secondary' }}>(234 reviews)</Link> */}
+        </Stack>
         <Stack direction="row" alignItems="center" spacing={0.5} sx={{ typography: 'body2' }}>
           <Iconify icon="eva:star-fill" sx={{ color: 'warning.main' }} />
           <Box component="span" sx={{ typography: 'subtitle2' }}>
             {ratingNumber}
           </Box>
-          <Link sx={{ color: 'text.secondary' }}>(234 reviews)</Link>
+          {/* <Link sx={{ color: 'text.secondary' }}>(234 reviews)</Link> */}
         </Stack>
 
         <Stack direction="row" alignItems="center" spacing={0.5} sx={{ typography: 'body2' }}>
           <Iconify icon="mingcute:location-fill" sx={{ color: 'error.main' }} />
           {destination}
-        </Stack>
-
-        <Stack direction="row" alignItems="center" spacing={0.5} sx={{ typography: 'subtitle2' }}>
-          <Iconify icon="solar:flag-bold" sx={{ color: 'info.main' }} />
-          <Box component="span" sx={{ typography: 'body2', color: 'text.secondary' }}>
-            Guide by
-          </Box>
-          {tourGuides.map((tourGuide) => tourGuide.name).join(', ')}
         </Stack>
       </Stack>
     </>
@@ -167,24 +201,14 @@ export default function TourDetailsContent({ tour }: Props) {
     >
       {[
         {
-          label: 'Available',
-          value: `${fDate(available.startDate)} - ${fDate(available.endDate)}`,
-          icon: <Iconify icon="solar:calendar-date-bold" />,
-        },
-        {
-          label: 'Contact name',
-          value: tourGuides.map((tourGuide) => tourGuide.phoneNumber).join(', '),
-          icon: <Iconify icon="solar:user-rounded-bold" />,
+          label: 'Accommodation',
+          value: accommodation,
+          icon: <Iconify icon="solar:home-2-bold-duotone" />,
         },
         {
           label: 'Durations',
           value: durations,
           icon: <Iconify icon="solar:clock-circle-bold" />,
-        },
-        {
-          label: 'Contact phone',
-          value: tourGuides.map((tourGuide) => tourGuide.name).join(', '),
-          icon: <Iconify icon="solar:phone-bold" />,
         },
       ].map((item) => (
         <Stack key={item.label} spacing={1.5} direction="row">
@@ -267,6 +291,54 @@ export default function TourDetailsContent({ tour }: Props) {
 
         {renderContent}
       </Stack>
+      <CustomPopover
+        open={popover.open}
+        onClose={popover.onClose}
+        arrow="right-top"
+        sx={{ width: 190 }}
+      >
+        <MenuItem
+          onClick={() => {
+            // popover.onClose();
+          }}
+        >
+          <WhatsappShareButton url={shareUrl}>
+            <WhatsappIcon size={22} round />
+          </WhatsappShareButton>
+          Share on WhatsApp
+        </MenuItem>
+
+        <MenuItem
+          onClick={() => {
+            popover.onClose();
+          }}
+        >
+          <FacebookShareButton url={shareUrl}>
+            <FacebookIcon size={22} round />
+          </FacebookShareButton>
+          Share on Facebook
+        </MenuItem>
+
+        <MenuItem
+          onClick={() => {
+            popover.onClose();
+          }}
+        >
+          <LinkedinShareButton url={shareUrl}>
+            <LinkedinIcon size={22} round />
+          </LinkedinShareButton>
+          Share on LinkedIn
+        </MenuItem>
+
+        {/* <MenuItem
+          onClick={() => {
+            popover.onClose();
+          }}
+        >
+          <Iconify icon="solar:export-bold" />
+          Share on Instagram
+        </MenuItem> */}
+      </CustomPopover>
     </>
   );
 }

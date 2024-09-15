@@ -1,17 +1,21 @@
 import { Helmet } from 'react-helmet-async';
+import { useParams } from 'react-router';
 
 import { TourDetailsView } from 'src/sections/packages/view';
 
 // ----------------------------------------------------------------------
 
 export default function PackagesDetails() {
+  const { id } = useParams();
+  console.log('🚀 ~ PackagesDetails ~ id:', id);
+
   return (
     <>
       <Helmet>
         <title>Airway Horizons: Package Details</title>
       </Helmet>
 
-      <TourDetailsView id="e99f09a7-dd88-49d5-b1c8-1daf80c2d7b1" />
+      <TourDetailsView id={id} />
     </>
   );
 }

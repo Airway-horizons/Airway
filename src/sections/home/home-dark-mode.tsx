@@ -55,7 +55,7 @@ export default function HomeDarkMode() {
         sx={{
           borderRadius: 2,
           my: { xs: 5, md: 10 },
-          boxShadow: (theme) => `-40px 40px 80px ${alpha(theme.palette.common.black, 0.24)}`,
+          boxShadow: (theme: any) => `-40px 40px 80px ${alpha(theme.palette.common.black, 0.24)}`,
         }}
       />
     </m.div>

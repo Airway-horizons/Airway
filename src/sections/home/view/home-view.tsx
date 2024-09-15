@@ -24,66 +24,66 @@ type StyledPolygonProps = {
   anchor?: 'top' | 'bottom';
 };
 
-const carouselsData=[{
-  id: 0,
-  title: "India 15+ tours and activities",
-  coverUrl: '/home/des/0.jpg',
-},
-{
-  id: 1,
-  title: "Nepal 2+tours activities",
-  coverUrl: '/home/des/1.jpg',
-},
-{
-  id: 2,
-  title: "Canada 1 tours",
-  coverUrl: '/home/des/2.jpg',
-},
-{
-  id: 3,
-  title: "Spain 1 tours",
-  coverUrl: '/home/des/3.jpg',
-},
-{
-  id: 4,
-  title: "Iceland 1 tours",
-  coverUrl: '/home/des/4.jpg',
-},
-{
-  id: 5,
-  title: "Thailand 3 tours",
-  coverUrl: '/home/des/5.jpg',
-},
-{
-  id: 6,
-  title: "Srilanka tours",
-  coverUrl: '/home/des/6.jpg',
-},
-{
-  id: 7,
-  title: "USA 2 tours",
-  coverUrl: '/home/des/7.jpg',
-},
-{
-  id: 8,
-  title: "Maldives 2+ tours",
-  coverUrl: '/home/des/8.jpg',
-},
-{
-  id: 9,
-  title: "England 1 tours",
-  coverUrl: '/home/des/9.jpg',
-},
-{
-  id: 10,
-  title: "Indonesia 2 tours",
-  coverUrl: '/home/des/10.jpg',
-  }]
-
+const carouselsData = [
+  {
+    id: 0,
+    title: 'India tours and activities',
+    coverUrl: '/home/des/0.jpg',
+  },
+  {
+    id: 1,
+    title: 'Nepal tours and activities',
+    coverUrl: '/home/des/1.jpg',
+  },
+  {
+    id: 2,
+    title: 'Canada tours and activities',
+    coverUrl: '/home/des/2.jpg',
+  },
+  {
+    id: 3,
+    title: 'Spain tours and activities',
+    coverUrl: '/home/des/3.jpg',
+  },
+  {
+    id: 4,
+    title: 'Iceland tours and activities',
+    coverUrl: '/home/des/4.jpg',
+  },
+  {
+    id: 5,
+    title: 'Thailand tours and activities',
+    coverUrl: '/home/des/5.jpg',
+  },
+  {
+    id: 6,
+    title: 'Srilanka tours and activities',
+    coverUrl: '/home/des/6.jpg',
+  },
+  {
+    id: 7,
+    title: 'USA tours and activities',
+    coverUrl: '/home/des/7.jpg',
+  },
+  {
+    id: 8,
+    title: 'Maldives tours and activities',
+    coverUrl: '/home/des/8.jpg',
+  },
+  {
+    id: 9,
+    title: 'England tours and activities',
+    coverUrl: '/home/des/9.jpg',
+  },
+  {
+    id: 10,
+    title: 'Indonesia tours and activities',
+    coverUrl: '/home/des/10.jpg',
+  },
+];
 
 export default function HomeView() {
   const { scrollYProgress } = useScroll();
-
 
   return (
     <>
@@ -126,8 +126,16 @@ export default function HomeView() {
                   <Typography variant="h2">Our Top Destinations</Typography>
                 </m.div>
                 <m.div variants={varFade().inUp}>
-                  <Typography component="div" variant="overline" sx={{ color: 'text.disabled', textTransform:"capitalize",fontWeight:"normal" }}>
-                  We offer creativity, adventure, culture, conservation in our trips.
+                  <Typography
+                    component="div"
+                    variant="overline"
+                    sx={{
+                      color: 'text.disabled',
+                      textTransform: 'capitalize',
+                      fontWeight: 'normal',
+                    }}
+                  >
+                    We offer creativity, adventure, culture, conservation in our trips.
                   </Typography>
                 </m.div>
               </Stack>
@@ -139,7 +147,7 @@ export default function HomeView() {
           </Box>
         </Container>
 
-        <Container maxWidth="xl" sx={{mb:10}}>
+        <Container maxWidth="xl" sx={{ mb: 10 }}>
           <Stack
             spacing={3}
             sx={{
@@ -175,7 +183,6 @@ export default function HomeView() {
 
         <HomeCleanInterfaces /> */}
 
-
         <AboutTestimonials />
 
         <Container maxWidth="xl">
@@ -203,11 +210,20 @@ export default function HomeView() {
                 <m.div variants={varFade().inDown}>
                   <Typography variant="h2">Programs We Provide</Typography>
                 </m.div>
-                {/* <m.div variants={varFade().inUp}>
-                  <Typography component="div" variant="overline" sx={{ color: 'text.disabled', textTransform:"capitalize",fontWeight:"normal" }}>
-                  We offer creativity, adventure, culture, conservation in our trips.
+                <m.div variants={varFade().inUp}>
+                  <Typography
+                    component="div"
+                    variant="overline"
+                    sx={{
+                      color: 'text.disabled',
+                      textTransform: 'capitalize',
+                      fontWeight: 'normal',
+                    }}
+                  >
+                    Experience guided tours, cultural immersions, adventure activities, and
+                    personalized itineraries for unforgettable travel experiences.
                   </Typography>
-                </m.div> */}
+                </m.div>
               </Stack>
 
               <CardContent>

@@ -17,6 +17,7 @@ const FaqsPage = lazy(() => import('src/pages/faqs'));
 const PrivacyPolicyPage = lazy(() => import('src/pages/privacy'));
 const ZeroTolerancePage = lazy(() => import('src/pages/zero-tolerance'));
 const TermsAndConditionPage = lazy(() => import('src/pages/terms-and-condition'));
+const VisionMission = lazy(() => import('src/pages/vision-mission'));
 const AboutPage = lazy(() => import('src/pages/about-us'));
 const ContactPage = lazy(() => import('src/pages/contact-us'));
 const PackagesList = lazy(() => import('src/pages/package-list'));
@@ -53,6 +54,7 @@ export const mainRoutes = [
       { path: 'privacy-policy', element: <PrivacyPolicyPage /> },
       { path: 'zero-tolerance', element: <ZeroTolerancePage /> },
       { path: 'terms-and-condition', element: <TermsAndConditionPage /> },
+      { path: 'vision-mission', element: <VisionMission /> },
       // {
       //   path: 'product',
       //   children: [

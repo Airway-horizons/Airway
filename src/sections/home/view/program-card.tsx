@@ -32,13 +32,16 @@ const TitleOverlay = styled(CardContent)(({ theme }) => ({
   background: 'rgba(0, 0, 0, 0.5)',
   color: 'white',
   padding: theme.spacing(1),
-  height: "100%",
-  textAlign: "center",
-  alignContent: "center",
+  height: '100%',
+  textAlign: 'center',
+  alignContent: 'center',
 }));
 
-const ProgramCard = ({ coverUrl, title }:any) => (
-  <m.div whileHover={{ scale: 1.05 }} style={{ borderRadius: '50%',marginTop:"20px", }}>
+const ProgramCard = ({ coverUrl, title }: any) => (
+  <m.div
+    whileHover={{ scale: 1.05 }}
+    style={{ borderRadius: '50%', marginTop: '20px', display: 'flex', justifyContent: 'center' }}
+  >
     <StyledCard>
       <CardImage src={coverUrl} alt={title} />
       <TitleOverlay>

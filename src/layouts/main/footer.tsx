@@ -4,16 +4,13 @@ import Stack from '@mui/material/Stack';
 import Divider from '@mui/material/Divider';
 import Container from '@mui/material/Container';
 import Grid from '@mui/material/Unstable_Grid2';
-import IconButton from '@mui/material/IconButton';
+import { useResponsive } from 'src/hooks/use-responsive';
 import Typography from '@mui/material/Typography';
 
 import { paths } from 'src/routes/paths';
 import { RouterLink } from 'src/routes/components';
 
-import { _socials } from 'src/_mock';
-
 import Logo from 'src/components/logo';
-import Iconify from 'src/components/iconify';
 
 // ----------------------------------------------------------------------
 
@@ -21,10 +18,13 @@ const LINKS = [
   {
     headline: 'POPULAR ATTRACTIONS',
     children: [
-      { name: 'Golden Triangie', href: '#' },
-      { name: 'Chitwannational Pork', href: '#' },
-      { name: 'Muktashwal', href: '#' },
-      { name: 'Andaman and Nicobar Islands', href: '#' },
+      { name: 'Uttarakand', href: '#' },
+      { name: 'Maldives', href: '#' },
+      { name: 'Lakshadweep', href: '#' },
+      { name: 'Kashmir', href: '#' },
+      { name: 'Malaysia', href: '#' },
+      { name: 'Thailand', href: '#' },
+      { name: 'Indonesia', href: '#' },
     ],
   },
   {
@@ -55,6 +55,8 @@ const LINKS = [
 // ----------------------------------------------------------------------
 
 export default function Footer() {
+  const mdUp = useResponsive('up', 'md');
+
   const mainFooter = (
     <Box
       component="footer"
@@ -85,7 +87,8 @@ export default function Footer() {
             <Typography
               variant="body2"
               sx={{
-                pr: 6,
+                pr: mdUp ? 6 : 0,
+                mb: 6,
               }}
             >
               Discover the World with Airway Horizons Explore beyond limits with our meticulously

@@ -27,22 +27,6 @@ export const TOUR_PUBLISH_OPTIONS = [
   },
 ];
 
-export const TOUR_SERVICE_OPTIONS = [
-  { value: 'Audio guide', label: 'Audio guide' },
-  { value: 'Food and drinks', label: 'Food and drinks' },
-  { value: 'Lunch', label: 'Lunch' },
-  { value: 'Private tour', label: 'Private tour' },
-  { value: 'Special activities', label: 'Special activities' },
-  { value: 'Entrance fees', label: 'Entrance fees' },
-  { value: 'Gratuities', label: 'Gratuities' },
-  { value: 'Pick-up and drop off', label: 'Pick-up and drop off' },
-  { value: 'Professional guide', label: 'Professional guide' },
-  {
-    value: 'Transport by air-conditioned',
-    label: 'Transport by air-conditioned',
-  },
-];
-
 const CONTENT = `
 <h6>Description</h6>
 <br/>

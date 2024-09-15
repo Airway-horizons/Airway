@@ -13,7 +13,6 @@ import Carousel, { useCarousel, CarouselArrows } from 'src/components/carousel';
 
 // ----------------------------------------------------------------------
 
-
 export default function CarouselCenterMode({ data }: any) {
   const carousel = useCarousel({
     slidesToShow: 4,
@@ -49,7 +48,7 @@ export default function CarouselCenterMode({ data }: any) {
         onPrev={carousel.onPrev}
       >
         <Carousel ref={carousel.carouselRef} {...carousel.carouselSettings}>
-          {data?.map((item:any) => (
+          {data?.map((item: any) => (
             <Box key={item.id} sx={{ px: 1 }}>
               <CarouselItem item={item} />
             </Box>
@@ -99,11 +98,11 @@ function CarouselItem({ item }: CarouselItemProps) {
           }),
         }}
       >
-        <TextMaxLine variant="h5" sx={{ mb: 2 }}>
+        <TextMaxLine variant="h6" sx={{ mb: 2 }}>
           {title}
         </TextMaxLine>
 
-        {/* <Link
+        <Link
           color="inherit"
           variant="overline"
           sx={{
@@ -112,11 +111,12 @@ function CarouselItem({ item }: CarouselItemProps) {
             display: 'inline-flex',
             transition: theme.transitions.create(['opacity']),
             '&:hover': { opacity: 1 },
+            cursor: 'pointer',
           }}
         >
-          View more
+          View package
           <Iconify icon="eva:arrow-forward-fill" width={16} sx={{ ml: 1 }} />
-        </Link> */}
+        </Link>
       </CardContent>
     </Paper>
   );
