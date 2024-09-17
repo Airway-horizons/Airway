@@ -166,7 +166,7 @@ export default function HomeView() {
             </m.div>
           </Stack>
 
-          <TourList tours={tourData} />
+          <TourList tours={tourData?.slice(0, 12)} />
         </Container>
 
         {/* <HomeHugePackElements /> */}
