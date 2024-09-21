@@ -72,7 +72,7 @@ export const tourData = [
       '/assets/packages/Rajasthan/5.jpg',
     ],
     accommodation: 'Standard / deluxe hostels',
-    download: '/assets/packages/rajasthan/download.pdf',
+    download: '/assets/packages/Rajasthan/download.pdf',
     services: [
       'Inclusions: Airport / railway station pick-up and drop, private vehicle for sightseeing on all days as per the itinerary, accommodation in hygienic and sanitized standard / deluxe hostels, daily breakfast, dinner, experienced driver cum guide for the entire journey, sightseeing as per itinerary',
       'Exclusions: Cost of flights/trains journey unless specified, personal expenses like laundry, drinks, and tips, cost of entrance fees, camera & video charges, costs for services not mentioned in the inclusions, additional sightseeing or extra vehicle usage',
@@ -151,7 +151,7 @@ export const tourData = [
       '/assets/packages/Ooty/5.jpg',
     ],
     accommodation: 'Standard / deluxe hostels',
-    download: '/assets/packages/ooty/download.pdf',
+    download: '/assets/packages/Ooty/download.pdf',
     services: [
       'Inclusions: Airport / railway station pick-up and drop, Private vehicle for sightseeing on all days as per the itinerary, Accommodation in hygienic and sanitized standard / deluxe hostels, Daily breakfast, dinner, Experienced driver cum guide for the entire journey, Sightseeing as per itinerary',
       'Exclusions: Cost of flights/ trains/ bus journey unless specified, Personal expenses like laundry, drinks, and tips, Cost of entrance fees, camera & video charges, Costs for services not mentioned in the inclusions, Additional sightseeing or extra vehicle usage',
@@ -192,7 +192,7 @@ export const tourData = [
       '/assets/packages/Munnar/6.jpg',
     ],
     accommodation: 'Standard / deluxe hostels',
-    download: '/assets/packages/munnar/download.pdf',
+    download: '/assets/packages/Munnar/download.pdf',
     services: [
       'Inclusions: Airport / railway station pick-up and drop, Private vehicle for sightseeing on all days as per the itinerary, Accommodation in hygienic and sanitized standard / deluxe hostels, Daily breakfast, dinner, Experienced driver cum guide for the entire journey, Sightseeing as per itinerary',
       'Exclusions: Cost of flights/ trains/ bus journey unless specified, Personal expenses like laundry, drinks, and tips, Cost of entrance fees, camera & video charges, Costs for services not mentioned in the inclusions, Additional sightseeing or extra vehicle usage',

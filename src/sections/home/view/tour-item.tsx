@@ -176,10 +176,10 @@ export default function TourItem({ tour, onView }: any) {
           size="small"
           variant="contained"
           onClick={() => onView()}
-          sx={{ height: 42, width: '100%' }}
+          sx={{ height: 42, width: '100%', backgroundColor: '#00B8D9' }}
         >
           <Iconify icon="solar:eye-bold" style={{ marginRight: 10 }} />
-          View Package
+          Book Now
         </Button>
       </Box>
     </Stack>

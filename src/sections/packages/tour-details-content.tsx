@@ -31,9 +31,7 @@ import { fCurrency } from 'src/utils/format-number';
 
 export default function TourDetailsContent({ tour }: any) {
   const popover = usePopover();
-  const shareUrl =
-    'https://airwayhorizons.com/packages-details/e99f09a7-dd88-49d5-b1c8-1daf80c2d7b1';
-
+  
   const {
     name,
     images,
@@ -46,7 +44,11 @@ export default function TourDetailsContent({ tour }: any) {
     price,
     download,
     accommodation,
+    id
   } = tour;
+
+  const shareUrl =
+    `https://airwayhorizons.com/packages-details/${id}`;
 
   const handleDownload = () => {
     const pdfUrl = download;
@@ -295,17 +297,19 @@ export default function TourDetailsContent({ tour }: any) {
         open={popover.open}
         onClose={popover.onClose}
         arrow="right-top"
-        sx={{ width: 190 }}
+        sx={{ width: 200 }}
       >
         <MenuItem
           onClick={() => {
-            // popover.onClose();
+            popover.onClose();
           }}
         >
           <WhatsappShareButton url={shareUrl}>
+            <Box display="flex" alignItems="center">
             <WhatsappIcon size={22} round />
+            Share on WhatsApp
+            </Box>
           </WhatsappShareButton>
-          Share on WhatsApp
         </MenuItem>
 
         <MenuItem
@@ -314,9 +318,11 @@ export default function TourDetailsContent({ tour }: any) {
           }}
         >
           <FacebookShareButton url={shareUrl}>
+          <Box display="flex" alignItems="center">
             <FacebookIcon size={22} round />
-          </FacebookShareButton>
           Share on Facebook
+          </Box>
+          </FacebookShareButton>
         </MenuItem>
 
         <MenuItem
@@ -325,9 +331,11 @@ export default function TourDetailsContent({ tour }: any) {
           }}
         >
           <LinkedinShareButton url={shareUrl}>
+          <Box display="flex" alignItems="center">
             <LinkedinIcon size={22} round />
-          </LinkedinShareButton>
           Share on LinkedIn
+          </Box>
+          </LinkedinShareButton>
         </MenuItem>
 
         {/* <MenuItem
