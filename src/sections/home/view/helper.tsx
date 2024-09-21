@@ -9,7 +9,7 @@ export const tourData = [
       '/assets/packages/thailand/thai-5.webp',
     ],
     accommodation: '3 star hotels',
-    download: '/assets/packages/thailand/Thailand.pdf',
+    download: '/assets/packages/thailand/download.pdf',
     services: [
       'Transportation : Flight (if requested), train, local transport',
       'Exclusions : lunch, entry tickets',
@@ -41,7 +41,7 @@ export const tourData = [
       '/assets/packages/azerbaijan/azer-6.avif',
     ],
     accommodation: 'Hotels, resorts, villa',
-    download: '/assets/packages/azerbaijan/Azerbaijan.pdf',
+    download: '/assets/packages/azerbaijan/download.pdf',
     services: [
       'Transportation : flight, local transport',
       'Exclusions : flight ticket(if requested), entry ticket,lunch',
@@ -72,7 +72,7 @@ export const tourData = [
       '/assets/packages/Rajasthan/5.jpg',
     ],
     accommodation: 'Standard / deluxe hostels',
-    download: '/assets/packages/rajasthan/Rajasthan.pdf',
+    download: '/assets/packages/rajasthan/download.pdf',
     services: [
       'Inclusions: Airport / railway station pick-up and drop, private vehicle for sightseeing on all days as per the itinerary, accommodation in hygienic and sanitized standard / deluxe hostels, daily breakfast, dinner, experienced driver cum guide for the entire journey, sightseeing as per itinerary',
       'Exclusions: Cost of flights/trains journey unless specified, personal expenses like laundry, drinks, and tips, cost of entrance fees, camera & video charges, costs for services not mentioned in the inclusions, additional sightseeing or extra vehicle usage',
@@ -112,7 +112,7 @@ export const tourData = [
       '/assets/packages/punjab/5.jpg',
     ],
     accommodation: 'Standard / deluxe hostels',
-    download: '/assets/packages/punjab/Punjab.pdf',
+    download: '/assets/packages/punjab/download.pdf',
     services: [
       'Inclusions: Airport / railway station pick-up and drop, private vehicle for sightseeing on all days as per the itinerary, accommodation in hygienic and sanitized standard / deluxe hostels, daily breakfast, dinner, experienced driver cum guide for the entire journey, sightseeing as per itinerary',
       'Exclusions: Cost of flights/trains journey unless specified, personal expenses like laundry, drinks, and tips, cost of entrance fees, camera & video charges, costs for services not mentioned in the inclusions, additional sightseeing or extra vehicle usage',
@@ -151,7 +151,7 @@ export const tourData = [
       '/assets/packages/Ooty/5.jpg',
     ],
     accommodation: 'Standard / deluxe hostels',
-    download: '/assets/packages/ooty/Ooty.pdf',
+    download: '/assets/packages/ooty/download.pdf',
     services: [
       'Inclusions: Airport / railway station pick-up and drop, Private vehicle for sightseeing on all days as per the itinerary, Accommodation in hygienic and sanitized standard / deluxe hostels, Daily breakfast, dinner, Experienced driver cum guide for the entire journey, Sightseeing as per itinerary',
       'Exclusions: Cost of flights/ trains/ bus journey unless specified, Personal expenses like laundry, drinks, and tips, Cost of entrance fees, camera & video charges, Costs for services not mentioned in the inclusions, Additional sightseeing or extra vehicle usage',
@@ -192,7 +192,7 @@ export const tourData = [
       '/assets/packages/Munnar/6.jpg',
     ],
     accommodation: 'Standard / deluxe hostels',
-    download: '/assets/packages/munnar/Munnar.pdf',
+    download: '/assets/packages/munnar/download.pdf',
     services: [
       'Inclusions: Airport / railway station pick-up and drop, Private vehicle for sightseeing on all days as per the itinerary, Accommodation in hygienic and sanitized standard / deluxe hostels, Daily breakfast, dinner, Experienced driver cum guide for the entire journey, Sightseeing as per itinerary',
       'Exclusions: Cost of flights/ trains/ bus journey unless specified, Personal expenses like laundry, drinks, and tips, Cost of entrance fees, camera & video charges, Costs for services not mentioned in the inclusions, Additional sightseeing or extra vehicle usage',
@@ -233,7 +233,7 @@ export const tourData = [
       '/assets/packages/kodaikanal/5.jpg',
     ],
     accommodation: 'Standard / deluxe hostels',
-    download: '/assets/packages/kodaikanal/Kodaikanal.pdf',
+    download: '/assets/packages/kodaikanal/download.pdf',
     services: [
       'Inclusions: Airport / railway station pick-up and drop, Private vehicle for sightseeing on all days as per the itinerary, Accommodation in hygienic and sanitized standard / deluxe hostels, Daily breakfast, dinner, Experienced driver cum guide for the entire journey, Sightseeing as per itinerary',
       'Exclusions: Cost of flights/ trains/ bus journey unless specified, Personal expenses like laundry, drinks, and tips, Cost of entrance fees, camera & video charges, Costs for services not mentioned in the inclusions, Additional sightseeing or extra vehicle usage',
@@ -274,7 +274,7 @@ export const tourData = [
       '/assets/packages/delhi/5.jpg',
     ],
     accommodation: 'Standard / deluxe hostels',
-    download: '/assets/packages/delhi/Delhi.pdf',
+    download: '/assets/packages/delhi/download.pdf',
     services: [
       'Inclusions: Airport / railway station pick-up and drop, Private vehicle for sightseeing on all days as per the itinerary, Accommodation in hygienic and sanitized standard / deluxe hostels, Daily breakfast, dinner, Experienced driver cum guide for the entire journey, Sightseeing as per itinerary',
       'Exclusions: Cost of flights/ trains journey unless specified, Personal expenses like laundry, drinks, and tips, Cost of entrance fees, camera & video charges, Costs for services not mentioned in the inclusions, Additional sightseeing or extra vehicle usage',
@@ -313,7 +313,7 @@ export const tourData = [
       '/assets/packages/thekkady/5.jpg',
     ],
     accommodation: 'Standard / deluxe hostels',
-    download: '/assets/packages/thekkady/Thekkady.pdf',
+    download: '/assets/packages/thekkady/download.pdf',
     services: [
       'Inclusions: Airport / railway station pick-up and drop, Private vehicle for sightseeing on all days as per the itinerary, Accommodation in hygienic and sanitized standard / deluxe hostels, Daily breakfast, dinner, Experienced driver cum guide for the entire journey, Sightseeing as per itinerary',
       'Exclusions: Cost of flights/ trains/ bus journey unless specified, Personal expenses like laundry, drinks, and tips, Cost of entrance fees, camera & video charges, Costs for services not mentioned in the inclusions, Additional sightseeing or extra vehicle usage',
@@ -353,7 +353,7 @@ export const tourData = [
       '/assets/packages/alappuzha/5.jpg',
     ],
     accommodation: 'Standard / deluxe hostels',
-    download: '/assets/packages/alappuzha/Alappuzha.pdf',
+    download: '/assets/packages/alappuzha/download.pdf',
     services: [
       'Inclusions: Airport / railway station pick-up and drop, Private vehicle for sightseeing on all days as per the itinerary, Accommodation in hygienic and sanitized standard / deluxe hostels, Daily breakfast, dinner, Experienced driver cum guide for the entire journey, Sightseeing as per itinerary',
       'Exclusions: Cost of flights/ trains/ bus journey unless specified, Personal expenses like laundry, drinks, and tips, Cost of entrance fees, camera & video charges, Costs for services not mentioned in the inclusions, Additional sightseeing or extra vehicle usage',
@@ -393,7 +393,7 @@ export const tourData = [
       '/assets/packages/nepal/5.jpg',
     ],
     accommodation: 'Standard / deluxe hostels',
-    download: '/assets/packages/nepal/Nepal.pdf',
+    download: '/assets/packages/nepal/download.pdf',
     services: [
       'Inclusions: Airport / railway station pick-up and drop, Private vehicle for sightseeing on all days as per the itinerary, Accommodation in hygienic and sanitized standard / deluxe hostels, Daily breakfast, dinner, Experienced driver cum guide for the entire journey, Sightseeing as per itinerary',
       'Exclusions: Cost of flights/ trains journey unless specified, Personal expenses like laundry, drinks, and tips, Cost of entrance fees, camera & video charges, Costs for services not mentioned in the inclusions, Additional sightseeing or extra vehicle usage',
@@ -437,7 +437,7 @@ export const tourData = [
       '/assets/packages/uttarakhand/5.jpg',
     ],
     accommodation: 'Standard / Deluxe hostels',
-    download: '/assets/packages/uttarakhand/Uttarakhand.pdf',
+    download: '/assets/packages/uttarakhand/download.pdf',
     services: [
       'Transportation: Private vehicle for sightseeing, airport/railway station pick-up and drop',
       'Exclusions: Flights/trains, personal expenses, entrance fees, additional services',
@@ -446,7 +446,7 @@ export const tourData = [
     content: `
 <h6>Description</h6>
 <br/>
-<p>Uttarakhand, nestled in the Himalayas, is a picturesque paradise known for its stunning landscapes, serene hill stations, and spiritual sites. With its lush valleys, sparkling rivers, and vibrant temples, it's an ideal destination for nature lovers, adventure enthusiasts, and those seeking tranquillity.</p>
+<p>Uttarkand, nestled in the Himalayas, is a picturesque paradise known for its stunning landscapes, serene hill stations, and spiritual sites. With its lush valleys, sparkling rivers, and vibrant temples, it's an ideal destination for nature lovers, adventure enthusiasts, and those seeking tranquillity.</p>
 <br/><br/><br/>
 <h6>Highlights</h6>
 <br/>
@@ -457,7 +457,7 @@ export const tourData = [
 <br/><br/><br/>
 `,
     tags: [],
-    name: 'Uttarakhand',
+    name: 'Uttarkand',
     createdAt: '2024-09-15T08:00:00.000Z',
     durations: '4 days 3 nights',
     price: 29999,
@@ -475,7 +475,7 @@ export const tourData = [
       '/assets/packages/kashmir/5.jpg',
     ],
     accommodation: 'Standard / Deluxe hostels',
-    download: '/assets/packages/kashmir/Kashmir.pdf',
+    download: '/assets/packages/kashmir/download.pdf',
     services: [
       'Transportation: Private vehicle for sightseeing, airport/railway station pick-up and drop',
       'Exclusions: Flights/trains, gondola cable car charge, personal expenses, entrance fees',
@@ -515,7 +515,7 @@ export const tourData = [
       '/assets/packages/manali/5.jpg',
     ],
     accommodation: 'Standard / Deluxe hostels',
-    download: '/assets/packages/manali/Manali.pdf',
+    download: '/assets/packages/manali/download.pdf',
     services: [
       'Transportation: Private vehicle for sightseeing, airport/railway station pick-up and drop',
       'Exclusions: Flights/trains, personal expenses, entrance fees',
@@ -555,7 +555,7 @@ export const tourData = [
       '/assets/packages/ladakh/5.jpg',
     ],
     accommodation: 'Standard / Deluxe hostels',
-    download: '/assets/packages/ladakh/Ladakh.pdf',
+    download: '/assets/packages/ladakh/download.pdf',
     services: [
       'Transportation: Private vehicle for sightseeing, airport/railway station pick-up and drop',
       'Exclusions: Flights/trains, personal expenses, adventure activity fees',
@@ -595,7 +595,7 @@ export const tourData = [
       '/assets/packages/indonesia/5.jpg',
     ],
     accommodation: 'Standard / Deluxe hostels',
-    download: '/assets/packages/indonesia/Indonesia.pdf',
+    download: '/assets/packages/indonesia/download.pdf',
     services: [
       'Transportation: Private vehicle for sightseeing, airport/railway station pick-up and drop',
       'Exclusions: Flights, personal expenses, entrance fees',
@@ -633,7 +633,7 @@ export const tourData = [
       '/assets/packages/sri-lanka/5.jpg',
     ],
     accommodation: 'Standard / Deluxe hostels',
-    download: '/assets/packages/sri-lanka/SriLanka.pdf',
+    download: '/assets/packages/sri-lanka/download.pdf',
     services: [
       'Transportation: Private vehicle for sightseeing, airport/railway station pick-up and drop',
       'Exclusions: Flights, personal expenses, entrance fees',
@@ -673,7 +673,7 @@ export const tourData = [
       '/assets/packages/japan/5.jpg',
     ],
     accommodation: 'Standard / Deluxe hostels',
-    download: '/assets/packages/japan/Japan.pdf',
+    download: '/assets/packages/japan/download.pdf',
     services: [
       'Transportation: Private vehicle for sightseeing, airport/railway station pick-up and drop',
       'Exclusions: Flights, personal expenses, entrance fees',
@@ -713,7 +713,7 @@ export const tourData = [
       '/assets/packages/malaysia/5.jpg',
     ],
     accommodation: 'Standard / Deluxe hostels',
-    download: '/assets/packages/malaysia/Malaysia.pdf',
+    download: '/assets/packages/malaysia/download.pdf',
     services: [
       'Transportation: Private vehicle for sightseeing, airport/railway station pick-up and drop',
       'Exclusions: Flights, personal expenses, entrance fees',
@@ -753,7 +753,7 @@ export const tourData = [
       '/assets/packages/lakshadweep/5.jpg',
     ],
     accommodation: 'Standard / Deluxe hostels',
-    download: '/assets/packages/lakshadweep/Lakshadweep.pdf',
+    download: '/assets/packages/lakshadweep/download.pdf',
     services: [
       'Transportation: Private vehicle for sightseeing, airport/ship station pick-up and drop',
       'Exclusions: Flights/trains/ships, personal expenses, adventure activity fees',
@@ -793,7 +793,7 @@ export const tourData = [
       '/assets/packages/andaman/5.jpg',
     ],
     accommodation: 'Standard / Deluxe hostels',
-    download: '/assets/packages/andaman/Andaman.pdf',
+    download: '/assets/packages/andaman/download.pdf',
     services: [
       'Transportation: Private vehicle for sightseeing, airport/station pick-up and drop',
       'Exclusions: Flights/trains/buses/shipping, personal expenses, entrance fees',
