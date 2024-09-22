@@ -1,1 +1,0 @@
-import{j as o}from"./index-CHWzIY_h.js";import{E as e}from"./empty-content-BRkTeaxv.js";import{T as s}from"./TableHead-8VNX44je.js";import{T as t}from"./TableCell-D4saCj9C.js";function n({notFound:r,sx:a}){return o.jsx(s,{children:r?o.jsx(t,{colSpan:12,children:o.jsx(e,{filled:!0,title:"No Data",sx:{py:10,...a}})}):o.jsx(t,{colSpan:12,sx:{p:0}})})}export{n as T};
