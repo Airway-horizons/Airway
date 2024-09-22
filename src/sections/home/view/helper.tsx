@@ -49,10 +49,12 @@ export const tourData = [
     destination: 'Azerbaijan',
     content: `\n<h6>Description</h6>
     \n<br/>\n<p>Azerbaijan, located at the crossroads of Eastern Europe and Western Asia, is known for its diverse landscapes, including the Caspian Sea coast and the Caucasus Mountains. Its capital, Baku, is a major cultural and economic center. The country has significant oil and gas reserves, driving its economy. Rich in cultural heritage, Azerbaijan blends Eastern and Western influences, with unique traditions in music, dance, and cuisine. It gained independence from the Soviet Union in 1991.</p>\n\n<br/>\n<br/>\n<br/>
-    \n\n <h6>Highlights</h6>\n<br/>\n<ul>
-    \n <li>Capital City: Baku, known for its modern architecture and vibrant cultural scene.</li>
-     \n <li>Natural Beauty: The stunning landscapes include the Caspian Sea, the Caucasus Mountains, and the Gobustan National Park with prehistoric rock carvings.</li>
-     \n <li>Cuisine: Delicious dishes such as plov (pilaf), dolma (stuffed grape leaves), and kebabs.</li>\n</ul>\n\n<br/>\n<br/>\n<br/>\n\n`,
+    \n\n<h6>Highlights</h6>\n<br/>\n<ul>
+        \n <li>Capital City: Baku, known for its modern architecture and vibrant cultural scene.</li>
+        \n <li>Natural Beauty: The stunning landscapes include the Caspian Sea, the Caucasus Mountains, and the Gobustan National Park with prehistoric rock carvings.</li>
+        \n <li>Cuisine: Delicious dishes such as plov (pilaf), dolma (stuffed grape leaves), and kebabs.</li>
+    </ul>\n\n<br/>\n<br/>\n<br/>
+    `,
     tags: [],
     name: 'Azerbaijan',
     createdAt: '2024-09-15T05:44:21.456Z',

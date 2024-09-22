@@ -176,7 +176,7 @@ export default function TourItem({ tour, onView }: any) {
           size="small"
           variant="contained"
           onClick={() => onView()}
-          sx={{ height: 42, width: '100%', backgroundColor: '#00B8D9' }}
+          sx={{ height: 42, width: '50%', backgroundColor: '#FF5C37' }}
         >
           <Iconify icon="solar:eye-bold" style={{ marginRight: 10 }} />
           Book Now

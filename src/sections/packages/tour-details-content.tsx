@@ -28,10 +28,13 @@ import Lightbox, { useLightBox } from 'src/components/lightbox';
 import { Button, MenuItem } from '@mui/material';
 import { TOUR_SERVICE_OPTIONS } from 'src/helper';
 import { fCurrency } from 'src/utils/format-number';
+import { useState } from 'react';
+import BookModal from './book-view/modal';
 
 export default function TourDetailsContent({ tour }: any) {
   const popover = usePopover();
-  
+  const [modal, openModal] = useState(false);
+
   const {
     name,
     images,
@@ -59,6 +62,7 @@ export default function TourDetailsContent({ tour }: any) {
     src: slide,
   }));
 
+  const handleClose = () => openModal(false)
   const {
     selected: selectedImage,
     open: openLightbox,
@@ -150,7 +154,7 @@ export default function TourDetailsContent({ tour }: any) {
       </Stack>
 
       <Stack spacing={3} direction="row" flexWrap="wrap" alignItems="center">
-        <Stack direction="row" alignItems="center" spacing={0.5} sx={{ typography: 'body2' }}>
+        <Stack direction="row" alignItems="center" justifyContent="center" spacing={0.5} sx={{ typography: 'body2', width: '100%' }}>
           {/* <Iconify icon="eva:star-fill" sx={{ color: 'warning.main' }} /> */}
           <Stack
             direction="row"
@@ -175,19 +179,31 @@ export default function TourDetailsContent({ tour }: any) {
             {fCurrency(price)}/-
           </Stack>
           {/* <Link sx={{ color: 'text.secondary' }}>(234 reviews)</Link> */}
-        </Stack>
-        <Stack direction="row" alignItems="center" spacing={0.5} sx={{ typography: 'body2' }}>
-          <Iconify icon="eva:star-fill" sx={{ color: 'warning.main' }} />
-          <Box component="span" sx={{ typography: 'subtitle2' }}>
-            {ratingNumber}
-          </Box>
-          {/* <Link sx={{ color: 'text.secondary' }}>(234 reviews)</Link> */}
+          <Stack direction="row" alignItems="center" spacing={0.5} sx={{ typography: 'body2', mx: 2 }}>
+            <Iconify icon="eva:star-fill" sx={{ color: 'warning.main' }} />
+            <Box component="span" sx={{ typography: 'subtitle2' }}>
+              {ratingNumber}
+            </Box>
+            {/* <Link sx={{ color: 'text.secondary' }}>(234 reviews)</Link> */}
+          </Stack>
+
+          <Stack direction="row" alignItems="center" spacing={0.5} sx={{ typography: 'body2' }}>
+            <Iconify icon="mingcute:location-fill" sx={{ color: 'error.main' }} />
+            {destination}
+          </Stack>
+
+
+          <Button
+            size="small"
+            variant="contained"
+            onClick={() => openModal(true)}
+            sx={{ height: 42, backgroundColor: '#FF5C37', ml: "auto", px: 4 }}
+          >
+            Book Now
+          </Button>
+
         </Stack>
 
-        <Stack direction="row" alignItems="center" spacing={0.5} sx={{ typography: 'body2' }}>
-          <Iconify icon="mingcute:location-fill" sx={{ color: 'error.main' }} />
-          {destination}
-        </Stack>
       </Stack>
     </>
   );
@@ -293,6 +309,10 @@ export default function TourDetailsContent({ tour }: any) {
 
         {renderContent}
       </Stack>
+      {modal &&
+        <BookModal handleClose={handleClose} open={modal} />
+      }
+
       <CustomPopover
         open={popover.open}
         onClose={popover.onClose}
@@ -306,8 +326,8 @@ export default function TourDetailsContent({ tour }: any) {
         >
           <WhatsappShareButton url={shareUrl}>
             <Box display="flex" alignItems="center">
-            <WhatsappIcon size={22} round />
-            Share on WhatsApp
+              <WhatsappIcon size={22} round />
+              Share on WhatsApp
             </Box>
           </WhatsappShareButton>
         </MenuItem>
@@ -318,10 +338,10 @@ export default function TourDetailsContent({ tour }: any) {
           }}
         >
           <FacebookShareButton url={shareUrl}>
-          <Box display="flex" alignItems="center">
-            <FacebookIcon size={22} round />
-          Share on Facebook
-          </Box>
+            <Box display="flex" alignItems="center">
+              <FacebookIcon size={22} round />
+              Share on Facebook
+            </Box>
           </FacebookShareButton>
         </MenuItem>
 
@@ -331,10 +351,10 @@ export default function TourDetailsContent({ tour }: any) {
           }}
         >
           <LinkedinShareButton url={shareUrl}>
-          <Box display="flex" alignItems="center">
-            <LinkedinIcon size={22} round />
-          Share on LinkedIn
-          </Box>
+            <Box display="flex" alignItems="center">
+              <LinkedinIcon size={22} round />
+              Share on LinkedIn
+            </Box>
           </LinkedinShareButton>
         </MenuItem>
 
