@@ -14,6 +14,7 @@ import Iconify from 'src/components/iconify';
 import SearchNotFound from 'src/components/search-not-found';
 
 import { ITourItem } from 'src/types/tour';
+import { paths } from 'src/routes/paths';
 
 // ----------------------------------------------------------------------
 
@@ -28,7 +29,9 @@ export default function TourSearch({ query, results, onSearch, hrefItem }: Props
   const router = useRouter();
 
   const handleClick = (id: string) => {
-    router.push(hrefItem(id));
+    console.log(id)
+    // router.push(hrefItem(id));
+    router.push(paths.packageDetails(id));
   };
 
   const handleKeyUp = (event: React.KeyboardEvent<HTMLInputElement>) => {
