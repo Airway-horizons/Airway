@@ -6,6 +6,7 @@ import { DatePicker } from '@mui/x-date-pickers';
 import emailjs from '@emailjs/browser';
 import { useSnackbar } from 'src/components/snackbar';
 import { tourData } from 'src/sections/home/view/helper';
+import { useState } from 'react';
 
 const schema = yup.object().shape({
   fullName: yup.string().required('Full Name is required'),
@@ -32,6 +33,7 @@ const destinations = tourData?.map((el) => {
 const BookingForm = ({ handleClose, name }) => {
 
   const { enqueueSnackbar } = useSnackbar();
+  const [submit, setSubmit]=useState(false)
 
 
   const { control, handleSubmit, reset, formState: { errors, isSubmitting } } = useForm({
@@ -39,19 +41,17 @@ const BookingForm = ({ handleClose, name }) => {
       fullName: '',
       email: '',
       phone: '',
-      adultCount: '',
-      ladiesCount: '',
-      kidsCount: '',
+      adultCount: 0,
+      ladiesCount: 0,
+      kidsCount: 0,
       destination: name ?? "",
-      dateFrom: '',
-      dateTo: '',
     },
     resolver: yupResolver(schema),
   });
 
-
+console.log(isSubmitting)
   const onSubmit = (data) => {
-
+    setSubmit(true)
     emailjs.send('service_ux6b5f3', 'template_5bjk083', {
       from_name: "airway booking",
       to_name: "booking team",
@@ -74,9 +74,14 @@ const BookingForm = ({ handleClose, name }) => {
 
         reset(); // Reset the form after submission
         handleClose()
-
+        setSubmit(false)
       }, (err) => {
         console.log('FAILED...', err);
+        setSubmit(false)
+        enqueueSnackbar('Mail send failed!', {
+          variant: 'error',
+          anchorOrigin: { vertical: 'top', horizontal: 'center' },
+        });
       });
   };
 
@@ -201,8 +206,8 @@ const BookingForm = ({ handleClose, name }) => {
               Cancel
             </Button>
 
-            <Button type="submit" variant="contained" color="primary" disabled={isSubmitting}>
-              {isSubmitting ? 'Submitting...' : 'Submit'}
+            <Button type="submit" variant="contained" color="primary" disabled={submit || isSubmitting}>
+              {(submit || isSubmitting) ? 'Submitting...' : 'Submit'}
             </Button>
           </Box>
 
