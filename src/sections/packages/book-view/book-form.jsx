@@ -29,12 +29,23 @@ const destinations = tourData?.map((el) => {
   }
 })
 
-const BookingForm = ({ handleClose }) => {
+const BookingForm = ({ handleClose, name }) => {
 
   const { enqueueSnackbar } = useSnackbar();
 
 
   const { control, handleSubmit, reset, formState: { errors, isSubmitting } } = useForm({
+    defaultValues: {
+      fullName: '',
+      email: '',
+      phone: '',
+      adultCount: '',
+      ladiesCount: '',
+      kidsCount: '',
+      destination: name ?? "",
+      dateFrom: '',
+      dateTo: '',
+    },
     resolver: yupResolver(schema),
   });
 

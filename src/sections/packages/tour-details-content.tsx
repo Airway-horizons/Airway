@@ -310,7 +310,7 @@ export default function TourDetailsContent({ tour }: any) {
         {renderContent}
       </Stack>
       {modal &&
-        <BookModal handleClose={handleClose} open={modal} />
+        <BookModal handleClose={handleClose} open={modal} name={name} />
       }
 
       <CustomPopover

@@ -5,17 +5,17 @@ import { Box } from '@mui/material';
 
 
 
-export default function BookModal({handleClose, open}) {
-  
+export default function BookModal({ handleClose, open, name }) {
+
   return (
     <div>
-       <Dialog onClose={handleClose} open={open}>
+      <Dialog onClose={handleClose} open={open}>
         <DialogTitle>Book Now</DialogTitle>
-        <Box sx={{ p: 3, pt:0}}>
+        <Box sx={{ p: 3, pt: 0 }}>
 
-      <BookingForm handleClose={handleClose} />
+          <BookingForm handleClose={handleClose} name={name} />
         </Box>
-        </Dialog>
+      </Dialog>
     </div>
   );
 }
