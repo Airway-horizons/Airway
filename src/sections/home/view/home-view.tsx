@@ -29,56 +29,67 @@ const carouselsData = [
     id: 0,
     title: 'India tours and activities',
     coverUrl: '/home/des/0.jpg',
+    destination:"India"
   },
   {
     id: 1,
     title: 'Nepal tours and activities',
     coverUrl: '/home/des/1.jpg',
+    destination:"Nepal"
   },
   {
     id: 2,
     title: 'Canada tours and activities',
     coverUrl: '/home/des/2.jpg',
+    destination:"Canada"
   },
   {
     id: 3,
     title: 'Spain tours and activities',
     coverUrl: '/home/des/3.jpg',
+    destination:"Spain"
   },
   {
     id: 4,
     title: 'Iceland tours and activities',
     coverUrl: '/home/des/4.jpg',
+    destination:"Iceland"
   },
   {
     id: 5,
     title: 'Thailand tours and activities',
     coverUrl: '/home/des/5.jpg',
+    destination:"Thailand"
   },
   {
     id: 6,
     title: 'Srilanka tours and activities',
     coverUrl: '/home/des/6.jpg',
+    destination:"Sri Lanka"
   },
   {
     id: 7,
     title: 'USA tours and activities',
     coverUrl: '/home/des/7.jpg',
+    destination:"USA"
   },
   {
     id: 8,
     title: 'Maldives tours and activities',
     coverUrl: '/home/des/8.jpg',
+    destination:"Maldives"
   },
   {
     id: 9,
     title: 'England tours and activities',
     coverUrl: '/home/des/9.jpg',
+    destination:"England"
   },
   {
     id: 10,
     title: 'Indonesia tours and activities',
     coverUrl: '/home/des/10.jpg',
+    destination:"Indonesia"
   },
 ];
 

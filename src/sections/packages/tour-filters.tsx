@@ -257,11 +257,11 @@ export default function TourFilters({
 
         <Scrollbar sx={{ px: 2.5, py: 3 }}>
           <Stack spacing={3}>
-            {renderDateRange}
+            {/* {renderDateRange} */}
 
             {renderDestination}
 
-            {renderTourGuide}
+            {/* {renderTourGuide} */}
 
             {renderServices}
           </Stack>

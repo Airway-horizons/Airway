@@ -1,16 +1,17 @@
 import orderBy from 'lodash/orderBy';
-import { useState, useCallback } from 'react';
+import { useState, useCallback, useEffect } from 'react';
 
 import Stack from '@mui/material/Stack';
 import Button from '@mui/material/Button';
 import Container from '@mui/material/Container';
 
 import { paths } from 'src/routes/paths';
-import { RouterLink } from 'src/routes/components';
+import {  useLocation } from 'react-router-dom';
 
 import { useBoolean } from 'src/hooks/use-boolean';
 
 import { isAfter, isBetween } from 'src/utils/format-time';
+import { useSearchParams } from 'src/routes/hooks';
 
 import { countries } from 'src/assets/data';
 import { _tours, _tourGuides, TOUR_SORT_OPTIONS } from 'src/_mock';
@@ -32,18 +33,25 @@ import { TOUR_SERVICE_OPTIONS } from 'src/helper';
 
 // ----------------------------------------------------------------------
 
-const defaultFilters: ITourFilters = {
-  destination: [],
-  tourGuides: [],
-  services: [],
-  startDate: null,
-  endDate: null,
+const useQuery = () => {
+  return new URLSearchParams(useLocation().search);
 };
 
 // ----------------------------------------------------------------------
 
 export default function TourListView() {
   const settings = useSettingsContext();
+  const query = useQuery();
+
+  const id = query.get('id');
+  
+  const defaultFilters: ITourFilters = {
+    destination: [],
+    tourGuides: [],
+    services: [],
+    startDate: null,
+    endDate: null,
+  };
 
   const openFilters = useBoolean();
 
@@ -79,6 +87,14 @@ export default function TourListView() {
       [name]: value,
     }));
   }, []);
+ useEffect(()=>{
+  id && setFilters((prevState) => ({
+    ...prevState,
+    destination: [id],
+  }))
+ },[id])
+
+
 
   const handleResetFilters = useCallback(() => {
     setFilters(defaultFilters);

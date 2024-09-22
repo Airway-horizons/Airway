@@ -1,4 +1,5 @@
 import Box from '@mui/material/Box';
+import { Link as RouterLink } from 'react-router-dom';
 import Link from '@mui/material/Link';
 import Paper from '@mui/material/Paper';
 import CardContent from '@mui/material/CardContent';
@@ -10,10 +11,12 @@ import Image from 'src/components/image';
 import Iconify from 'src/components/iconify';
 import TextMaxLine from 'src/components/text-max-line';
 import Carousel, { useCarousel, CarouselArrows } from 'src/components/carousel';
+import { paths } from 'src/routes/paths';
 
 // ----------------------------------------------------------------------
 
 export default function CarouselCenterMode({ data }: any) {
+
   const carousel = useCarousel({
     slidesToShow: 4,
     centerMode: true,
@@ -65,13 +68,14 @@ type CarouselItemProps = {
   item: {
     title: string;
     coverUrl: string;
+    destination:string;
   };
 };
 
 function CarouselItem({ item }: CarouselItemProps) {
   const theme = useTheme();
 
-  const { coverUrl, title } = item;
+  const { coverUrl, title, destination } = item;
 
   return (
     <Paper
@@ -101,7 +105,7 @@ function CarouselItem({ item }: CarouselItemProps) {
         <TextMaxLine variant="h6" sx={{ mb: 2 }}>
           {title}
         </TextMaxLine>
-
+        <RouterLink to={`/packages?id=${destination}`} style={{ textDecoration: 'none', color:"#fff" }}>
         <Link
           color="inherit"
           variant="overline"
@@ -117,6 +121,7 @@ function CarouselItem({ item }: CarouselItemProps) {
           View package
           <Iconify icon="eva:arrow-forward-fill" width={16} sx={{ ml: 1 }} />
         </Link>
+        </RouterLink>
       </CardContent>
     </Paper>
   );
