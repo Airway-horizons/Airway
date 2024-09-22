@@ -1,0 +1,1 @@
+import{r as n}from"./index-BhdCYkZV.js";function a(){const[o,e]=n.useState(null),t=n.useCallback(s=>{e(s.currentTarget)},[]),r=n.useCallback(()=>{e(null)},[]);return{open:o,onOpen:t,onClose:r,setOpen:e}}export{a as u};
