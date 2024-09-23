@@ -66,7 +66,7 @@ const StyledTextGradient = styled(m.h1)(({ theme }) => ({
   // [theme.breakpoints.up('md')]: {
   //   fontSize: `${96 / 16}rem`,
   // },
-  color:"#0f5e55",
+  color: '#0f5e55',
 }));
 
 const StyledEllipseTop = styled('div')(({ theme }) => ({
@@ -185,8 +185,6 @@ export default function HomeHero() {
         },
       }}
     >
-     
-       
       <m.div variants={varFade().in}>
         <StyledTextGradient
           animate={{ backgroundPosition: '200% center' }}
@@ -205,17 +203,19 @@ export default function HomeHero() {
           // variant="h4"
           sx={{
             textAlign: 'center',
-            color:"#1b7d77",
-            fontStyle: "italic",
-            fontSize:18
+            color: '#1b7d77',
+            fontStyle: 'italic',
+            fontSize: 18,
             // mb:4
           }}
-        >   
-          -Explore Beyond Limits</Typography>
+        >
+          -Explore Beyond Limits
+        </Typography>
       </m.div>
       <m.div variants={varFade().in}>
-        <Typography variant="body2" sx={{ textAlign: 'center', mb:2,mt:4 }}>
-        A place to call home on your next adventure Experience the joy of an entire place to yourself
+        <Typography variant="body2" sx={{ textAlign: 'center', mb: 2, mt: 4 }}>
+          We create transformative travel experiences through tailored adventures and cultural
+          immersion, inspiring personal growth and lasting memories. Join us!
         </Typography>
       </m.div>
 
@@ -236,49 +236,54 @@ export default function HomeHero() {
           </Typography>
         </Stack>
       </m.div> */}
-    <Box sx={{width:"100%", display:"flex", flexDirection:"column", alignItems:"center"}}>
-      <m.div variants={varFade().in}>
-            <Stack spacing={1.5} direction={{ xs: 'column-reverse', sm: 'row' }} sx={{ mb: 5, mt: 2 }}>
-              <Stack alignItems="center" spacing={2}>
-                <Button
-                  color="inherit"
-                  size="large"
-                  variant="contained"
-                  startIcon={<Iconify icon="eva:flash-fill" width={24} />}
-                  onClick={()=>{router.push(paths.packages)}}
-                >
-                  View all packages
-                </Button>
-              </Stack>
-
-            </Stack>
-          </m.div>
-
-          <Stack spacing={3} sx={{ textAlign: 'center' }}>
-            <m.div variants={varFade().in}>
-              <Typography variant="overline" sx={{ opacity: 0.48 }}>
-                Available at
-              </Typography>
-            </m.div>
-
-            <Stack spacing={2} direction="row" justifyContent="center">
-              {socials?.map((social: any) => (
-                <a href={social?.path} target="_blank" rel="noopener noreferrer">
-                    <IconButton
-                      key={social.name}
-                      sx={{
-                        '&:hover': {
-                          bgcolor: alpha(social.color, 0.08),
-                        },
-                  }}
-                    >
-                      <Iconify color={social.color} icon={social.icon} />
-                  </IconButton>
-                  </a>
-              ))}
+      <Box sx={{ width: '100%', display: 'flex', flexDirection: 'column', alignItems: 'center' }}>
+        <m.div variants={varFade().in}>
+          <Stack
+            spacing={1.5}
+            direction={{ xs: 'column-reverse', sm: 'row' }}
+            sx={{ mb: 5, mt: 2 }}
+          >
+            <Stack alignItems="center" spacing={2}>
+              <Button
+                color="inherit"
+                size="large"
+                variant="contained"
+                startIcon={<Iconify icon="eva:flash-fill" width={24} />}
+                onClick={() => {
+                  router.push(paths.packages);
+                }}
+              >
+                View all packages
+              </Button>
             </Stack>
           </Stack>
-    </Box>
+        </m.div>
+
+        <Stack spacing={3} sx={{ textAlign: 'center' }}>
+          <m.div variants={varFade().in}>
+            <Typography variant="overline" sx={{ opacity: 0.48 }}>
+              Available at
+            </Typography>
+          </m.div>
+
+          <Stack spacing={2} direction="row" justifyContent="center">
+            {socials?.map((social: any) => (
+              <a href={social?.path} target="_blank" rel="noopener noreferrer">
+                <IconButton
+                  key={social.name}
+                  sx={{
+                    '&:hover': {
+                      bgcolor: alpha(social.color, 0.08),
+                    },
+                  }}
+                >
+                  <Iconify color={social.color} icon={social.icon} />
+                </IconButton>
+              </a>
+            ))}
+          </Stack>
+        </Stack>
+      </Box>
     </Stack>
   );
 
@@ -390,8 +395,8 @@ export default function HomeHero() {
         }}
       >
         <StyledWrapper>
-          <Container component={MotionContainer} sx={{ height: 1 }}  maxWidth="xl">
-            <Grid container columnSpacing={{ md: 0 }} sx={{ height: 1 }} >
+          <Container component={MotionContainer} sx={{ height: 1 }} maxWidth="xl">
+            <Grid container columnSpacing={{ md: 0 }} sx={{ height: 1 }}>
               <Grid xs={12} md={6}>
                 {renderDescription}
               </Grid>

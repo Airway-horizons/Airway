@@ -15,7 +15,7 @@ export default function ContactForm() {
       <m.div variants={varFade().inUp}>
         <Typography variant="h3">
           Feel free to contact us. <br />
-          We&apos;ll be glad to hear from you, buddy.
+          We&apos;ll be glad to hear from you, nomad.
         </Typography>
       </m.div>
 

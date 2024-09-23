@@ -53,8 +53,7 @@ export default function AboutHero() {
               }}
             >
               Let&apos;s work together and
-              <br /> make awesome travling experiences
-              
+              <br /> make awesome traveling experiences
             </Typography>
           </m.div>
         </Box>

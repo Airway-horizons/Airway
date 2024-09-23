@@ -47,11 +47,10 @@ export default function TourDetailsContent({ tour }: any) {
     price,
     download,
     accommodation,
-    id
+    id,
   } = tour;
 
-  const shareUrl =
-    `https://airwayhorizons.com/packages-details/${id}`;
+  const shareUrl = `https://airwayhorizons.com/packages-details/${id}`;
 
   const handleDownload = () => {
     const pdfUrl = download;
@@ -62,7 +61,7 @@ export default function TourDetailsContent({ tour }: any) {
     src: slide,
   }));
 
-  const handleClose = () => openModal(false)
+  const handleClose = () => openModal(false);
   const {
     selected: selectedImage,
     open: openLightbox,
@@ -154,7 +153,13 @@ export default function TourDetailsContent({ tour }: any) {
       </Stack>
 
       <Stack spacing={3} direction="row" flexWrap="wrap" alignItems="center">
-        <Stack direction="row" alignItems="center" justifyContent="center" spacing={0.5} sx={{ typography: 'body2', width: '100%' }}>
+        <Stack
+          direction="row"
+          alignItems="center"
+          justifyContent="center"
+          spacing={0.5}
+          sx={{ typography: 'body2', width: '100%' }}
+        >
           {/* <Iconify icon="eva:star-fill" sx={{ color: 'warning.main' }} /> */}
           <Stack
             direction="row"
@@ -162,7 +167,7 @@ export default function TourDetailsContent({ tour }: any) {
             sx={{
               zIndex: 9,
               borderRadius: 1,
-              bgcolor: '#08b0db',
+              bgcolor: '#0d5d54',
               p: '5px 6px 5px 5px',
               color: 'common.white',
               typography: 'subtitle2',
@@ -176,10 +181,15 @@ export default function TourDetailsContent({ tour }: any) {
                 {fCurrency(priceSale)}
               </Box>
             )}
-            {fCurrency(price)}/-
+            &nbsp; Starts at {fCurrency(price)}/-
           </Stack>
           {/* <Link sx={{ color: 'text.secondary' }}>(234 reviews)</Link> */}
-          <Stack direction="row" alignItems="center" spacing={0.5} sx={{ typography: 'body2', mx: 2 }}>
+          <Stack
+            direction="row"
+            alignItems="center"
+            spacing={0.5}
+            sx={{ typography: 'body2', mx: 2 }}
+          >
             <Iconify icon="eva:star-fill" sx={{ color: 'warning.main' }} />
             <Box component="span" sx={{ typography: 'subtitle2' }}>
               {ratingNumber}
@@ -192,18 +202,15 @@ export default function TourDetailsContent({ tour }: any) {
             {destination}
           </Stack>
 
-
           <Button
             size="small"
             variant="contained"
             onClick={() => openModal(true)}
-            sx={{ height: 42, backgroundColor: '#FF5C37', ml: "auto", px: 4 }}
+            sx={{ height: 42, backgroundColor: '#FF5C37', ml: 'auto', px: 4 }}
           >
             Book Now
           </Button>
-
         </Stack>
-
       </Stack>
     </>
   );
@@ -309,9 +316,7 @@ export default function TourDetailsContent({ tour }: any) {
 
         {renderContent}
       </Stack>
-      {modal &&
-        <BookModal handleClose={handleClose} open={modal} name={name} />
-      }
+      {modal && <BookModal handleClose={handleClose} open={modal} name={name} />}
 
       <CustomPopover
         open={popover.open}

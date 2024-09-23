@@ -83,7 +83,7 @@ export default function TourItem({ tour, onView }: any) {
           {fCurrency(priceSale)}
         </Box>
       )}
-      {fCurrency(price)}
+      &nbsp; Starts at {fCurrency(price)}
     </Stack>
   );
 

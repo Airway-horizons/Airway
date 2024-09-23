@@ -16,11 +16,11 @@ import { useResponsive } from 'src/hooks/use-responsive';
 
 import { fDate } from 'src/utils/format-time';
 
-import { _testimonials } from 'src/_mock';
 import { bgBlur, bgGradient, hideScroll } from 'src/theme/css';
 
 import Iconify from 'src/components/iconify';
 import { varFade, MotionViewport } from 'src/components/animate';
+import { testimonialsView } from './helper';
 
 // ----------------------------------------------------------------------
 
@@ -28,7 +28,6 @@ export default function AboutTestimonials() {
   const theme = useTheme();
 
   const mdUp = useResponsive('up', 'md');
-
 
   const renderDescription = (
     <Box
@@ -45,20 +44,19 @@ export default function AboutTestimonials() {
 
       <m.div variants={varFade().inUp}>
         <Typography variant="h2" sx={{ my: 3, color: 'common.white' }}>
-          Who love <br />
-          my work
+          Travel Beyond <br /> Your Limits!
         </Typography>
       </m.div>
 
       <m.div variants={varFade().inUp}>
         <Typography sx={{ color: 'common.white' }}>
-          Our goal is to create a product and service that you’re satisfied with and use it every
-          day. This is why we’re constantly working on our services to make it better every day and
-          really listen to what our users has to say.
+          We transform travel into a life-changing adventure! Our tailored trips, from thrilling
+          adventures to enriching cultural immersion programs, provide unforgettable experiences
+          that resonate long after the journey ends. Each trip is thoughtfully designed to reflect
+          real-life lessons, fostering personal growth and a deeper understanding of the world. We
+          can't recommend ourselves enough for anyone seeking an extraordinary travel experience!
         </Typography>
       </m.div>
-
-     
     </Box>
   );
 
@@ -73,7 +71,7 @@ export default function AboutTestimonials() {
       }}
     >
       <Masonry spacing={3} columns={{ xs: 1, md: 2 }} sx={{ ml: 0 }}>
-        {_testimonials.map((testimonial) => (
+        {testimonialsView.map((testimonial: any) => (
           <m.div key={testimonial.name} variants={varFade().inUp}>
             <TestimonialCard testimonial={testimonial} />
           </m.div>
@@ -118,7 +116,6 @@ export default function AboutTestimonials() {
             {renderContent}
           </Grid>
         </Grid>
-       
       </Container>
     </Box>
   );
@@ -153,7 +150,7 @@ function TestimonialCard({ testimonial, sx, ...other }: TestimonialCardProps) {
         borderRadius: 2,
         color: 'common.white',
         ...sx,
-        mt:5,
+        mt: 5,
       }}
       {...other}
     >
@@ -168,7 +165,7 @@ function TestimonialCard({ testimonial, sx, ...other }: TestimonialCardProps) {
 
         <ListItemText
           primary={name}
-          secondary={fDate(postedDate)}
+          // secondary={postedDate}
           primaryTypographyProps={{
             typography: 'subtitle2',
             mb: 0.5,
