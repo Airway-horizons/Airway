@@ -158,7 +158,7 @@ export default function HomeView() {
           </Box>
         </Container>
 
-        <Container maxWidth="xl" sx={{ mb: 10 }}>
+        <Container maxWidth="lg" sx={{ mb: 10 }}>
           <Stack
             spacing={3}
             sx={{
@@ -177,7 +177,7 @@ export default function HomeView() {
             </m.div>
           </Stack>
 
-          <TourList tours={tourData?.slice(0, 12)} />
+          <TourList tours={tourData?.slice(0, 9)} />
         </Container>
 
         {/* <HomeHugePackElements /> */}
