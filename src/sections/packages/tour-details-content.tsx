@@ -25,11 +25,23 @@ import Iconify from 'src/components/iconify';
 import Markdown from 'src/components/markdown';
 import { varTranHover } from 'src/components/animate';
 import Lightbox, { useLightBox } from 'src/components/lightbox';
-import { Button, MenuItem } from '@mui/material';
+import { Button, Grid, List, ListItem, MenuItem, Paper } from '@mui/material';
 import { TOUR_SERVICE_OPTIONS } from 'src/helper';
 import { fCurrency } from 'src/utils/format-number';
 import { useState } from 'react';
 import BookModal from './book-view/modal';
+import { styled } from '@mui/system';
+
+const HighlightItem = styled(ListItem)(({ theme }: any) => ({
+  borderLeft: `4px solid ${theme.palette.primary.main}`,
+  margin: theme.spacing(1, 0),
+  padding: theme.spacing(1),
+  backgroundColor: theme.palette.background.default,
+  borderRadius: '4px',
+  '&:hover': {
+    backgroundColor: theme.palette.grey[200],
+  },
+}));
 
 export default function TourDetailsContent({ tour }: any) {
   const popover = usePopover();
@@ -38,7 +50,6 @@ export default function TourDetailsContent({ tour }: any) {
   const {
     name,
     images,
-    content,
     services,
     priceSale,
     durations,
@@ -48,6 +59,8 @@ export default function TourDetailsContent({ tour }: any) {
     download,
     accommodation,
     id,
+    description,
+    highlights
   } = tour;
 
   const shareUrl = `https://airwayhorizons.com/packages-details/${id}`;
@@ -152,66 +165,65 @@ export default function TourDetailsContent({ tour }: any) {
         </Button>
       </Stack>
 
-      <Stack spacing={3} direction="row" flexWrap="wrap" alignItems="center">
-        <Stack
-          direction="row"
-          alignItems="center"
-          justifyContent="center"
-          spacing={0.5}
-          sx={{ typography: 'body2', width: '100%' }}
-        >
-          {/* <Iconify icon="eva:star-fill" sx={{ color: 'warning.main' }} /> */}
-          <Stack
-            direction="row"
-            alignItems="center"
-            sx={{
-              zIndex: 9,
-              borderRadius: 1,
-              bgcolor: '#0d5d54',
-              p: '5px 6px 5px 5px',
-              color: 'common.white',
-              typography: 'subtitle2',
-            }}
-          >
-            {!!priceSale && (
-              <Box
-                component="span"
-                sx={{ color: 'grey.500', mr: 0.75, textDecoration: 'line-through' }}
-              >
-                {fCurrency(priceSale)}
+      <Grid container spacing={3} wrap="wrap" alignItems="center">
+        <Grid item xs={12} sm={8}>
+          <Box display="flex">
+
+            <Stack
+              direction="row"
+              alignItems="center"
+              sx={{
+                zIndex: 9,
+                borderRadius: 1,
+                bgcolor: '#0d5d54',
+                p: '5px 6px 5px 5px',
+                color: 'common.white',
+                typography: 'subtitle2',
+                width: "fit-content"
+              }}
+            >
+              {!!priceSale && (
+                <Box
+                  component="span"
+                  sx={{ color: 'grey.500', mr: 0.75, textDecoration: 'line-through' }}
+                >
+                  {fCurrency(priceSale)}
+                </Box>
+              )}
+              &nbsp; Starts at {fCurrency(price)}/-
+            </Stack>
+            <Stack
+              direction="row"
+              alignItems="center"
+              spacing={0.5}
+              sx={{ typography: 'body2', mx: 2 }}
+            >
+              <Iconify icon="eva:star-fill" sx={{ color: 'warning.main' }} />
+              <Box component="span" sx={{ typography: 'subtitle2' }}>
+                {ratingNumber}
               </Box>
-            )}
-            &nbsp; Starts at {fCurrency(price)}/-
-          </Stack>
-          {/* <Link sx={{ color: 'text.secondary' }}>(234 reviews)</Link> */}
-          <Stack
-            direction="row"
-            alignItems="center"
-            spacing={0.5}
-            sx={{ typography: 'body2', mx: 2 }}
-          >
-            <Iconify icon="eva:star-fill" sx={{ color: 'warning.main' }} />
-            <Box component="span" sx={{ typography: 'subtitle2' }}>
-              {ratingNumber}
-            </Box>
-            {/* <Link sx={{ color: 'text.secondary' }}>(234 reviews)</Link> */}
-          </Stack>
+            </Stack>
+            <Stack direction="row" alignItems="center" spacing={0.5} sx={{ typography: 'body2' }}>
+              <Iconify icon="mingcute:location-fill" sx={{ color: 'error.main' }} />
+              {destination}
+            </Stack>
+          </Box>
+        </Grid>
 
-          <Stack direction="row" alignItems="center" spacing={0.5} sx={{ typography: 'body2' }}>
-            <Iconify icon="mingcute:location-fill" sx={{ color: 'error.main' }} />
-            {destination}
-          </Stack>
 
-          <Button
-            size="small"
-            variant="contained"
-            onClick={() => openModal(true)}
-            sx={{ height: 42, backgroundColor: '#FF5C37', ml: 'auto', px: 4 }}
-          >
-            Book Now
-          </Button>
-        </Stack>
-      </Stack>
+        <Grid item xs={12} sm={4}>
+          <Box display="flex" justifyContent="flex-end">
+            <Button
+              size="small"
+              variant="contained"
+              onClick={() => openModal(true)}
+              sx={{ height: 42, px: 4, backgroundColor: '#FF5C37' }}
+            >
+              Book Now
+            </Button>
+          </Box>
+        </Grid>
+      </Grid>
     </>
   );
 
@@ -259,7 +271,42 @@ export default function TourDetailsContent({ tour }: any) {
 
   const renderContent = (
     <>
-      <Markdown children={content} />
+      {/* <Markdown children={content} /> */}
+
+      <Box>
+        {/* <Paper elevation={3} sx={{ padding: 3, borderRadius: 2 }}> */}
+          {/* Description Section */}
+          <Typography variant="h5" gutterBottom sx={{ fontWeight: 'bold', color: 'primary.main' }}>
+            Description
+          </Typography>
+          <Typography variant="body1" paragraph sx={{ lineHeight: 1.6 }}>
+            {description}
+          </Typography>
+
+          <Divider sx={{ my: 3 }} />
+
+          {/* Highlights Section */}
+          <Typography variant="h5" gutterBottom sx={{ fontWeight: 'bold', color: 'primary.main' }}>
+            Highlights
+          </Typography>
+          <List>
+            {highlights.map((highlight: any, index: number) => (
+              <HighlightItem key={index}>
+                <circle
+                  cx="303.613"
+                  cy="103.507"
+                  r="9.376"
+                  fill={"#000"}
+                  fillRule="nonzero"
+                  opacity="0.2"
+                />
+
+                <ListItemText primary={highlight} />
+              </HighlightItem>
+            ))}
+          </List>
+        {/* </Paper> */}
+      </Box>
 
       <Stack spacing={2}>
         <Typography variant="h6"> Services</Typography>
@@ -308,11 +355,11 @@ export default function TourDetailsContent({ tour }: any) {
       <Stack sx={{ maxWidth: '100%', mx: 'auto', mb: 8 }}>
         {renderHead}
 
-        <Divider sx={{ borderStyle: 'dashed', my: 5 }} />
+        <Divider sx={{ borderStyle: 'dashed', my: 3 }} />
 
         {renderOverview}
 
-        <Divider sx={{ borderStyle: 'dashed', my: 5 }} />
+        <Divider sx={{ borderStyle: 'dashed', my: 3 }} />
 
         {renderContent}
       </Stack>
