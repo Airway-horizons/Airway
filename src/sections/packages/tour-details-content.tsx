@@ -275,42 +275,47 @@ export default function TourDetailsContent({ tour }: any) {
 
       <Box>
         {/* <Paper elevation={3} sx={{ padding: 3, borderRadius: 2 }}> */}
-          {/* Description Section */}
-          <Typography variant="h5" gutterBottom sx={{ fontWeight: 'bold', color: 'primary.main' }}>
-            Description
-          </Typography>
-          <Typography variant="body1" paragraph sx={{ lineHeight: 1.6 }}>
-            {description}
-          </Typography>
+        {/* Description Section */}
+        <Typography variant="h5" gutterBottom sx={{ fontWeight: 'bold', color: 'primary.main' }}>
+          Description
+        </Typography>
+        <Typography variant="body1" paragraph sx={{ lineHeight: 1.6 }}>
+          {description}
+        </Typography>
 
-          <Divider sx={{ my: 3 }} />
+        <Divider sx={{ my: 3 }} />
 
-          {/* Highlights Section */}
-          <Typography variant="h5" gutterBottom sx={{ fontWeight: 'bold', color: 'primary.main' }}>
-            Highlights
-          </Typography>
-          <List>
-            {highlights.map((highlight: any, index: number) => (
-              <HighlightItem key={index}>
-                <circle
-                  cx="303.613"
-                  cy="103.507"
-                  r="9.376"
-                  fill={"#000"}
-                  fillRule="nonzero"
-                  opacity="0.2"
-                />
+        {/* Highlights Section */}
+        <Typography variant="h5" gutterBottom sx={{ fontWeight: 'bold', color: 'primary.main' }}>
+          Highlights
+        </Typography>
+        <List>
+          {highlights.map((highlight: any, index: number) => (
+            <HighlightItem key={index}>
+              <circle
+                cx="303.613"
+                cy="103.507"
+                r="9.376"
+                fill={"#000"}
+                fillRule="nonzero"
+                opacity="0.2"
+              />
 
-                <ListItemText primary={highlight} />
-              </HighlightItem>
-            ))}
-          </List>
+              <ListItemText primary={highlight} />
+            </HighlightItem>
+          ))}
+        </List>
         {/* </Paper> */}
       </Box>
 
-      <Stack spacing={2}>
-        <Typography variant="h6"> Services</Typography>
+      <Stack spacing={2} sx={{ mt: 3 }}>
 
+      <Typography variant="h5" gutterBottom sx={{ fontWeight: 'bold', color: 'primary.main' }}>
+          Services
+        </Typography>
+
+
+        <Typography variant="h6">Inclusions</Typography>
         <Box
           rowGap={2}
           display="grid"
@@ -319,32 +324,48 @@ export default function TourDetailsContent({ tour }: any) {
             md: 'repeat(2, 1fr)',
           }}
         >
-          {TOUR_SERVICE_OPTIONS.map((service) => (
-            <Stack
-              key={service.label}
-              spacing={1}
-              direction="row"
-              alignItems="center"
-              sx={{
-                ...(services.includes(service.label) && {
-                  color: 'text.disabled',
-                }),
-              }}
-            >
-              <Iconify
-                icon="eva:checkmark-circle-2-outline"
-                sx={{
-                  color: 'primary.main',
-                  ...(services.includes(service.label) && {
-                    color: 'text.disabled',
-                  }),
-                }}
-              />
-              {service.label}
-            </Stack>
-          ))}
+          <Stack spacing={1} direction="row" alignItems="center">
+            <Iconify icon="eva:checkmark-circle-2-outline" sx={{ color: 'primary.main' }} />
+            Breakfast & Dinner
+          </Stack>
+          <Stack spacing={1} direction="row" alignItems="center">
+            <Iconify icon="eva:checkmark-circle-2-outline" sx={{ color: 'primary.main' }} />
+            Pick up & Drop, Local transport
+          </Stack>
+          <Stack spacing={1} direction="row" alignItems="center">
+            <Iconify icon="eva:checkmark-circle-2-outline" sx={{ color: 'primary.main' }} />
+            Local shopping assistance
+          </Stack>
+          <Stack spacing={1} direction="row" alignItems="center">
+            <Iconify icon="eva:checkmark-circle-2-outline" sx={{ color: 'primary.main' }} />
+            All tolls, Taxes & Packing charges
+          </Stack>
+        </Box>
+
+        <Typography variant="h6">Exclusions</Typography>
+        <Box
+          rowGap={2}
+          display="grid"
+          gridTemplateColumns={{
+            xs: 'repeat(1, 1fr)',
+            md: 'repeat(2, 1fr)',
+          }}
+        >
+          <Stack spacing={1} direction="row" alignItems="center">
+            <Iconify icon="eva:checkmark-circle-2-outline" sx={{ color: 'primary.main' }} />
+            Airfare (Unless requested for booking)
+          </Stack>
+          <Stack spacing={1} direction="row" alignItems="center">
+            <Iconify icon="eva:checkmark-circle-2-outline" sx={{ color: 'primary.main' }} />
+            Lunch (Unless included in package)
+          </Stack>
+          <Stack spacing={1} direction="row" alignItems="center">
+            <Iconify icon="eva:checkmark-circle-2-outline" sx={{ color: 'primary.main' }} />
+            Anything which is not mentioned in inclusion is excluded
+          </Stack>
         </Box>
       </Stack>
+
     </>
   );
 
