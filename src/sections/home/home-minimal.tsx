@@ -36,7 +36,8 @@ export default function HomeMinimal() {
     <Container
       component={MotionViewport}
       sx={{
-        py: { xs: 10, md: 15 },
+        pb: { xs: 10, md: 15 },
+        pt: { xs: 7 },
       }}
     >
       <Stack

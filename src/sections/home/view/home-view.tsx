@@ -17,6 +17,8 @@ import AboutTestimonials from 'src/sections/about/about-testimonials';
 import ProgramCard from './program-card';
 import ProgramCarousel from './program-carousel';
 import { tourData } from './helper';
+import InstagramGallery from './instagram-gallery';
+import StatusRound from './status-round';
 
 // ----------------------------------------------------------------------
 
@@ -29,67 +31,67 @@ const carouselsData = [
     id: 0,
     title: 'India tours and activities',
     coverUrl: '/home/des/0.jpg',
-    destination:"India"
+    destination: "India"
   },
   {
     id: 1,
     title: 'Nepal tours and activities',
     coverUrl: '/home/des/1.jpg',
-    destination:"Nepal"
+    destination: "Nepal"
   },
   {
     id: 2,
     title: 'Canada tours and activities',
     coverUrl: '/home/des/2.jpg',
-    destination:"Canada"
+    destination: "Canada"
   },
   {
     id: 3,
     title: 'Spain tours and activities',
     coverUrl: '/home/des/3.jpg',
-    destination:"Spain"
+    destination: "Spain"
   },
   {
     id: 4,
     title: 'Iceland tours and activities',
     coverUrl: '/home/des/4.jpg',
-    destination:"Iceland"
+    destination: "Iceland"
   },
   {
     id: 5,
     title: 'Thailand tours and activities',
     coverUrl: '/home/des/5.jpg',
-    destination:"Thailand"
+    destination: "Thailand"
   },
   {
     id: 6,
     title: 'Srilanka tours and activities',
     coverUrl: '/home/des/6.jpg',
-    destination:"Sri Lanka"
+    destination: "Sri Lanka"
   },
   {
     id: 7,
     title: 'USA tours and activities',
     coverUrl: '/home/des/7.jpg',
-    destination:"USA"
+    destination: "USA"
   },
   {
     id: 8,
     title: 'Maldives tours and activities',
     coverUrl: '/home/des/8.jpg',
-    destination:"Maldives"
+    destination: "Maldives"
   },
   {
     id: 9,
     title: 'England tours and activities',
     coverUrl: '/home/des/9.jpg',
-    destination:"England"
+    destination: "England"
   },
   {
     id: 10,
     title: 'Indonesia tours and activities',
     coverUrl: '/home/des/10.jpg',
-    destination:"Indonesia"
+    destination: "Indonesia"
   },
 ];
 
@@ -102,6 +104,8 @@ export default function HomeView() {
 
       <HomeHero />
 
+
+
       <Box
         sx={{
           overflow: 'hidden',
@@ -109,9 +113,16 @@ export default function HomeView() {
           bgcolor: 'background.default',
         }}
       >
+        <Container maxWidth="lg">
+          
+          <StatusRound />
+        </Container>
+
         <HomeMinimal />
 
         <Container maxWidth="xl">
+
+
           <Box
             gap={1}
             display="grid"
@@ -245,6 +256,8 @@ export default function HomeView() {
         </Container>
 
         <HomePricing />
+
+        <InstagramGallery />
         {/* <HomeLookingFor /> */}
 
         {/* <HomeAdvertisement /> */}
