@@ -29,6 +29,7 @@ const InstagramGallery = () => {
           allowTransparency="true"
           title="Instagram Gallery"
           className="snapwidget-widget"
+          style={{ pointerEvents: 'none' }}
         />
       </Box>
     </Container>
