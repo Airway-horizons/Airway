@@ -112,7 +112,7 @@ const StatusRound = () => {
                         controls
                         style={{
                             width: isMobile ? '100%' : isTablet ? '60%' : '25%', // Width based on screen size
-                            height: isMobile ? '100%' : '90%', // Height based on screen size
+                            height: '90%', // Height based on screen size
                         }}
                         src={selectedVideo}
                         autoPlay
