@@ -1,0 +1,1 @@
+import{c5 as s}from"./index-BMnZ0nBx.js";function i(t,e){const n=e||"dd MMM yyyy";return t?s(new Date(t),n):""}function D(t,e,n){const r=new Date(t);return new Date(r.toDateString())>=new Date(e.toDateString())&&new Date(r.toDateString())<=new Date(n.toDateString())}function f(t,e){return t&&e?new Date(t).getTime()>new Date(e).getTime():!1}export{D as a,i as f,f as i};
