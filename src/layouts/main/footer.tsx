@@ -18,13 +18,13 @@ const LINKS = [
   {
     headline: 'POPULAR ATTRACTIONS',
     children: [
-      { name: 'Uttarakand', href: '#' },
-      { name: 'Maldives', href: '#' },
-      { name: 'Lakshadweep', href: '#' },
-      { name: 'Kashmir', href: '#' },
-      { name: 'Malaysia', href: '#' },
-      { name: 'Thailand', href: '#' },
-      { name: 'Indonesia', href: '#' },
+      { name: 'Uttarakhand', href: paths.packageDetails('b4b5d48e-0d8e-4f28-8c30-cf7a1e5390d6') },
+      { name: 'Manali', href: paths.packageDetails('d7d8f9a0-3d4e-4b12-9e34-8a9b1c2d3e45') },
+      { name: 'Lakshadweep', href: paths.packageDetails('j5k6l7m8-9n0o-1p23-q4r5-s6t7u8v9w0x1') },
+      { name: 'Kashmir', href: paths.packageDetails('c5c6e7e8-2f4e-40d5-92b1-9a7c8e8d5a91') },
+      { name: 'Malaysia', href: paths.packageDetails('i4j5k6l7-8m9n-0o12-p3q4-r5s6t7u8v9w0') },
+      { name: 'Thailand', href: paths.packageDetails('e99f09a7-dd88-49d5-b1c8-1daf80c2d7b1') },
+      { name: 'Indonesia', href: paths.packageDetails('f1f2a3b4-5c6d-7e89-0f12-3a4b5c6d7e89') },
     ],
   },
   {
