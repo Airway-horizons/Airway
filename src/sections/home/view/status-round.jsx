@@ -15,6 +15,24 @@ const statuses = [
         title: 'Malaysia',
         video: '/status/malaysia/malaysia.mp4',
     },
+    {
+        id: 3,
+        image: '/status/launch/launch.png',
+        title: 'Launch',
+        video: '/status/launch/launch.mp4',
+    },
+    {
+        id: 4,
+        image: '/status/getready/getready.png',
+        title: 'Ready',
+        video: '/status/getready/getready.mp4',
+    },
+    {
+        id: 5,
+        image: '/status/logo/logo.png',
+        title: 'Logo',
+        video: '/status/logo/logo.mp4',
+    }
 ];
 
 const StatusRound = () => {
@@ -36,7 +54,7 @@ const StatusRound = () => {
     };
 
     return (
-        <Box sx={{ display: 'flex', gap: 2, p: 2, mt: 2 }}>
+        <Box sx={{ display: 'flex', gap: 2, p: 2, mt: 2, overflowX: 'scroll', overflowY: 'hidden', pb:5 }}>
             {statuses.map((status) => (
                 <m.div
                     key={status.id}
