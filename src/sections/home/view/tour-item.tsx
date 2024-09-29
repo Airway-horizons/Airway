@@ -97,7 +97,7 @@ export default function TourItem({ tour, onView }: any) {
     >
       <Stack flexGrow={1} sx={{ position: 'relative' }}>
         {renderPrice}
-        {renderRating}
+       
         <Image
           alt={images[0]}
           src={images[0]}
@@ -159,6 +159,10 @@ export default function TourItem({ tour, onView }: any) {
           label: durations,
           icon: <Iconify icon="solar:clock-circle-bold" sx={{ color: 'info.main' }} />,
         },
+        {
+          label: ratingNumber,
+          icon: <Iconify icon="eva:star-fill" sx={{ color: 'warning.main', mr: 0.25 }} />,
+        },
       ].map((item) => (
         <Stack
           key={item.label}
@@ -171,6 +175,8 @@ export default function TourItem({ tour, onView }: any) {
           {item.label}
         </Stack>
       ))}
+       {/* {renderRating} */}
+
       <Box sx={{ mt: 2, display: 'flex', justifyContent: 'flex-end' }}>
         <Button
           size="small"
@@ -179,7 +185,7 @@ export default function TourItem({ tour, onView }: any) {
           sx={{ height: 42, width: '50%', backgroundColor: '#FF5C37' }}
         >
           <Iconify icon="solar:eye-bold" style={{ marginRight: 10 }} />
-          Book Now
+          View Package
         </Button>
       </Box>
     </Stack>
