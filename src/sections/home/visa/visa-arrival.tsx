@@ -20,46 +20,40 @@ import { Typography } from '@mui/material';
 const carouselsData = [
     {
         id: 0,
-        title: 'India',
-        coverUrl: '/home/des/0.jpg',
-        destination: "India"
+        title: 'Thailand',
+        coverUrl: '/visa/k5.jpg',
+        destination: "Thailand"
     },
     {
         id: 1,
-        title: 'Nepal',
-        coverUrl: '/home/des/1.jpg',
-        destination: "Nepal"
+        title: 'Bali',
+        coverUrl: '/visa/k6.jpg',
+        destination: "Indonesia"
     },
     {
         id: 2,
-        title: 'Canada',
-        coverUrl: '/home/des/2.jpg',
-        destination: "Canada"
+        title: 'Cambodia',
+        coverUrl: '/visa/k7.jpg',
+        destination: "Cambodia"
     },
     {
         id: 3,
-        title: 'Spain',
-        coverUrl: '/home/des/3.jpg',
-        destination: "Spain"
-    },
-    {
+        title: 'Vitenam',
+        coverUrl: '/visa/k8.jpg',
+        destination: "Vitenam"
+    }, {
         id: 4,
-        title: 'Iceland',
-        coverUrl: '/home/des/4.jpg',
-        destination: "Iceland"
+        title: 'Jordan',
+        coverUrl: '/visa/k12.jpg',
+        destination: "Jordan"
     },
     {
-        id: 9,
-        title: 'England',
-        coverUrl: '/home/des/9.jpg',
-        destination: "England"
+        id: 5,
+        title: 'Fiji',
+        coverUrl: '/visa/k13.jpg',
+        destination: "Fiji"
     },
-    {
-        id: 10,
-        title: 'Indonesia',
-        coverUrl: '/home/des/10.jpg',
-        destination: "Indonesia"
-    },
+
 ];
 
 
