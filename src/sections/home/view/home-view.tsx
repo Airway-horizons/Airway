@@ -257,7 +257,7 @@ export default function HomeView() {
 
         <HomePricing />
 
-        <InstagramGallery />
+        {/* <InstagramGallery /> */}
         {/* <HomeLookingFor /> */}
 
         {/* <HomeAdvertisement /> */}
