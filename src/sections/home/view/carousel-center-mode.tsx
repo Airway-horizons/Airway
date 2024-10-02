@@ -46,7 +46,7 @@ export default function CarouselCenterMode({ data }: any) {
     >
       <CarouselArrows
         filled
-        icon="noto:rightwards-hand"
+        // icon="noto:rightwards-hand"
         onNext={carousel.onNext}
         onPrev={carousel.onPrev}
       >
@@ -68,7 +68,7 @@ type CarouselItemProps = {
   item: {
     title: string;
     coverUrl: string;
-    destination:string;
+    destination: string;
   };
 };
 
@@ -105,22 +105,22 @@ function CarouselItem({ item }: CarouselItemProps) {
         <TextMaxLine variant="h6" sx={{ mb: 2 }}>
           {title}
         </TextMaxLine>
-        <RouterLink to={`/packages?id=${destination}`} style={{ textDecoration: 'none', color:"#fff" }}>
-        <Link
-          color="inherit"
-          variant="overline"
-          sx={{
-            opacity: 0.72,
-            alignItems: 'center',
-            display: 'inline-flex',
-            transition: theme.transitions.create(['opacity']),
-            '&:hover': { opacity: 1 },
-            cursor: 'pointer',
-          }}
-        >
-          View package
-          <Iconify icon="eva:arrow-forward-fill" width={16} sx={{ ml: 1 }} />
-        </Link>
+        <RouterLink to={`/packages?id=${destination}`} style={{ textDecoration: 'none', color: "#fff" }}>
+          <Link
+            color="inherit"
+            variant="overline"
+            sx={{
+              opacity: 0.72,
+              alignItems: 'center',
+              display: 'inline-flex',
+              transition: theme.transitions.create(['opacity']),
+              '&:hover': { opacity: 1 },
+              cursor: 'pointer',
+            }}
+          >
+            Explore
+            <Iconify icon="eva:arrow-forward-fill" width={16} sx={{ ml: 1 }} />
+          </Link>
         </RouterLink>
       </CardContent>
     </Paper>

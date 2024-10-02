@@ -47,17 +47,20 @@ export default function HomeMinimal() {
           mb: { xs: 5, md: 10 },
         }}
       >
-        <m.div variants={varFade().inUp}>
-          <Typography component="div" variant="overline" sx={{ color: 'text.disabled' }}>
-            Airway Horizons
-          </Typography>
-        </m.div>
+
 
         <m.div variants={varFade().inDown}>
           <Typography variant="h2">
-            What we helps you?
+            Benefits of Booking With Us
           </Typography>
         </m.div>
+
+        <m.div variants={varFade().inUp}>
+          <Typography sx={{ color: 'grey.500' }}>
+            Discover the unrivalled benefits that promise memorable journeys all along.
+          </Typography>
+        </m.div>
+
       </Stack>
 
       <Box
@@ -79,11 +82,10 @@ export default function HomeMinimal() {
                 p: (theme) => theme.spacing(10, 5),
                 ...(index === 1 && {
                   boxShadow: (theme) => ({
-                    md: `-40px 40px 80px ${
-                      theme.palette.mode === 'light'
-                        ? alpha(theme.palette.grey[500], 0.16)
-                        : alpha(theme.palette.common.black, 0.4)
-                    }`,
+                    md: `-40px 40px 80px ${theme.palette.mode === 'light'
+                      ? alpha(theme.palette.grey[500], 0.16)
+                      : alpha(theme.palette.common.black, 0.4)
+                      }`,
                   }),
                 }),
               }}

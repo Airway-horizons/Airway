@@ -4,6 +4,7 @@ import AppBar from '@mui/material/AppBar';
 import Toolbar from '@mui/material/Toolbar';
 import { useTheme } from '@mui/material/styles';
 import Container from '@mui/material/Container';
+import { m } from 'framer-motion';
 
 import { useOffSetTop } from 'src/hooks/use-off-set-top';
 import { useResponsive } from 'src/hooks/use-responsive';
@@ -18,11 +19,33 @@ import { HEADER } from '../config-layout';
 import { navConfig } from './config-navigation';
 import HeaderShadow from '../common/header-shadow';
 import SettingsButton from '../common/settings-button';
+import { useSettingsContext } from 'src/components/settings';
+import { varFade, MotionViewport } from 'src/components/animate';
+import { Switch, Typography } from '@mui/material';
+import styled from '@emotion/styled';
 
 // ----------------------------------------------------------------------
 
+
+const CustomSwitch = styled(Switch)(({ theme }: any) => ({
+  '& .MuiSwitch-thumb': {
+    backgroundColor: theme.palette.common.white,
+  },
+  '&.Mui-checked .MuiSwitch-thumb': {
+    backgroundColor: theme.palette.primary.main,
+  },
+  '&.Mui-checked': {
+    '& .MuiSwitch-track': {
+      backgroundColor: theme.palette.primary.light,
+    },
+  },
+}));
+
+
+
 export default function Header() {
   const theme = useTheme();
+  const settings = useSettingsContext();
 
   const mdUp = useResponsive('up', 'md');
 
@@ -59,13 +82,16 @@ export default function Header() {
           {mdUp && <NavDesktop data={navConfig} />}
 
           <Stack alignItems="center" direction={{ xs: 'row', md: 'row-reverse' }}>
-      
-            <SettingsButton
-              sx={{
-                ml: { xs: 1, md: 0 },
-                mr: { md: 2 },
-              }}
-            />
+
+            <m.div variants={varFade().inUp}>
+              <CustomSwitch
+                checked={settings.themeMode === 'dark'}
+                onChange={() =>
+                  settings.onUpdate('themeMode', settings.themeMode === 'light' ? 'dark' : 'light')
+                }
+                color="primary"
+              />
+            </m.div>
 
             {!mdUp && <NavMobile data={navConfig} />}
           </Stack>

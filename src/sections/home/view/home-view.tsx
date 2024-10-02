@@ -19,6 +19,7 @@ import ProgramCarousel from './program-carousel';
 import { tourData } from './helper';
 import InstagramGallery from './instagram-gallery';
 import StatusRound from './status-round';
+import HomeDarkMode from '../visa/home-dark-mode';
 
 // ----------------------------------------------------------------------
 
@@ -114,11 +115,10 @@ export default function HomeView() {
         }}
       >
         <Container maxWidth="lg">
-          
+
           <StatusRound />
         </Container>
 
-        <HomeMinimal />
 
         <Container maxWidth="xl">
 
@@ -147,19 +147,13 @@ export default function HomeView() {
                 <m.div variants={varFade().inDown}>
                   <Typography variant="h2">Our Top Destinations</Typography>
                 </m.div>
+
                 <m.div variants={varFade().inUp}>
-                  <Typography
-                    component="div"
-                    variant="overline"
-                    sx={{
-                      color: 'text.disabled',
-                      textTransform: 'capitalize',
-                      fontWeight: 'normal',
-                    }}
-                  >
+                  <Typography sx={{ color: 'grey.500' }}>
                     We offer creativity, adventure, culture, conservation in our trips.
                   </Typography>
                 </m.div>
+
               </Stack>
 
               <CardContent>
@@ -169,20 +163,23 @@ export default function HomeView() {
           </Box>
         </Container>
 
+
+
         <Container maxWidth="lg" sx={{ mb: 10 }}>
           <Stack
             spacing={3}
             sx={{
               textAlign: 'center',
               mb: { xs: 5, md: 10 },
-              mt: '102px',
+              mt: 8,
             }}
           >
             <m.div variants={varFade().inDown}>
               <Typography variant="h2">Featured Tours</Typography>
             </m.div>
+
             <m.div variants={varFade().inUp}>
-              <Typography component="div" variant="overline" sx={{ color: 'text.disabled' }}>
+              <Typography sx={{ color: 'grey.500' }}>
                 Our Featured Tours can help you find the trip thats perfect for you!
               </Typography>
             </m.div>
@@ -191,21 +188,9 @@ export default function HomeView() {
           <TourList tours={tourData?.slice(0, 9)} />
         </Container>
 
-        {/* <HomeHugePackElements /> */}
 
-        {/* <Box sx={{ position: 'relative' }}>
-          <StyledPolygon />
-          <HomeForDesigner />
-          <StyledPolygon anchor="bottom" />
-        </Box> */}
+        <HomeDarkMode />
 
-        {/* <HomeDarkMode />
-
-        <HomeColorPresets />
-
-        <HomeCleanInterfaces /> */}
-
-        <AboutTestimonials />
 
         <Container maxWidth="xl">
           <Box
@@ -226,22 +211,15 @@ export default function HomeView() {
                 sx={{
                   textAlign: 'center',
                   mb: { xs: 5, md: 5 },
-                  mt: 5,
+                  mt: 10,
                 }}
               >
                 <m.div variants={varFade().inDown}>
                   <Typography variant="h2">Programs We Provide</Typography>
                 </m.div>
+
                 <m.div variants={varFade().inUp}>
-                  <Typography
-                    component="div"
-                    variant="overline"
-                    sx={{
-                      color: 'text.disabled',
-                      textTransform: 'capitalize',
-                      fontWeight: 'normal',
-                    }}
-                  >
+                  <Typography sx={{ color: 'grey.500' }}>
                     Experience guided tours, cultural immersions, adventure activities, and
                     personalized itineraries for unforgettable travel experiences.
                   </Typography>
@@ -254,6 +232,9 @@ export default function HomeView() {
             </Card>
           </Box>
         </Container>
+
+        <HomeMinimal />
+        <AboutTestimonials />
 
         <HomePricing />
 
