@@ -18,27 +18,27 @@ export default function TermsView() {
         </Typography>
 
         <Typography variant="body1" paragraph>
-          <strong style={{ marginLeft: '20px' }}>• Zero Tolerance:</strong> We have a strict
+          <strong>• Zero Tolerance:</strong> We have a strict
           zero-tolerance policy for any form of abuse, including verbal, physical, emotional, or
           psychological abuse.
         </Typography>
         <Typography variant="body1" paragraph>
-          <strong style={{ marginLeft: '20px' }}>• Inclusive Safety:</strong> This policy applies to
+          <strong>• Inclusive Safety:</strong> This policy applies to
           all clients, including school groups, families, individual travelers, staff, and service
           providers.
         </Typography>
         <Typography variant="body1" paragraph>
-          <strong style={{ marginLeft: '20px' }}>• Professional Conduct:</strong> We expect all
+          <strong>• Professional Conduct:</strong> We expect all
           participants, staff, and partners to adhere to the highest standards of professional
           behavior and respect.
         </Typography>
         <Typography variant="body1" paragraph>
-          <strong style={{ marginLeft: '20px' }}>• Immediate Action:</strong> Any violation of this
+          <strong>• Immediate Action:</strong> Any violation of this
           policy will result in immediate action, which may include removal from the trip,
           contacting the authorities, and legal action if necessary.
         </Typography>
         <Typography variant="body1" paragraph>
-          <strong style={{ marginLeft: '20px' }}>• Priority on Well-being:</strong> The safety and
+          <strong>• Priority on Well-being:</strong> The safety and
           well-being of our clients is our top priority, and we strive to ensure all experiences are
           safe, positive, and respectful.
         </Typography>

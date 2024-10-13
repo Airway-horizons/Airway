@@ -97,7 +97,7 @@ export default function TourItem({ tour, onView }: any) {
     >
       <Stack flexGrow={1} sx={{ position: 'relative' }}>
         {renderPrice}
-       
+
         <Image
           alt={images[0]}
           src={images[0]}
@@ -175,14 +175,14 @@ export default function TourItem({ tour, onView }: any) {
           {item.label}
         </Stack>
       ))}
-       {/* {renderRating} */}
+      {/* {renderRating} */}
 
       <Box sx={{ mt: 2, display: 'flex', justifyContent: 'flex-end' }}>
         <Button
           size="small"
           variant="contained"
           onClick={() => onView()}
-          sx={{ height: 42, width: '50%', backgroundColor: '#FF5C37' }}
+          sx={{ height: 42, width: '50%', backgroundColor: '#FF5C37', boxShadow: "3px 7px 6px -4px rgba(255, 92, 55, 0.63)" }}
         >
           <Iconify icon="solar:eye-bold" style={{ marginRight: 10 }} />
           View Package

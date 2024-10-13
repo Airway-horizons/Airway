@@ -7,7 +7,6 @@ import { TourDetailsView } from 'src/sections/packages/view';
 
 export default function PackagesDetails() {
   const { id } = useParams();
-  console.log('🚀 ~ PackagesDetails ~ id:', id);
 
   return (
     <>

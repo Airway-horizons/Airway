@@ -4,7 +4,7 @@ export const socials = [
     name: 'FaceBook',
     icon: 'eva:facebook-fill',
     color: '#1877F2',
-    path: 'https://www.facebook.com/',
+    path: 'https://www.facebook.com/profile.php?id=61565804320732&mibextid=ZbWKwL',
   },
   {
     value: 'instagram',
@@ -18,15 +18,15 @@ export const socials = [
     name: 'Linkedin',
     icon: 'eva:linkedin-fill',
     color: '#007EBB',
-    path: 'https://www.linkedin.com/',
+    path: 'https://www.linkedin.com/company/airwayhorizons/',
   },
-  {
-    value: 'twitter',
-    name: 'Twitter',
-    icon: 'eva:twitter-fill',
-    color: '#00AAEC',
-    path: 'https://www.twitter.com/',
-  },
+  // {
+  //   value: 'twitter',
+  //   name: 'Twitter',
+  //   icon: 'eva:twitter-fill',
+  //   color: '#00AAEC',
+  //   path: 'https://www.twitter.com/',
+  // },
 ];
 
 export const TOUR_SERVICE_OPTIONS = [

@@ -6,11 +6,14 @@ import Container from '@mui/material/Container';
 import Grid from '@mui/material/Unstable_Grid2';
 import { useResponsive } from 'src/hooks/use-responsive';
 import Typography from '@mui/material/Typography';
+import Fab from '@mui/material/Fab';
 
 import { paths } from 'src/routes/paths';
 import { RouterLink } from 'src/routes/components';
 
 import Logo from 'src/components/logo';
+import BookModal from 'src/sections/packages/book-view/modal';
+import { useState } from 'react';
 
 // ----------------------------------------------------------------------
 
@@ -56,6 +59,13 @@ const LINKS = [
 
 export default function Footer() {
   const mdUp = useResponsive('up', 'md');
+  const [modal, openModal] = useState(false);
+
+
+  const handleOpen = () => openModal(true);
+  const handleClose = () => openModal(false);
+
+
 
   const mainFooter = (
     <Box
@@ -66,6 +76,31 @@ export default function Footer() {
       }}
     >
       <Divider />
+
+      <Fab color="primary" aria-label="add" onClick={handleOpen} sx={{
+        position: "fixed",
+        bottom: 15,
+        right: 10,
+        width: 175, borderRadius: 40,
+        background: "#fff",
+        color: "#0d5d54",
+        pr: 1,
+        border: "1px dashed #0d5d54bf",
+        "&:hover": {
+          background: "#fff",
+          color: "#0d5d54",
+          border: "1px solid #0d5d54bf",
+          boxShadow: "0 8px 16px 0 rgba(13, 93, 84, 0.24)"
+        }
+      }}>
+        <Box
+          component="img"
+          alt="book"
+          src={'/home/book.png'}
+          sx={{ width: 40, mr: 1 }}
+        />
+        Plan Your Trip
+      </Fab>
 
       <Container
         sx={{
@@ -134,6 +169,7 @@ export default function Footer() {
           © 2024. All rights reserved Airway Horizons
         </Typography>
       </Container>
+      {modal && <BookModal handleClose={handleClose} open={modal} name="" />}
     </Box>
   );
 

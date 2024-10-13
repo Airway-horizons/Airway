@@ -40,7 +40,7 @@ export default function HomePricing() {
               color="inherit"
               size="large"
               variant="contained"
-              href="mailto:admin@airwayhorizons.com?subject=[Feedback] from Customer"
+              href="mailto:info@airwayhorizons.com?subject=[Feedback] from Customer"
             >
               Contact us
             </Button>
@@ -53,7 +53,7 @@ export default function HomePricing() {
   return (
     <Box
       sx={{
-        py:10,
+        py: 10,
         bgcolor: (theme) => alpha(theme.palette.grey[500], 0.04),
       }}
     >
