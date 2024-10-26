@@ -57,6 +57,8 @@ export const paths: any = {
   },
   // AUTH
   auth: {
+    login: `${ROOTS.AUTH}/login`,
+    register: `${ROOTS.AUTH}/register`,
     amplify: {
       login: `${ROOTS.AUTH}/amplify/login`,
       verify: `${ROOTS.AUTH}/amplify/verify`,

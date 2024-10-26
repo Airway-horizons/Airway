@@ -1,6 +1,7 @@
 import { Navigate, useRoutes } from 'react-router-dom';
 import MainLayout from 'src/layouts/main';
 import Sitemap from 'src/Sitemap'; // Import the Sitemap component
+import { authRoutes } from './auth';
 
 import { HomePage, mainRoutes } from './main';
 
@@ -19,7 +20,7 @@ export default function Router() {
     },
 
     ...mainRoutes,
-
+    ...authRoutes,
     // Add the sitemap route
     {
       path: '/sitemap.xml',

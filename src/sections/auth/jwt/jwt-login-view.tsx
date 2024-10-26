@@ -4,7 +4,6 @@ import { useForm } from 'react-hook-form';
 import { yupResolver } from '@hookform/resolvers/yup';
 
 import Link from '@mui/material/Link';
-import Alert from '@mui/material/Alert';
 import Stack from '@mui/material/Stack';
 import IconButton from '@mui/material/IconButton';
 import Typography from '@mui/material/Typography';
@@ -78,7 +77,7 @@ export default function JwtLoginView() {
       <Stack direction="row" spacing={0.5}>
         <Typography variant="body2">New user?</Typography>
 
-        <Link component={RouterLink} href={paths.auth.jwt.register} variant="subtitle2">
+        <Link component={RouterLink} href={paths.auth.register} variant="subtitle2">
           Create an account
         </Link>
       </Stack>
@@ -115,6 +114,7 @@ export default function JwtLoginView() {
         type="submit"
         variant="contained"
         loading={isSubmitting}
+        sx={{ backgroundColor: "#0d5d54" }}
       >
         Login
       </LoadingButton>
@@ -125,15 +125,6 @@ export default function JwtLoginView() {
     <>
       {renderHead}
 
-      <Alert severity="info" sx={{ mb: 3 }}>
-        Use email : <strong>demo@.cc</strong> / password :<strong> demo1234</strong>
-      </Alert>
-
-      {!!errorMsg && (
-        <Alert severity="error" sx={{ mb: 3 }}>
-          {errorMsg}
-        </Alert>
-      )}
 
       <FormProvider methods={methods} onSubmit={onSubmit}>
         {renderForm}

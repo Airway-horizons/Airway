@@ -10,6 +10,7 @@ import { useOffSetTop } from 'src/hooks/use-off-set-top';
 import { useResponsive } from 'src/hooks/use-responsive';
 
 import { bgBlur } from 'src/theme/css';
+import { useRouter } from 'src/routes/hooks';
 
 import Logo from 'src/components/logo';
 
@@ -21,8 +22,9 @@ import HeaderShadow from '../common/header-shadow';
 import SettingsButton from '../common/settings-button';
 import { useSettingsContext } from 'src/components/settings';
 import { varFade, MotionViewport } from 'src/components/animate';
-import { Switch, Typography } from '@mui/material';
+import { Button, Switch, Typography } from '@mui/material';
 import styled from '@emotion/styled';
+import { paths } from 'src/routes/paths';
 
 // ----------------------------------------------------------------------
 
@@ -45,11 +47,16 @@ const CustomSwitch = styled(Switch)(({ theme }: any) => ({
 
 export default function Header() {
   const theme = useTheme();
+  const router = useRouter();
   const settings = useSettingsContext();
 
   const mdUp = useResponsive('up', 'md');
 
   const offsetTop = useOffSetTop(HEADER.H_DESKTOP);
+
+
+  const handleLogin = () => router.push(paths.auth.login);
+
 
   return (
     <AppBar>
@@ -92,6 +99,7 @@ export default function Header() {
                 color="primary"
               />
             </m.div>
+            <Button variant="contained" color="primary" sx={{ mr: 2, ml: 1 }} onClick={handleLogin}>Login</Button>
 
             {!mdUp && <NavMobile data={navConfig} />}
           </Stack>
