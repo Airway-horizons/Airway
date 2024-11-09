@@ -2,6 +2,9 @@ import * as Yup from 'yup';
 import { useState } from 'react';
 import { useForm } from 'react-hook-form';
 import { yupResolver } from '@hookform/resolvers/yup';
+import { useRouter, useSearchParams } from 'src/routes/hooks';
+import { useBoolean } from 'src/hooks/use-boolean';
+import { useAddUserMutation } from 'src/store/usersApi';
 
 import Link from '@mui/material/Link';
 import Alert from '@mui/material/Alert';
@@ -13,12 +16,6 @@ import InputAdornment from '@mui/material/InputAdornment';
 
 import { paths } from 'src/routes/paths';
 import { RouterLink } from 'src/routes/components';
-import { useRouter, useSearchParams } from 'src/routes/hooks';
-
-import { useBoolean } from 'src/hooks/use-boolean';
-
-import { useAuthContext } from 'src/auth/hooks';
-import { PATH_AFTER_LOGIN } from 'src/config-global';
 
 import Iconify from 'src/components/iconify';
 import FormProvider, { RHFTextField } from 'src/components/hook-form';
@@ -26,23 +23,25 @@ import FormProvider, { RHFTextField } from 'src/components/hook-form';
 // ----------------------------------------------------------------------
 
 export default function Register() {
-
   const router = useRouter();
+  const searchParams = useSearchParams();
+  const returnTo = searchParams.get('returnTo');
+  const password = useBoolean();
 
   const [errorMsg, setErrorMsg] = useState('');
 
-  const searchParams = useSearchParams();
-
-  const returnTo = searchParams.get('returnTo');
-
-  const password = useBoolean();
-
+  // Validation schema
   const RegisterSchema = Yup.object().shape({
     name: Yup.string().required('Name required'),
     email: Yup.string().required('Email is required').email('Email must be a valid email address'),
-    password: Yup.string().required('Password is required'),
+    password: Yup.string().required('Password is required')
+      .min(8, 'Password must be at least 8 characters long')
+      .matches(/[a-z]/, 'Password must contain at least one lowercase letter')
+      .matches(/[A-Z]/, 'Password must contain at least one uppercase letter')
+      .matches(/[0-9]/, 'Password must contain at least one number')
   });
 
+  // Default form values
   const defaultValues = {
     name: '',
     email: '',
@@ -60,18 +59,26 @@ export default function Register() {
     formState: { isSubmitting },
   } = methods;
 
+  const [signup, { isLoading, error }] = useAddUserMutation();
+
+  // Handle form submit
   const onSubmit = handleSubmit(async (data) => {
+    setErrorMsg("")
     try {
-      router.push(returnTo || PATH_AFTER_LOGIN);
-    } catch (error) {
-      console.error(error);
-      reset();
-      setErrorMsg(typeof error === 'string' ? error : error.message);
+      const response: any = await signup(data).unwrap();
+      if (response?.statusCode === 200) {
+        setTimeout(() => {
+          router.push(paths.auth.login);
+        }, 1000);
+      }
+    } catch (err: any) {
+      console.error(err);
+      setErrorMsg(err.message || 'An error occurred while signing up.');
     }
   });
 
   const renderHead = (
-    <Stack spacing={2} sx={{ mb: 5, position: 'relative' }}>
+    <Stack spacing={2} sx={{ mb: !!errorMsg ? 3 : 5, position: 'relative' }}>
       <Typography variant="h4">Get started absolutely free</Typography>
 
       <Stack direction="row" spacing={0.5}>
@@ -108,11 +115,8 @@ export default function Register() {
 
   const renderForm = (
     <Stack spacing={2.5}>
-
       <RHFTextField name="name" label="Name" />
-
       <RHFTextField name="email" label="Email address" />
-
       <RHFTextField
         name="password"
         label="Password"
@@ -127,14 +131,14 @@ export default function Register() {
           ),
         }}
       />
-
       <LoadingButton
         fullWidth
         color="primary"
         size="large"
         type="submit"
         variant="contained"
-        loading={isSubmitting}
+        loading={isLoading || isSubmitting} // Show loading state
+        disabled={isLoading} // Disable button when submitting
       >
         Create account
       </LoadingButton>
@@ -146,7 +150,7 @@ export default function Register() {
       {renderHead}
 
       {!!errorMsg && (
-        <Alert severity="error" sx={{ m: 3 }}>
+        <Alert severity="error" sx={{ mb: 4 }}>
           {errorMsg}
         </Alert>
       )}

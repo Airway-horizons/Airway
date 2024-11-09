@@ -15,36 +15,34 @@ import { RouterLink } from 'src/routes/components';
 import { useRouter, useSearchParams } from 'src/routes/hooks';
 
 import { useBoolean } from 'src/hooks/use-boolean';
-
-import { useAuthContext } from 'src/auth/hooks';
-import { PATH_AFTER_LOGIN } from 'src/config-global';
+import { useLoginMutation } from 'src/store/usersApi'; // Import useLoginMutation hook
 
 import Iconify from 'src/components/iconify';
 import FormProvider, { RHFTextField } from 'src/components/hook-form';
+import { Alert } from '@mui/material';
 
 // ----------------------------------------------------------------------
 
 export default function Login() {
-  const { login } = useAuthContext();
-
   const router = useRouter();
-
-  const [errorMsg, setErrorMsg] = useState('');
-
   const searchParams = useSearchParams();
-
-  const returnTo = searchParams.get('returnTo');
-
+  const returnTo = searchParams.get('returnTo'); // If user is redirected here after trying to access a protected page
+  const [errorMsg, setErrorMsg] = useState('');
   const password = useBoolean();
 
+  // Validation schema using Yup
   const LoginSchema = Yup.object().shape({
     email: Yup.string().required('Email is required').email('Email must be a valid email address'),
-    password: Yup.string().required('Password is required'),
+    password: Yup.string().required('Password is required')
+      .min(8, 'Password must be at least 8 characters long')
+      .matches(/[a-z]/, 'Password must contain at least one lowercase letter')
+      .matches(/[A-Z]/, 'Password must contain at least one uppercase letter')
+      .matches(/[0-9]/, 'Password must contain at least one number')
   });
 
   const defaultValues = {
-    email: 'demo@.cc',
-    password: 'demo1234',
+    email: '',
+    password: '',
   };
 
   const methods = useForm({
@@ -52,31 +50,32 @@ export default function Login() {
     defaultValues,
   });
 
-  const {
-    reset,
-    handleSubmit,
-    formState: { isSubmitting },
-  } = methods;
+  const { reset, handleSubmit, formState: { isSubmitting } } = methods;
+
+  // Using RTK Query hook for login mutation
+  const [login, { isLoading, error }] = useLoginMutation();
 
   const onSubmit = handleSubmit(async (data) => {
+    setErrorMsg("")
     try {
-      await login?.(data.email, data.password);
+      const response: any = await login(data).unwrap();
+      if (response?.statusCode === 200) {
+        localStorage.setItem('userData', response);
+      }
 
-      router.push(returnTo || PATH_AFTER_LOGIN);
-    } catch (error) {
-      console.error(error);
-      reset();
-      setErrorMsg(typeof error === 'string' ? error : error.message);
+      // router.push(returnTo || paths.dashboard);
+
+    } catch (err: any) {
+      setErrorMsg(err?.message || 'Failed to login. Please check your credentials.');
+      // reset();
     }
   });
 
   const renderHead = (
-    <Stack spacing={2} sx={{ mb: 5 }}>
+    <Stack spacing={2} sx={{ mb: !!errorMsg ? 3 : 7 }}>
       <Typography variant="h4">Sign in to Airway Horizons</Typography>
-
       <Stack direction="row" spacing={0.5}>
         <Typography variant="body2">New user?</Typography>
-
         <Link component={RouterLink} href={paths.auth.register} variant="subtitle2">
           Create an account
         </Link>
@@ -103,7 +102,14 @@ export default function Login() {
         }}
       />
 
-      <Link component={RouterLink} href={paths.auth.forgot} variant="body2" color="inherit" underline="always" sx={{ alignSelf: 'flex-end', cursor: "pointer" }}>
+      <Link
+        component={RouterLink}
+        href={paths.auth.forgot}
+        variant="body2"
+        color="inherit"
+        underline="always"
+        sx={{ alignSelf: 'flex-end', cursor: 'pointer' }}
+      >
         Forgot password?
       </Link>
 
@@ -113,8 +119,8 @@ export default function Login() {
         size="large"
         type="submit"
         variant="contained"
-        loading={isSubmitting}
-        sx={{ backgroundColor: "#0d5d54" }}
+        loading={isSubmitting || isLoading} // Show loading while submitting or waiting for API response
+        sx={{ backgroundColor: '#0d5d54' }}
       >
         Login
       </LoadingButton>
@@ -125,6 +131,11 @@ export default function Login() {
     <>
       {renderHead}
 
+      {!!errorMsg && (
+        <Alert severity="error" sx={{ mb: 4 }}>
+          {errorMsg}
+        </Alert>
+      )}
 
       <FormProvider methods={methods} onSubmit={onSubmit}>
         {renderForm}

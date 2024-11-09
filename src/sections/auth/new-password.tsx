@@ -21,20 +21,27 @@ import { NewPasswordIcon } from 'src/assets/icons';
 import Iconify from 'src/components/iconify';
 import FormProvider, { RHFTextField } from 'src/components/hook-form';
 
+// Import the mutation hook
+import { useUpdateUserMutation } from 'src/store/usersApi';
+
 // ----------------------------------------------------------------------
 
 export default function NewPassword() {
   const router = useRouter();
 
-  const [errorMsg, setErrorMsg] = useState('');
+  const [errorMsg, setErrorMsg] = useState<string>('');
 
   const { updatePassword } = useAuthContext();
 
   const password = useBoolean();
 
+  // Password validation schema with custom rules
   const NewPasswordSchema = Yup.object().shape({
     password: Yup.string()
-      .min(6, 'Password must be at least 6 characters')
+      .min(8, 'Password must be at least 8 characters long')
+      .matches(/[a-z]/, 'Password must contain at least one lowercase letter')
+      .matches(/[A-Z]/, 'Password must contain at least one uppercase letter')
+      .matches(/[0-9]/, 'Password must contain at least one number')
       .required('Password is required'),
     confirmPassword: Yup.string()
       .required('Confirm password is required')
@@ -60,10 +67,16 @@ export default function NewPassword() {
 
   const onSubmit = handleSubmit(async (data) => {
     try {
-      await updatePassword?.(data.password);
+      // Using the update password mutation hook (you should call the mutation here)
+      const response: any = await updatePassword?.(data.password);
 
-      router.push(paths.dashboard.root);
-    } catch (error) {
+      // On success, redirect the user to the login page
+      if (response?.statusCode === 200) {
+        router.push(paths.auth.login);
+      } else {
+        setErrorMsg('Failed to update password. Please try again.');
+      }
+    } catch (error: any) {
       console.error(error);
       reset();
       setErrorMsg(typeof error === 'string' ? error : error.message);
@@ -88,7 +101,7 @@ export default function NewPassword() {
     <Stack spacing={3}>
       <RHFTextField
         name="password"
-        label="Confirm Password"
+        label="Password"
         type={password.value ? 'text' : 'password'}
         InputProps={{
           endAdornment: (
@@ -103,7 +116,7 @@ export default function NewPassword() {
 
       <RHFTextField
         name="confirmPassword"
-        label="Password"
+        label="Confirm Password"
         type={password.value ? 'text' : 'password'}
         InputProps={{
           endAdornment: (
@@ -132,6 +145,7 @@ export default function NewPassword() {
     <>
       {renderHead}
 
+      {/* Show error message if there is an error */}
       {!!errorMsg && (
         <Alert severity="error" sx={{ textAlign: 'left', mb: 3 }}>
           {errorMsg}

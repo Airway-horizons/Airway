@@ -1,32 +1,12 @@
 // src/services/api.ts
-
-import { createApi, fetchBaseQuery } from '@reduxjs/toolkit/query/react';
-import axiosInstance from './axiosInstance';
-
-// Base API configuration using axios
-const axiosBaseQuery =
-  ({ baseUrl }: { baseUrl: any }) =>
-  async ({ url, method, data }: { url: string; method: string; data?: any }) => {
-    try {
-      const response = await axiosInstance({
-        url: `${baseUrl}${url}`,
-        method,
-        data,
-      });
-      return { data: response.data };
-    } catch (error) {
-      return {
-        error: {
-          status: error.response?.status || 500,
-          message: error.response?.data?.message || 'An error occurred',
-        },
-      };
-    }
-  };
+import { createApi } from '@reduxjs/toolkit/query/react';
+import { axiosBaseQuery } from './axiosInstance'; // Import the new axiosBaseQuery
 
 // Creating the base API
 export const api = createApi({
   reducerPath: 'api',
-  baseQuery: axiosBaseQuery({ baseUrl: '' }), // Pass baseURL from .env
+  baseQuery: axiosBaseQuery, // Use the baseQuery function directly from axiosInstance
   endpoints: () => ({}), // Empty at the moment, will inject endpoints dynamically
 });
+
+export default api;

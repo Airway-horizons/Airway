@@ -6,23 +6,28 @@ import Link from '@mui/material/Link';
 import Stack from '@mui/material/Stack';
 import Typography from '@mui/material/Typography';
 import LoadingButton from '@mui/lab/LoadingButton';
+import Alert from '@mui/material/Alert';
+import { PasswordIcon } from 'src/assets/icons';
 
 import { paths } from 'src/routes/paths';
 import { useRouter } from 'src/routes/hooks';
 import { RouterLink } from 'src/routes/components';
 
-import { useAuthContext } from 'src/auth/hooks';
-import { PasswordIcon } from 'src/assets/icons';
+import { useForgetUserMutation } from 'src/store/usersApi'; // Import the forgetUser mutation
 
 import Iconify from 'src/components/iconify';
 import FormProvider, { RHFTextField } from 'src/components/hook-form';
+import { useState } from 'react';
 
 // ----------------------------------------------------------------------
 
 export default function ForgotPassword() {
-  const { forgotPassword } = useAuthContext();
-
   const router = useRouter();
+
+  // Initialize the forgetUser mutation hook
+  const [forgetUser, { isLoading }] = useForgetUserMutation();
+
+  const [errorMsg, setErrorMsg] = useState<string>('');
 
   const ForgotPasswordSchema = Yup.object().shape({
     email: Yup.string().required('Email is required').email('Email must be a valid email address'),
@@ -42,19 +47,21 @@ export default function ForgotPassword() {
     formState: { isSubmitting },
   } = methods;
 
+
   const onSubmit = handleSubmit(async (data) => {
+    setErrorMsg("")
     try {
-      await forgotPassword?.(data.email);
+      const response: any = await forgetUser(data.email).unwrap();
+      if (response?.statusCode === 200) {
+        const searchParams = new URLSearchParams({
+          email: data.email,
+        }).toString();
+        const href = `${paths.auth.verify}?${searchParams}`;
+        router.push(href);
+      }
 
-      const searchParams = new URLSearchParams({
-        email: data.email,
-      }).toString();
-
-      const href = `${paths.auth.verify}?${searchParams}`;
-
-      router.push(href);
-    } catch (error) {
-      console.error(error);
+    } catch (err: any) {
+      setErrorMsg(err?.message || 'Failed to send reset link.');
     }
   });
 
@@ -67,7 +74,7 @@ export default function ForgotPassword() {
         size="large"
         type="submit"
         variant="contained"
-        loading={isSubmitting}
+        loading={isSubmitting || isLoading}
       >
         Send Request
       </LoadingButton>
@@ -92,7 +99,7 @@ export default function ForgotPassword() {
     <>
       <PasswordIcon sx={{ height: 96 }} />
 
-      <Stack spacing={1} sx={{ mt: 3, mb: 5 }}>
+      <Stack spacing={1} sx={{ mt: 3, mb: !!errorMsg ? 3 : 5, }}>
         <Typography variant="h3">Forgot your password?</Typography>
 
         <Typography variant="body2" sx={{ color: 'text.secondary' }}>
@@ -103,9 +110,17 @@ export default function ForgotPassword() {
     </>
   );
 
+
   return (
     <>
       {renderHead}
+
+      {/* Show error message if there is an error */}
+      {!!errorMsg && (
+        <Alert severity="error" sx={{ mb: 4 }}>
+          {errorMsg}
+        </Alert>
+      )}
 
       <FormProvider methods={methods} onSubmit={onSubmit}>
         {renderForm}

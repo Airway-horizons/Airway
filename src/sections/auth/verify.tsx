@@ -1,5 +1,5 @@
 import * as Yup from 'yup';
-import { useCallback } from 'react';
+import { useCallback, useState, useEffect } from 'react';
 import { useForm } from 'react-hook-form';
 import { yupResolver } from '@hookform/resolvers/yup';
 
@@ -7,6 +7,7 @@ import Link from '@mui/material/Link';
 import Stack from '@mui/material/Stack';
 import Typography from '@mui/material/Typography';
 import LoadingButton from '@mui/lab/LoadingButton';
+import Alert from '@mui/material/Alert'; // Import Alert for displaying error/success messages
 
 import { paths } from 'src/routes/paths';
 import { RouterLink } from 'src/routes/components';
@@ -18,20 +19,31 @@ import { useAuthContext } from 'src/auth/hooks';
 import { EmailInboxIcon } from 'src/assets/icons';
 
 import Iconify from 'src/components/iconify';
-import FormProvider, { RHFCode, RHFTextField } from 'src/components/hook-form';
+import FormProvider, { RHFCode } from 'src/components/hook-form';
+
+// Import the mutation hook
+import { useVerifyMutation, useForgetUserMutation } from 'src/store/usersApi';
 
 // ----------------------------------------------------------------------
 
 export default function Verify() {
   const router = useRouter();
-
   const searchParams = useSearchParams();
-
   const email = searchParams.get('email');
 
-  const { confirmRegister, resendCodeRegister } = useAuthContext();
+  useEffect(() => {
+    if (!email) {
+      router.push(paths.auth.login);
+    }
+  }, [email, router]);
+
+
+  const [errorMsg, setErrorMsg] = useState<string>('');
 
   const { countdown, counting, startCountdown } = useCountdownSeconds(60);
+
+  const [verifyUser, { isLoading: isVerifying, isError: verifyError }] = useVerifyMutation();
+  const [resendCode, { isLoading: isResending, isError: resendError }] = useForgetUserMutation();
 
   const VerifySchemaSchema = Yup.object().shape({
     code: Yup.string().min(6, 'Code must be at least 6 characters').required('Code is required'),
@@ -57,27 +69,30 @@ export default function Verify() {
 
   const values = watch();
 
+  // Handle form submission to verify the code
   const onSubmit = handleSubmit(async (data) => {
     try {
-      await confirmRegister?.(data.email, data.code);
+      await verifyUser(data).unwrap();
       router.push(paths.auth.login);
-    } catch (error) {
-      console.error(error);
+    } catch (error: any) {
+      console.error('Verification failed:', error);
+      setErrorMsg(error?.message || 'Verification failed. Please try again.');
     }
   });
 
+  // Handle the resend code button
   const handleResendCode = useCallback(async () => {
     try {
       startCountdown();
-      await resendCodeRegister?.(values.email);
+      await resendCode(values.email).unwrap();
     } catch (error) {
-      console.error(error);
+      console.error('Resend failed:', error);
+      setErrorMsg('Failed to resend the verification code.');
     }
-  }, [resendCodeRegister, startCountdown, values.email]);
+  }, [startCountdown, resendCode, values.email]);
 
   const renderForm = (
     <Stack spacing={3} alignItems="center">
-
       <RHFCode name="code" />
 
       <LoadingButton
@@ -85,7 +100,7 @@ export default function Verify() {
         size="large"
         type="submit"
         variant="contained"
-        loading={isSubmitting}
+        loading={isSubmitting || isVerifying}
       >
         Verify
       </LoadingButton>
@@ -131,8 +146,7 @@ export default function Verify() {
         <Typography variant="h3">Please check your email!</Typography>
 
         <Typography variant="body2" sx={{ color: 'text.secondary' }}>
-          We have emailed a 6-digit confirmation code to acb@domain, please enter the code in below
-          box to verify your email.
+          We have emailed a 6-digit confirmation code to {email}, please enter the code in the box below to verify your email.
         </Typography>
       </Stack>
     </>
@@ -141,6 +155,20 @@ export default function Verify() {
   return (
     <>
       {renderHead}
+
+      {/* Show error message if there is an error */}
+      {!!errorMsg && (
+        <Alert severity="error" sx={{ mb: 4 }}>
+          {errorMsg}
+        </Alert>
+      )}
+
+      {/* Show success message when reset is successful */}
+      {verifyError && (
+        <Alert severity="error" sx={{ mb: 4 }}>
+          There was an issue verifying the code. Please try again.
+        </Alert>
+      )}
 
       <FormProvider methods={methods} onSubmit={onSubmit}>
         {renderForm}

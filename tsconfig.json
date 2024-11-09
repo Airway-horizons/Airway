@@ -7,6 +7,9 @@
       "dom.iterable",
       "esnext"
     ],
+    "types": [
+      "vite/client"
+    ],
     "strict": true,
     "noEmit": true,
     "allowJs": true,
