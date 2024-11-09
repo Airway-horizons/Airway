@@ -1,6 +1,6 @@
 import { Helmet } from 'react-helmet-async';
 
-import { FirebaseLoginView } from 'src/sections/auth/firebase';
+import { Login } from 'src/sections/auth';
 
 // ----------------------------------------------------------------------
 
@@ -8,10 +8,10 @@ export default function LoginPage() {
   return (
     <>
       <Helmet>
-        <title> Firebase: Login</title>
+        <title> Airway Horizons: Login</title>
       </Helmet>
 
-      <FirebaseLoginView />
+      <Login />
     </>
   );
 }

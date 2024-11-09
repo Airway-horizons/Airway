@@ -1,6 +1,6 @@
 import { Helmet } from 'react-helmet-async';
 
-import { SupabaseNewPasswordView } from 'src/sections/auth/supabase';
+import { NewPassword } from 'src/sections/auth';
 
 // ----------------------------------------------------------------------
 
@@ -8,10 +8,10 @@ export default function NewPasswordPage() {
   return (
     <>
       <Helmet>
-        <title> Supabase: New Password</title>
+        <title> Airway Horizons: New Password</title>
       </Helmet>
 
-      <SupabaseNewPasswordView />
+      <NewPassword />
     </>
   );
 }

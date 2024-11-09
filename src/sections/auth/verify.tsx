@@ -22,7 +22,7 @@ import FormProvider, { RHFCode, RHFTextField } from 'src/components/hook-form';
 
 // ----------------------------------------------------------------------
 
-export default function AmplifyVerifyView() {
+export default function Verify() {
   const router = useRouter();
 
   const searchParams = useSearchParams();
@@ -77,12 +77,6 @@ export default function AmplifyVerifyView() {
 
   const renderForm = (
     <Stack spacing={3} alignItems="center">
-      <RHFTextField
-        name="email"
-        label="Email"
-        placeholder="example@gmail.com"
-        InputLabelProps={{ shrink: true }}
-      />
 
       <RHFCode name="code" />
 

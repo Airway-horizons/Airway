@@ -1,17 +1,17 @@
 import { Helmet } from 'react-helmet-async';
 
-import { SupabaseRegisterView } from 'src/sections/auth/supabase';
+import { ForgotPassword } from 'src/sections/auth';
 
 // ----------------------------------------------------------------------
 
-export default function RegisterPage() {
+export default function ForgotPasswordPage() {
   return (
     <>
       <Helmet>
-        <title> Supabase: Register</title>
+        <title> Airway Horizons: Forgot Password</title>
       </Helmet>
 
-      <SupabaseRegisterView />
+      <ForgotPassword />
     </>
   );
 }

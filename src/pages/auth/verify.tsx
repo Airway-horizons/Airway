@@ -1,17 +1,17 @@
 import { Helmet } from 'react-helmet-async';
 
-import { AmplifyRegisterView } from 'src/sections/auth/amplify';
+import { Verify } from 'src/sections/auth';
 
 // ----------------------------------------------------------------------
 
-export default function RegisterPage() {
+export default function VerifyPage() {
   return (
     <>
       <Helmet>
-        <title> Amplify: Register</title>
+        <title> Airway Horizons: Verify</title>
       </Helmet>
 
-      <AmplifyRegisterView />
+      <Verify />
     </>
   );
 }

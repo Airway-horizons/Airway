@@ -6,44 +6,45 @@ import { yupResolver } from '@hookform/resolvers/yup';
 import Link from '@mui/material/Link';
 import Alert from '@mui/material/Alert';
 import Stack from '@mui/material/Stack';
-import Divider from '@mui/material/Divider';
 import IconButton from '@mui/material/IconButton';
 import Typography from '@mui/material/Typography';
 import LoadingButton from '@mui/lab/LoadingButton';
 import InputAdornment from '@mui/material/InputAdornment';
 
 import { paths } from 'src/routes/paths';
-import { useRouter } from 'src/routes/hooks';
 import { RouterLink } from 'src/routes/components';
+import { useRouter, useSearchParams } from 'src/routes/hooks';
 
 import { useBoolean } from 'src/hooks/use-boolean';
 
 import { useAuthContext } from 'src/auth/hooks';
+import { PATH_AFTER_LOGIN } from 'src/config-global';
 
 import Iconify from 'src/components/iconify';
 import FormProvider, { RHFTextField } from 'src/components/hook-form';
 
 // ----------------------------------------------------------------------
 
-export default function FirebaseRegisterView() {
-  const { register, loginWithGoogle, loginWithGithub, loginWithTwitter } = useAuthContext();
+export default function Register() {
+
+  const router = useRouter();
 
   const [errorMsg, setErrorMsg] = useState('');
 
-  const router = useRouter();
+  const searchParams = useSearchParams();
+
+  const returnTo = searchParams.get('returnTo');
 
   const password = useBoolean();
 
   const RegisterSchema = Yup.object().shape({
-    firstName: Yup.string().required('First name required'),
-    lastName: Yup.string().required('Last name required'),
+    name: Yup.string().required('Name required'),
     email: Yup.string().required('Email is required').email('Email must be a valid email address'),
     password: Yup.string().required('Password is required'),
   });
 
   const defaultValues = {
-    firstName: '',
-    lastName: '',
+    name: '',
     email: '',
     password: '',
   };
@@ -61,44 +62,13 @@ export default function FirebaseRegisterView() {
 
   const onSubmit = handleSubmit(async (data) => {
     try {
-      await register?.(data.email, data.password, data.firstName, data.lastName);
-      const searchParams = new URLSearchParams({
-        email: data.email,
-      }).toString();
-
-      const href = `${paths.auth.firebase.verify}?${searchParams}`;
-
-      router.push(href);
+      router.push(returnTo || PATH_AFTER_LOGIN);
     } catch (error) {
       console.error(error);
       reset();
       setErrorMsg(typeof error === 'string' ? error : error.message);
     }
   });
-
-  const handleGoogleLogin = async () => {
-    try {
-      await loginWithGoogle?.();
-    } catch (error) {
-      console.error(error);
-    }
-  };
-
-  const handleGithubLogin = async () => {
-    try {
-      await loginWithGithub?.();
-    } catch (error) {
-      console.error(error);
-    }
-  };
-
-  const handleTwitterLogin = async () => {
-    try {
-      await loginWithTwitter?.();
-    } catch (error) {
-      console.error(error);
-    }
-  };
 
   const renderHead = (
     <Stack spacing={2} sx={{ mb: 5, position: 'relative' }}>
@@ -107,7 +77,7 @@ export default function FirebaseRegisterView() {
       <Stack direction="row" spacing={0.5}>
         <Typography variant="body2"> Already have an account? </Typography>
 
-        <Link href={paths.auth.firebase.login} component={RouterLink} variant="subtitle2">
+        <Link href={paths.auth.login} component={RouterLink} variant="subtitle2">
           Sign in
         </Link>
       </Stack>
@@ -125,11 +95,11 @@ export default function FirebaseRegisterView() {
       }}
     >
       {'By signing up, I agree to '}
-      <Link underline="always" color="text.primary">
+      <Link href={paths.terms} component={RouterLink} underline="always" color="text.primary" >
         Terms of Service
       </Link>
       {' and '}
-      <Link underline="always" color="text.primary">
+      <Link href={paths.privacy} component={RouterLink} underline="always" color="text.primary">
         Privacy Policy
       </Link>
       .
@@ -138,10 +108,8 @@ export default function FirebaseRegisterView() {
 
   const renderForm = (
     <Stack spacing={2.5}>
-      <Stack direction={{ xs: 'column', sm: 'row' }} spacing={2}>
-        <RHFTextField name="firstName" label="First name" />
-        <RHFTextField name="lastName" label="Last name" />
-      </Stack>
+
+      <RHFTextField name="name" label="Name" />
 
       <RHFTextField name="email" label="Email address" />
 
@@ -162,7 +130,7 @@ export default function FirebaseRegisterView() {
 
       <LoadingButton
         fullWidth
-        color="inherit"
+        color="primary"
         size="large"
         type="submit"
         variant="contained"
@@ -173,43 +141,12 @@ export default function FirebaseRegisterView() {
     </Stack>
   );
 
-  const renderLoginOption = (
-    <div>
-      <Divider
-        sx={{
-          my: 2.5,
-          typography: 'overline',
-          color: 'text.disabled',
-          '&:before, :after': {
-            borderTopStyle: 'dashed',
-          },
-        }}
-      >
-        OR
-      </Divider>
-
-      <Stack direction="row" justifyContent="center" spacing={2}>
-        <IconButton onClick={handleGoogleLogin}>
-          <Iconify icon="eva:google-fill" color="#DF3E30" />
-        </IconButton>
-
-        <IconButton color="inherit" onClick={handleGithubLogin}>
-          <Iconify icon="eva:github-fill" />
-        </IconButton>
-
-        <IconButton onClick={handleTwitterLogin}>
-          <Iconify icon="eva:twitter-fill" color="#1C9CEA" />
-        </IconButton>
-      </Stack>
-    </div>
-  );
-
   return (
     <>
       {renderHead}
 
       {!!errorMsg && (
-        <Alert severity="error" sx={{ mb: 3 }}>
+        <Alert severity="error" sx={{ m: 3 }}>
           {errorMsg}
         </Alert>
       )}
@@ -219,8 +156,6 @@ export default function FirebaseRegisterView() {
       </FormProvider>
 
       {renderTerms}
-
-      {renderLoginOption}
     </>
   );
 }

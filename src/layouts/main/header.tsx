@@ -56,6 +56,7 @@ export default function Header() {
 
 
   const handleLogin = () => router.push(paths.auth.login);
+  const handleRegister = () => router.push(paths.auth.register);
 
 
   return (
@@ -88,7 +89,8 @@ export default function Header() {
 
           {mdUp && <NavDesktop data={navConfig} />}
 
-          <Stack alignItems="center" direction={{ xs: 'row', md: 'row-reverse' }}>
+          <Stack alignItems="center" direction={{ xs: 'row' }}>
+
 
             <m.div variants={varFade().inUp}>
               <CustomSwitch
@@ -99,9 +101,14 @@ export default function Header() {
                 color="primary"
               />
             </m.div>
-            <Button variant="contained" color="primary" sx={{ mr: 2, ml: 1 }} onClick={handleLogin}>Login</Button>
+            {mdUp && <>
+              <Button variant="contained" color="primary" sx={{ mr: 2, ml: 1 }} onClick={handleLogin}>Login</Button>
+              <Button variant="outlined" color="primary" sx={{ mr: 2, ml: 1 }} onClick={handleRegister}>Register</Button>
+            </>}
 
-            {!mdUp && <NavMobile data={navConfig} />}
+
+
+            {!mdUp && <NavMobile data={navConfig} handleLogin={handleLogin} handleRegister={handleRegister} />}
           </Stack>
         </Container>
       </Toolbar>
