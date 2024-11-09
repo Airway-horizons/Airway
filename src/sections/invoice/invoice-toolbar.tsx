@@ -75,7 +75,7 @@ export default function InvoiceToolbar({
             fileName={invoice.invoiceNumber}
             style={{ textDecoration: 'none' }}
           >
-            {({ loading }) => (
+            {/* {({ loading }: any) => (
               <Tooltip title="Download">
                 <IconButton>
                   {loading ? (
@@ -85,7 +85,7 @@ export default function InvoiceToolbar({
                   )}
                 </IconButton>
               </Tooltip>
-            )}
+            )} */}
           </PDFDownloadLink>
 
           <Tooltip title="Print">

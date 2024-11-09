@@ -84,7 +84,7 @@ export const mainRoutes = [
   //   ),
   //   children: [
   //     { path: 'pricing', element: <PricingPage /> },
-  //     { path: 'payment', element: <PaymentPage /> },
+  // { path: 'payment', element: <PaymentPage /> },
   //   ],
   // },
   {

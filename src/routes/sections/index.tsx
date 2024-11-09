@@ -4,6 +4,7 @@ import Sitemap from 'src/Sitemap'; // Import the Sitemap component
 import { authRoutes } from './auth';
 
 import { HomePage, mainRoutes } from './main';
+import { dashboardRoutes } from './dashboard';
 
 // ----------------------------------------------------------------------
 
@@ -21,6 +22,7 @@ export default function Router() {
 
     ...mainRoutes,
     ...authRoutes,
+    ...dashboardRoutes,
     // Add the sitemap route
     {
       path: '/sitemap.xml',
