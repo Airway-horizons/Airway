@@ -60,7 +60,7 @@ export default function Verify() {
   const onSubmit = handleSubmit(async (data) => {
     try {
       await confirmRegister?.(data.email, data.code);
-      router.push(paths.auth.amplify.login);
+      router.push(paths.auth.login);
     } catch (error) {
       console.error(error);
     }
@@ -109,7 +109,7 @@ export default function Verify() {
 
       <Link
         component={RouterLink}
-        href={paths.auth.amplify.login}
+        href={paths.auth.login}
         color="inherit"
         variant="subtitle2"
         sx={{

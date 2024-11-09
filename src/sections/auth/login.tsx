@@ -103,7 +103,7 @@ export default function Login() {
         }}
       />
 
-      <Link variant="body2" color="inherit" underline="always" sx={{ alignSelf: 'flex-end' }}>
+      <Link component={RouterLink} href={paths.auth.forgot} variant="body2" color="inherit" underline="always" sx={{ alignSelf: 'flex-end', cursor: "pointer" }}>
         Forgot password?
       </Link>
 

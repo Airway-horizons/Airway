@@ -40,6 +40,13 @@ export const paths: any = {
   minimalUI: '',
   freeUI: '',
   figma: '',
+  auth: {
+    login: `${ROOTS.AUTH}/login`,
+    register: `${ROOTS.AUTH}/register`,
+    reset: `${ROOTS.AUTH}/reset-password`,
+    forgot: `${ROOTS.AUTH}/forgot-password`,
+    verify: `${ROOTS.AUTH}/verify`,
+  },
   product: {
     root: `/product`,
     checkout: `/product/checkout`,
@@ -53,38 +60,6 @@ export const paths: any = {
     details: (title: string) => `/post/${paramCase(title)}`,
     demo: {
       details: `/post/${paramCase(MOCK_TITLE)}`,
-    },
-  },
-  // AUTH
-  auth: {
-    login: `${ROOTS.AUTH}/login`,
-    register: `${ROOTS.AUTH}/register`,
-    amplify: {
-      login: `${ROOTS.AUTH}/amplify/login`,
-      verify: `${ROOTS.AUTH}/amplify/verify`,
-      register: `${ROOTS.AUTH}/amplify/register`,
-      newPassword: `${ROOTS.AUTH}/amplify/new-password`,
-      forgotPassword: `${ROOTS.AUTH}/amplify/forgot-password`,
-    },
-    jwt: {
-      login: `${ROOTS.AUTH}/jwt/login`,
-      register: `${ROOTS.AUTH}/jwt/register`,
-    },
-    firebase: {
-      login: `${ROOTS.AUTH}/firebase/login`,
-      verify: `${ROOTS.AUTH}/firebase/verify`,
-      register: `${ROOTS.AUTH}/firebase/register`,
-      forgotPassword: `${ROOTS.AUTH}/firebase/forgot-password`,
-    },
-    auth0: {
-      login: `${ROOTS.AUTH}/auth0/login`,
-    },
-    supabase: {
-      login: `${ROOTS.AUTH}/supabase/login`,
-      verify: `${ROOTS.AUTH}/supabase/verify`,
-      register: `${ROOTS.AUTH}/supabase/register`,
-      newPassword: `${ROOTS.AUTH}/supabase/new-password`,
-      forgotPassword: `${ROOTS.AUTH}/supabase/forgot-password`,
     },
   },
   authDemo: {

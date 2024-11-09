@@ -211,7 +211,7 @@ export function AuthProvider({ children }: Props) {
   // FORGOT PASSWORD
   const forgotPassword = useCallback(async (email: string) => {
     const { error } = await supabase.auth.resetPasswordForEmail(email, {
-      redirectTo: `${window.location.origin}${paths.auth.supabase.newPassword}`,
+      redirectTo: `${window.location.origin}${paths.auth.reset}`,
     });
 
     if (error) {

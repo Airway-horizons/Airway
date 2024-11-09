@@ -50,7 +50,7 @@ export default function ForgotPassword() {
         email: data.email,
       }).toString();
 
-      const href = `${paths.auth.supabase.verify}?${searchParams}`;
+      const href = `${paths.auth.verify}?${searchParams}`;
 
       router.push(href);
     } catch (error) {
@@ -74,7 +74,7 @@ export default function ForgotPassword() {
 
       <Link
         component={RouterLink}
-        href={paths.auth.supabase.login}
+        href={paths.auth.login}
         color="inherit"
         variant="subtitle2"
         sx={{
