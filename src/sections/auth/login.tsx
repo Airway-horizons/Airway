@@ -1,5 +1,6 @@
 import * as Yup from 'yup';
 import { useState } from 'react';
+import { Alert } from '@mui/material';
 import { useForm } from 'react-hook-form';
 import { yupResolver } from '@hookform/resolvers/yup';
 
@@ -19,7 +20,7 @@ import { useLoginMutation } from 'src/store/usersApi'; // Import useLoginMutatio
 
 import Iconify from 'src/components/iconify';
 import FormProvider, { RHFTextField } from 'src/components/hook-form';
-import { Alert } from '@mui/material';
+import { localStorageUtil, role } from 'src/utils/helper';
 
 // ----------------------------------------------------------------------
 
@@ -50,21 +51,23 @@ export default function Login() {
     defaultValues,
   });
 
-  const { reset, handleSubmit, formState: { isSubmitting } } = methods;
+  const { handleSubmit, formState: { isSubmitting } } = methods;
 
-  // Using RTK Query hook for login mutation
-  const [login, { isLoading, error }] = useLoginMutation();
+  const [login, { isLoading }] = useLoginMutation();
 
   const onSubmit = handleSubmit(async (data) => {
     setErrorMsg("")
     try {
       const response: any = await login(data).unwrap();
       if (response?.statusCode === 200) {
-        localStorage.setItem('userData', response);
+        localStorageUtil.setItem("airWayData", response);
+        console.log("🚀 ~ onSubmit ~ response:", response?.data?.role === role?.admin)
+        if (response?.data?.role === role?.admin) {
+          router.push(paths.dashboard?.root);
+        } else {
+          router.push(paths.home);
+        }
       }
-
-      // router.push(returnTo || paths.dashboard);
-
     } catch (err: any) {
       setErrorMsg(err?.message || 'Failed to login. Please check your credentials.');
       // reset();

@@ -19,6 +19,9 @@ export const usersApi = api.injectEndpoints({
     verify: builder.mutation({
       query: (data: any) => ({ url: 'api/users/verify', method: 'POST', data }),
     }),
+    newPassword: builder.mutation({
+      query: (data: any) => ({ url: 'api/users/new-password', method: 'POST', data }),
+    }),
     deleteUser: builder.mutation({
       query: (id: any) => ({ url: `api/users/delete/${id}`, method: 'DELETE' }),
     }),
@@ -36,6 +39,7 @@ export const {
   useLoginMutation,
   useAddUserMutation,
   useForgetUserMutation,
+  useNewPasswordMutation,
   useVerifyMutation,
   useDeleteUserMutation,
   useUpdateUserMutation,
