@@ -25,6 +25,8 @@ import { varFade, MotionViewport } from 'src/components/animate';
 import { Button, Switch, Typography } from '@mui/material';
 import styled from '@emotion/styled';
 import { paths } from 'src/routes/paths';
+import { localStorageUtil } from 'src/utils/helper';
+import AccountPopover from '../common/account-popover';
 
 // ----------------------------------------------------------------------
 
@@ -49,6 +51,7 @@ export default function Header() {
   const theme = useTheme();
   const router = useRouter();
   const settings = useSettingsContext();
+  const token: any = localStorageUtil.getItem('airWayData');
 
   const mdUp = useResponsive('up', 'md');
 
@@ -101,14 +104,15 @@ export default function Header() {
                 color="primary"
               />
             </m.div>
-            {mdUp && <>
+            {token && <AccountPopover id={token?.data?.id} />}
+
+            {mdUp && !token && <>
               <Button variant="contained" color="primary" sx={{ mr: 2, ml: 1 }} onClick={handleLogin}>Login</Button>
               <Button variant="outlined" color="primary" sx={{ mr: 2, ml: 1 }} onClick={handleRegister}>Register</Button>
             </>}
 
 
-
-            {!mdUp && <NavMobile data={navConfig} handleLogin={handleLogin} handleRegister={handleRegister} />}
+            {!mdUp && <NavMobile data={navConfig} handleLogin={handleLogin} handleRegister={handleRegister} token={!!token} />}
           </Stack>
         </Container>
       </Toolbar>

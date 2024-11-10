@@ -15,7 +15,7 @@ import { Button } from '@mui/material';
 
 // ----------------------------------------------------------------------
 
-export default function NavMobile({ data, handleLogin, handleRegister }: any) {
+export default function NavMobile({ data, handleLogin, handleRegister, token }: any) {
   const pathname = usePathname();
 
   const [openMenu, setOpenMenu] = useState(false);
@@ -59,9 +59,10 @@ export default function NavMobile({ data, handleLogin, handleRegister }: any) {
           ))}
 
         </Scrollbar>
-
-        <Button variant="contained" color="primary" sx={{ mx: 1 }} onClick={handleLogin}>Login</Button>
-        <Button variant="outlined" color="primary" sx={{ mt: 2, mx: 1 }} onClick={handleRegister}>Register</Button>
+        {!token && <>
+          <Button variant="contained" color="primary" sx={{ mx: 1 }} onClick={handleLogin}>Login</Button>
+          <Button variant="outlined" color="primary" sx={{ mt: 2, mx: 1 }} onClick={handleRegister}>Register</Button>
+        </>}
       </Drawer>
     </>
   );

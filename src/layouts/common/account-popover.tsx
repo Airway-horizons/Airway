@@ -19,28 +19,31 @@ import { useAuthContext } from 'src/auth/hooks';
 import { varHover } from 'src/components/animate';
 import { useSnackbar } from 'src/components/snackbar';
 import CustomPopover, { usePopover } from 'src/components/custom-popover';
+import { useGetUserByIdQuery } from 'src/store/usersApi';
 
 // ----------------------------------------------------------------------
 
 const OPTIONS = [
   {
-    label: 'Home',
-    linkTo: '/',
-  },
-  {
     label: 'Profile',
     linkTo: paths.dashboard.user.profile,
   },
   {
-    label: 'Settings',
+    label: 'Booking',
     linkTo: paths.dashboard.user.account,
+  },
+  {
+    label: 'Change Password',
+    linkTo: '/',
   },
 ];
 
 // ----------------------------------------------------------------------
 
-export default function AccountPopover() {
+export default function AccountPopover({ id }: any) {
   const router = useRouter();
+  const { data, isLoading, error } = useGetUserByIdQuery(id);
+  console.log("🚀 ~ AccountPopover ~ data:", data)
 
   const { user } = useMockedUser();
 

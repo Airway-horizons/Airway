@@ -26,7 +26,12 @@ export const usersApi = api.injectEndpoints({
       query: (id: any) => ({ url: `api/users/delete/${id}`, method: 'DELETE' }),
     }),
     updateUser: builder.mutation({
-      query: ({ id, data }: any) => ({ url: `api/users/update/${id}`, method: 'PATCH', data }),
+      query: ({ id, data }: any) => ({
+        url: `api/users/update/${id}`,
+        method: 'PATCH',
+        data,
+        formUpload: true,
+      }),
     }),
     getUserById: builder.query({
       query: (id: any) => ({ url: `api/users/${id}`, method: 'GET' }),

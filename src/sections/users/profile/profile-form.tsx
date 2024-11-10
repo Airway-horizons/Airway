@@ -1,45 +1,38 @@
 import * as Yup from 'yup';
-import { useMemo, useCallback, useEffect } from 'react';
-import { useForm, Controller } from 'react-hook-form';
+import { useMemo, useCallback, useEffect, useState } from 'react';
+import { useForm } from 'react-hook-form';
 import { yupResolver } from '@hookform/resolvers/yup';
 
 import Box from '@mui/material/Box';
 import Card from '@mui/material/Card';
 import Stack from '@mui/material/Stack';
-import Button from '@mui/material/Button';
-import Switch from '@mui/material/Switch';
 import Grid from '@mui/material/Unstable_Grid2';
 import Typography from '@mui/material/Typography';
 import LoadingButton from '@mui/lab/LoadingButton';
-import FormControlLabel from '@mui/material/FormControlLabel';
 import Skeleton from '@mui/material/Skeleton';
 
-import { paths } from 'src/routes/paths';
+
 import { useRouter } from 'src/routes/hooks';
 import { useSnackbar } from 'src/components/snackbar';
 
 import { fData } from 'src/utils/format-number';
 import { countries } from 'src/assets/data';
-import Label from 'src/components/label';
 import FormProvider, { RHFTextField, RHFUploadAvatar, RHFAutocomplete } from 'src/components/hook-form';
-
-import { IUserItem } from 'src/types/user';
 
 import { useGetUserByIdQuery, useUpdateUserMutation } from 'src/store/usersApi';
 
 // ----------------------------------------------------------------------
 
 type Props = {
-  currentUser?: IUserItem;
   id: any;
 };
 
-export default function ProfileForm({ currentUser, id }: Props) {
-  console.log("🚀 ~ ProfileForm ~ id:", id)
+export default function ProfileForm({ id }: Props) {
   const router = useRouter();
+  const [upload, setUpload] = useState<any>(null)
+  console.log("🚀 ~ ProfileForm ~ upload:", upload)
   const { enqueueSnackbar } = useSnackbar();
 
-  // Step 1: Validation schema for the form
   const NewUserSchema = Yup.object().shape({
     name: Yup.string().required('Name is required'),
     email: Yup.string().required('Email is required').email('Email must be a valid email address'),
@@ -52,13 +45,11 @@ export default function ProfileForm({ currentUser, id }: Props) {
     profile: Yup.mixed<any>().nullable(),
   });
 
-  // Step 2: Fetch user data with RTK Query
   const { data, isLoading, error } = useGetUserByIdQuery(id);
   const [updateUser, { isLoading: isUpdating }] = useUpdateUserMutation();
 
   const userData: any = data;
 
-  // Step 3: Set default values when data is fetched and reset the form
   const defaultValues: any = useMemo(() => ({
     name: userData?.data?.name || '',
     city: userData?.data?.city || '',
@@ -78,26 +69,21 @@ export default function ProfileForm({ currentUser, id }: Props) {
 
   const {
     reset,
-    watch,
     control,
     setValue,
     handleSubmit,
     formState: { isSubmitting },
   } = methods;
 
-  const values = watch();
 
-  // Use `useEffect` to reset the form data when `userData` changes
   useEffect(() => {
     if (userData) {
       reset(defaultValues);
     }
   }, [userData, reset, defaultValues]);
 
-  // Step 4: Form submission handler
   const onSubmit = handleSubmit(async (data) => {
     try {
-      // Create FormData for file upload
       const formData = new FormData();
       formData.append('name', data.name);
       formData.append('phone', data.phone);
@@ -107,8 +93,8 @@ export default function ProfileForm({ currentUser, id }: Props) {
       formData.append('city', data.city);
       formData.append('zipcode', data.zipcode);
 
-      if (data.profile) {
-        formData.append('profile', data.avatarUrl[0]);
+      if (upload) {
+        formData.append('profilePicture', upload);
       }
 
       const res: any = await updateUser({ id, data: formData }).unwrap();
@@ -130,6 +116,7 @@ export default function ProfileForm({ currentUser, id }: Props) {
 
       if (file) {
         setValue('profile', newFile, { shouldValidate: true });
+        setUpload(file)
       }
     },
     [setValue]
