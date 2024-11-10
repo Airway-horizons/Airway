@@ -1,5 +1,5 @@
 import * as Yup from 'yup';
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import { useForm } from 'react-hook-form';
 import { yupResolver } from '@hookform/resolvers/yup';
 
@@ -11,27 +11,29 @@ import LoadingButton from '@mui/lab/LoadingButton';
 import InputAdornment from '@mui/material/InputAdornment';
 
 import { paths } from 'src/routes/paths';
-import { useRouter } from 'src/routes/hooks';
+import { useRouter, useSearchParams } from 'src/routes/hooks';
 
 import { useBoolean } from 'src/hooks/use-boolean';
 
-import { useAuthContext } from 'src/auth/hooks';
 import { NewPasswordIcon } from 'src/assets/icons';
 
 import Iconify from 'src/components/iconify';
 import FormProvider, { RHFTextField } from 'src/components/hook-form';
 
 // Import the mutation hook
-import { useUpdateUserMutation } from 'src/store/usersApi';
+import { useUpdateUserMutation, useVerifyMutation } from 'src/store/usersApi';
 
 // ----------------------------------------------------------------------
 
 export default function NewPassword() {
   const router = useRouter();
+  const searchParams = useSearchParams();
+  const email = searchParams.get('email');
+  const otp = searchParams.get('otp');
 
   const [errorMsg, setErrorMsg] = useState<string>('');
 
-  const { updatePassword } = useAuthContext();
+  const [updatePassword] = useUpdateUserMutation();
 
   const password = useBoolean();
 
@@ -47,6 +49,13 @@ export default function NewPassword() {
       .required('Confirm password is required')
       .oneOf([Yup.ref('password')], 'Passwords must match'),
   });
+
+  useEffect(() => {
+    if (!email && !otp) {
+      router.push(paths.auth.login);
+    }
+  }, [email, otp, router]);
+
 
   const defaultValues = {
     password: '',
@@ -66,18 +75,20 @@ export default function NewPassword() {
   } = methods;
 
   const onSubmit = handleSubmit(async (data) => {
+    setErrorMsg("")
+    const body = {
+      email,
+      password: data.password,
+      otp,
+    }
     try {
-      // Using the update password mutation hook (you should call the mutation here)
-      const response: any = await updatePassword?.(data.password);
-
-      // On success, redirect the user to the login page
+      const response: any = await updatePassword?.(body).unwrap();
       if (response?.statusCode === 200) {
         router.push(paths.auth.login);
       } else {
         setErrorMsg('Failed to update password. Please try again.');
       }
     } catch (error: any) {
-      console.error(error);
       reset();
       setErrorMsg(typeof error === 'string' ? error : error.message);
     }
@@ -87,7 +98,7 @@ export default function NewPassword() {
     <>
       <NewPasswordIcon sx={{ height: 96 }} />
 
-      <Stack spacing={1} sx={{ mt: 3, mb: 5 }}>
+      <Stack spacing={1} sx={{ mt: 3, mb: !!errorMsg ? 2 : 5 }}>
         <Typography variant="h3">New Password</Typography>
 
         <Typography variant="body2" sx={{ color: 'text.secondary' }}>
@@ -134,6 +145,7 @@ export default function NewPassword() {
         type="submit"
         size="large"
         variant="contained"
+        color="primary"
         loading={isSubmitting}
       >
         Update Password

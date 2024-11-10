@@ -43,15 +43,15 @@ export default function Verify() {
   const { countdown, counting, startCountdown } = useCountdownSeconds(60);
 
   const [verifyUser, { isLoading: isVerifying, isError: verifyError }] = useVerifyMutation();
-  const [resendCode, { isLoading: isResending, isError: resendError }] = useForgetUserMutation();
+  const [resendCode] = useForgetUserMutation();
 
   const VerifySchemaSchema = Yup.object().shape({
-    code: Yup.string().min(6, 'Code must be at least 6 characters').required('Code is required'),
+    otp: Yup.string().min(6, 'Code must be at least 6 characters').required('Code is required'),
     email: Yup.string().required('Email is required').email('Email must be a valid email address'),
   });
 
   const defaultValues = {
-    code: '',
+    otp: '',
     email: email || '',
   };
 
@@ -71,9 +71,18 @@ export default function Verify() {
 
   // Handle form submission to verify the code
   const onSubmit = handleSubmit(async (data) => {
+    setErrorMsg("")
     try {
-      await verifyUser(data).unwrap();
-      router.push(paths.auth.login);
+      const response: any = await verifyUser(data).unwrap();
+
+      if (response?.statusCode === 200) {
+        const searchParams = new URLSearchParams({
+          email: data.email,
+          otp: data.otp
+        }).toString();
+        const href = `${paths.auth.reset}?${searchParams}`;
+        router.push(href);
+      }
     } catch (error: any) {
       console.error('Verification failed:', error);
       setErrorMsg(error?.message || 'Verification failed. Please try again.');
@@ -84,7 +93,7 @@ export default function Verify() {
   const handleResendCode = useCallback(async () => {
     try {
       startCountdown();
-      await resendCode(values.email).unwrap();
+      await resendCode(values?.email).unwrap();
     } catch (error) {
       console.error('Resend failed:', error);
       setErrorMsg('Failed to resend the verification code.');
@@ -93,12 +102,13 @@ export default function Verify() {
 
   const renderForm = (
     <Stack spacing={3} alignItems="center">
-      <RHFCode name="code" />
+      <RHFCode name="otp" />
 
       <LoadingButton
         fullWidth
         size="large"
         type="submit"
+        color="primary"
         variant="contained"
         loading={isSubmitting || isVerifying}
       >
@@ -142,7 +152,7 @@ export default function Verify() {
     <>
       <EmailInboxIcon sx={{ height: 96 }} />
 
-      <Stack spacing={1} sx={{ mt: 3, mb: 5 }}>
+      <Stack spacing={1} sx={{ mt: 3, mb: !!errorMsg ? 2 : 5 }}>
         <Typography variant="h3">Please check your email!</Typography>
 
         <Typography variant="body2" sx={{ color: 'text.secondary' }}>
