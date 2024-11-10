@@ -41,6 +41,7 @@ export const paths: any = {
   minimalUI: '',
   freeUI: '',
   figma: '',
+  profile: (id: string) => `/profile/${id}`,
   auth: {
     login: `${ROOTS.AUTH}/login`,
     register: `${ROOTS.AUTH}/register`,

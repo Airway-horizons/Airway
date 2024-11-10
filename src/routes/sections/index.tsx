@@ -5,6 +5,7 @@ import { authRoutes } from './auth';
 
 import { HomePage, mainRoutes } from './main';
 import { dashboardRoutes } from './dashboard';
+import ProfilePage from 'src/pages/users/profile/profile-page';
 
 // ----------------------------------------------------------------------
 
@@ -24,6 +25,10 @@ export default function Router() {
     ...authRoutes,
     ...dashboardRoutes,
     // Add the sitemap route
+    {
+      path: '/profile/:id',
+      element: <MainLayout><ProfilePage /></MainLayout>,
+    },
     {
       path: '/sitemap.xml',
       element: <Sitemap />,

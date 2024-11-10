@@ -61,7 +61,6 @@ export default function Login() {
       const response: any = await login(data).unwrap();
       if (response?.statusCode === 200) {
         localStorageUtil.setItem("airWayData", response);
-        console.log("🚀 ~ onSubmit ~ response:", response?.data?.role === role?.admin)
         if (response?.data?.role === role?.admin) {
           router.push(paths.dashboard?.root);
         } else {
@@ -70,7 +69,6 @@ export default function Login() {
       }
     } catch (err: any) {
       setErrorMsg(err?.message || 'Failed to login. Please check your credentials.');
-      // reset();
     }
   });
 
