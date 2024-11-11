@@ -22,6 +22,9 @@ export const usersApi = api.injectEndpoints({
     newPassword: builder.mutation({
       query: (data: any) => ({ url: 'api/users/change-password', method: 'POST', data }),
     }),
+    reSentOtp: builder.mutation({
+      query: (data: any) => ({ url: 'api/users/resent-otp', method: 'POST', data }),
+    }),
     deleteUser: builder.mutation({
       query: (id: any) => ({ url: `api/users/delete/${id}`, method: 'DELETE' }),
     }),
@@ -45,6 +48,7 @@ export const {
   useAddUserMutation,
   useForgetUserMutation,
   useNewPasswordMutation,
+  useReSentOtpMutation,
   useVerifyMutation,
   useDeleteUserMutation,
   useUpdateUserMutation,

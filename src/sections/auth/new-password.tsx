@@ -22,6 +22,7 @@ import FormProvider, { RHFTextField } from 'src/components/hook-form';
 
 // Import the mutation hook
 import { useNewPasswordMutation } from 'src/store/usersApi';
+import { useSnackbar } from 'notistack';
 
 // ----------------------------------------------------------------------
 
@@ -30,6 +31,7 @@ export default function NewPassword() {
   const searchParams = useSearchParams();
   const email = searchParams.get('email');
   const otp = searchParams.get('otp');
+  const { enqueueSnackbar } = useSnackbar();
 
   const [errorMsg, setErrorMsg] = useState<string>('');
 
@@ -84,6 +86,7 @@ export default function NewPassword() {
     try {
       const response: any = await updatePassword?.(body).unwrap();
       if (response?.statusCode === 200) {
+        enqueueSnackbar('Password Updated Successfully');
         router.push(paths.auth.login);
       } else {
         setErrorMsg('Failed to update password. Please try again.');

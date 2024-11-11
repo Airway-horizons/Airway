@@ -15,14 +15,14 @@ import { useRouter, useSearchParams } from 'src/routes/hooks';
 
 import { useCountdownSeconds } from 'src/hooks/use-countdown';
 
-import { useAuthContext } from 'src/auth/hooks';
 import { EmailInboxIcon } from 'src/assets/icons';
 
 import Iconify from 'src/components/iconify';
 import FormProvider, { RHFCode } from 'src/components/hook-form';
 
 // Import the mutation hook
-import { useVerifyMutation, useForgetUserMutation } from 'src/store/usersApi';
+import { useVerifyMutation, useReSentOtpMutation } from 'src/store/usersApi';
+import { useSnackbar } from 'notistack';
 
 // ----------------------------------------------------------------------
 
@@ -30,6 +30,7 @@ export default function Verify() {
   const router = useRouter();
   const searchParams = useSearchParams();
   const email = searchParams.get('email');
+  const { enqueueSnackbar } = useSnackbar();
 
   useEffect(() => {
     if (!email) {
@@ -43,7 +44,7 @@ export default function Verify() {
   const { countdown, counting, startCountdown } = useCountdownSeconds(60);
 
   const [verifyUser, { isLoading: isVerifying, isError: verifyError }] = useVerifyMutation();
-  const [resendCode] = useForgetUserMutation();
+  const [resendCode] = useReSentOtpMutation();
 
   const VerifySchemaSchema = Yup.object().shape({
     otp: Yup.string().min(6, 'Code must be at least 6 characters').required('Code is required'),
@@ -76,6 +77,7 @@ export default function Verify() {
       const response: any = await verifyUser(data).unwrap();
 
       if (response?.statusCode === 200) {
+        enqueueSnackbar('Otp Verification Successfully');
         const searchParams = new URLSearchParams({
           email: data.email,
           otp: data.otp
@@ -92,7 +94,10 @@ export default function Verify() {
   const handleResendCode = useCallback(async () => {
     try {
       startCountdown();
-      await resendCode(values?.email).unwrap();
+      const response: any = await resendCode({ email: values?.email }).unwrap();
+      if (response?.statusCode === 200) {
+        enqueueSnackbar('Resent Otp Successfully');
+      }
     } catch (error) {
       console.error('Resend failed:', error);
       setErrorMsg('Failed to resend the verification code.');

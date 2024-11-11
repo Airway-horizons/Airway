@@ -19,13 +19,14 @@ import { RouterLink } from 'src/routes/components';
 
 import Iconify from 'src/components/iconify';
 import FormProvider, { RHFTextField } from 'src/components/hook-form';
+import { useSnackbar } from 'notistack';
 
 // ----------------------------------------------------------------------
 
 export default function Register() {
   const router = useRouter();
   const searchParams = useSearchParams();
-  const returnTo = searchParams.get('returnTo');
+  const { enqueueSnackbar } = useSnackbar();
   const password = useBoolean();
 
   const [errorMsg, setErrorMsg] = useState('');
@@ -67,6 +68,7 @@ export default function Register() {
     try {
       const response: any = await signup(data).unwrap();
       if (response?.statusCode === 200) {
+        enqueueSnackbar('User Register Successfully');
         setTimeout(() => {
           router.push(paths.auth.login);
         }, 1000);

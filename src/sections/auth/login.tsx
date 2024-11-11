@@ -21,6 +21,7 @@ import { useLoginMutation } from 'src/store/usersApi'; // Import useLoginMutatio
 import Iconify from 'src/components/iconify';
 import FormProvider, { RHFTextField } from 'src/components/hook-form';
 import { localStorageUtil, role } from 'src/utils/helper';
+import { useSnackbar } from 'notistack';
 
 // ----------------------------------------------------------------------
 
@@ -30,6 +31,7 @@ export default function Login() {
   const returnTo = searchParams.get('returnTo'); // If user is redirected here after trying to access a protected page
   const [errorMsg, setErrorMsg] = useState('');
   const password = useBoolean();
+  const { enqueueSnackbar } = useSnackbar();
 
   // Validation schema using Yup
   const LoginSchema = Yup.object().shape({
@@ -60,6 +62,7 @@ export default function Login() {
     try {
       const response: any = await login(data).unwrap();
       if (response?.statusCode === 200) {
+        enqueueSnackbar('Login Successfully');
         localStorageUtil.setItem("airWayData", response);
         if (response?.data?.role === role?.admin) {
           router.push(paths.dashboard?.root);

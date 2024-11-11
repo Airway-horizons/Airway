@@ -18,11 +18,13 @@ import { useForgetUserMutation } from 'src/store/usersApi'; // Import the forget
 import Iconify from 'src/components/iconify';
 import FormProvider, { RHFTextField } from 'src/components/hook-form';
 import { useState } from 'react';
+import { useSnackbar } from 'notistack';
 
 // ----------------------------------------------------------------------
 
 export default function ForgotPassword() {
   const router = useRouter();
+  const { enqueueSnackbar } = useSnackbar();
 
   // Initialize the forgetUser mutation hook
   const [forgetUser, { isLoading }] = useForgetUserMutation();
@@ -53,6 +55,7 @@ export default function ForgotPassword() {
     try {
       const response: any = await forgetUser({ email: data?.email }).unwrap();
       if (response?.statusCode === 200) {
+        enqueueSnackbar('Otp Send Successfully! Check Your Mail');
         const searchParams = new URLSearchParams({
           email: data.email,
         }).toString();
