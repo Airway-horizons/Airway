@@ -23,27 +23,31 @@ import { useGetUserByIdQuery } from 'src/store/usersApi';
 
 // ----------------------------------------------------------------------
 
-const OPTIONS = [
-  {
-    label: 'Profile',
-    linkTo: paths.dashboard.user.profile,
-  },
-  {
-    label: 'Booking',
-    linkTo: paths.dashboard.user.account,
-  },
-  {
-    label: 'Change Password',
-    linkTo: '/',
-  },
-];
 
 // ----------------------------------------------------------------------
 
 export default function AccountPopover({ id }: any) {
   const router = useRouter();
   const { data, isLoading, error } = useGetUserByIdQuery(id);
-  console.log("🚀 ~ AccountPopover ~ data:", data)
+
+  const userData: any = data
+  console.log("🚀 ~ AccountPopover ~ userData:", userData)
+
+  const OPTIONS = [
+    {
+      label: 'Profile',
+      linkTo: paths.profile(id),
+    },
+    {
+      label: 'Booking',
+      linkTo: paths.dashboard.user.account,
+    },
+    {
+      label: 'Change Password',
+      linkTo: '/',
+    },
+  ];
+
 
   const { user } = useMockedUser();
 
@@ -88,7 +92,7 @@ export default function AccountPopover({ id }: any) {
         }}
       >
         <Avatar
-          src={user?.photoURL}
+          src={userData?.data?.profile}
           alt={user?.displayName}
           sx={{
             width: 36,
@@ -96,18 +100,18 @@ export default function AccountPopover({ id }: any) {
             border: (theme) => `solid 2px ${theme.palette.background.default}`,
           }}
         >
-          {user?.displayName?.charAt(0).toUpperCase()}
+          {userData?.data?.name?.charAt(0).toUpperCase() ?? ""}
         </Avatar>
       </IconButton>
 
       <CustomPopover open={popover.open} onClose={popover.onClose} sx={{ width: 200, p: 0 }}>
         <Box sx={{ p: 2, pb: 1.5 }}>
           <Typography variant="subtitle2" noWrap>
-            {user?.displayName}
+            {userData?.data?.name}
           </Typography>
 
           <Typography variant="body2" sx={{ color: 'text.secondary' }} noWrap>
-            {user?.email}
+            {userData?.data?.email}
           </Typography>
         </Box>
 
