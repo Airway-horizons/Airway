@@ -17,10 +17,10 @@ export const usersApi = api.injectEndpoints({
       query: (data: any) => ({ url: 'api/users/forget', method: 'POST', data }),
     }),
     verify: builder.mutation({
-      query: (data: any) => ({ url: 'api/users/verify', method: 'POST', data }),
+      query: (data: any) => ({ url: 'api/users/verify-otp', method: 'POST', data }),
     }),
     newPassword: builder.mutation({
-      query: (data: any) => ({ url: 'api/users/new-password', method: 'POST', data }),
+      query: (data: any) => ({ url: 'api/users/change-password', method: 'POST', data }),
     }),
     deleteUser: builder.mutation({
       query: (id: any) => ({ url: `api/users/delete/${id}`, method: 'DELETE' }),

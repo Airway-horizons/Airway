@@ -51,7 +51,7 @@ export default function ForgotPassword() {
   const onSubmit = handleSubmit(async (data) => {
     setErrorMsg("")
     try {
-      const response: any = await forgetUser(data.email).unwrap();
+      const response: any = await forgetUser({ email: data?.email }).unwrap();
       if (response?.statusCode === 200) {
         const searchParams = new URLSearchParams({
           email: data.email,

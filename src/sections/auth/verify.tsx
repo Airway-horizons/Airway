@@ -84,7 +84,6 @@ export default function Verify() {
         router.push(href);
       }
     } catch (error: any) {
-      console.error('Verification failed:', error);
       setErrorMsg(error?.message || 'Verification failed. Please try again.');
     }
   });
@@ -170,13 +169,6 @@ export default function Verify() {
       {!!errorMsg && (
         <Alert severity="error" sx={{ mb: 4 }}>
           {errorMsg}
-        </Alert>
-      )}
-
-      {/* Show success message when reset is successful */}
-      {verifyError && (
-        <Alert severity="error" sx={{ mb: 4 }}>
-          There was an issue verifying the code. Please try again.
         </Alert>
       )}
 

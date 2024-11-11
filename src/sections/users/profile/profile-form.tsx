@@ -30,7 +30,6 @@ type Props = {
 export default function ProfileForm({ id }: Props) {
   const router = useRouter();
   const [upload, setUpload] = useState<any>(null)
-  console.log("🚀 ~ ProfileForm ~ upload:", upload)
   const { enqueueSnackbar } = useSnackbar();
 
   const NewUserSchema = Yup.object().shape({

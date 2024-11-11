@@ -21,7 +21,7 @@ import Iconify from 'src/components/iconify';
 import FormProvider, { RHFTextField } from 'src/components/hook-form';
 
 // Import the mutation hook
-import { useUpdateUserMutation, useVerifyMutation } from 'src/store/usersApi';
+import { useNewPasswordMutation } from 'src/store/usersApi';
 
 // ----------------------------------------------------------------------
 
@@ -33,7 +33,7 @@ export default function NewPassword() {
 
   const [errorMsg, setErrorMsg] = useState<string>('');
 
-  const [updatePassword] = useUpdateUserMutation();
+  const [updatePassword] = useNewPasswordMutation();
 
   const password = useBoolean();
 
@@ -78,7 +78,7 @@ export default function NewPassword() {
     setErrorMsg("")
     const body = {
       email,
-      password: data.password,
+      password: data?.password,
       otp,
     }
     try {
