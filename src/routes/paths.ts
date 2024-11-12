@@ -42,6 +42,7 @@ export const paths: any = {
   freeUI: '',
   figma: '',
   profile: (id: string) => `/profile/${id}`,
+  booking: (id: string) => `/booking/${id}`,
   auth: {
     login: `${ROOTS.AUTH}/login`,
     register: `${ROOTS.AUTH}/register`,

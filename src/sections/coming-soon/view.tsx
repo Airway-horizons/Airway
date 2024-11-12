@@ -18,7 +18,7 @@ import Iconify from 'src/components/iconify';
 // ----------------------------------------------------------------------
 
 export default function ComingSoonView() {
-  const { days, hours, minutes, seconds } = useCountdownDate(new Date('07/07/2024 21:30'));
+  const { days, hours, minutes, seconds } = useCountdownDate(new Date('12/30/2024 21:30'));
 
   return (
     <>
@@ -47,7 +47,7 @@ export default function ComingSoonView() {
         <TimeBlock label="Seconds" value={seconds} />
       </Stack>
 
-      <TextField
+      {/* <TextField
         fullWidth
         placeholder="Enter your email"
         InputProps={{
@@ -73,9 +73,9 @@ export default function ComingSoonView() {
           },
         }}
         sx={{ my: 5 }}
-      />
+      /> */}
 
-      <Stack spacing={1} alignItems="center" justifyContent="center" direction="row">
+      {/* <Stack spacing={1} alignItems="center" justifyContent="center" direction="row">
         {_socials.map((social) => (
           <IconButton
             key={social.name}
@@ -89,7 +89,7 @@ export default function ComingSoonView() {
             <Iconify icon={social.icon} />
           </IconButton>
         ))}
-      </Stack>
+      </Stack> */}
     </>
   );
 }

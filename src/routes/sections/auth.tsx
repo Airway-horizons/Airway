@@ -13,7 +13,6 @@ const RegisterPage = lazy(() => import('src/pages/auth/register'));
 const NewPasswordPage = lazy(() => import('src/pages/auth/new-password'));
 const ForgotPasswordPage = lazy(() => import('src/pages/auth/forgot-password'));
 
-
 export const authRoutes = [
   {
     path: 'auth',
@@ -26,36 +25,33 @@ export const authRoutes = [
       {
         path: 'login',
         element: (
-          <GuestGuard>
-            <AuthClassicLayout>
-              <LoginPage />
-            </AuthClassicLayout>
-          </GuestGuard>
+          <AuthClassicLayout>
+            <LoginPage />
+          </AuthClassicLayout>
         ),
       },
       {
         path: 'register',
         element: (
-          <GuestGuard>
-            <AuthClassicLayout title={`Don't have an account ?`}>
-              <RegisterPage />
-            </AuthClassicLayout>
-          </GuestGuard>
+          <AuthClassicLayout title={`Don't have an account ?`}>
+            <RegisterPage />
+          </AuthClassicLayout>
         ),
       },
       {
-        path: 'reset-password', element: <GuestGuard>
-          <AuthClassicLayout><NewPasswordPage /></AuthClassicLayout>
-        </GuestGuard>
+        path: 'reset-password',
+        element: (
+          <AuthClassicLayout>
+            <NewPasswordPage />
+          </AuthClassicLayout>
+        ),
       },
       {
         path: 'forgot-password',
         element: (
-          <GuestGuard>
-            <AuthClassicLayout>
-              <ForgotPasswordPage />
-            </AuthClassicLayout>
-          </GuestGuard>
+          <AuthClassicLayout>
+            <ForgotPasswordPage />
+          </AuthClassicLayout>
         ),
       },
       {

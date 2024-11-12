@@ -12,14 +12,12 @@ import Typography from '@mui/material/Typography';
 import { paths } from 'src/routes/paths';
 import { useRouter } from 'src/routes/hooks';
 
-import { useMockedUser } from 'src/hooks/use-mocked-user';
-
-import { useAuthContext } from 'src/auth/hooks';
 
 import { varHover } from 'src/components/animate';
 import { useSnackbar } from 'src/components/snackbar';
 import CustomPopover, { usePopover } from 'src/components/custom-popover';
 import { useGetUserByIdQuery } from 'src/store/usersApi';
+import { localStorageUtil } from 'src/utils/helper';
 
 // ----------------------------------------------------------------------
 
@@ -28,10 +26,9 @@ import { useGetUserByIdQuery } from 'src/store/usersApi';
 
 export default function AccountPopover({ id }: any) {
   const router = useRouter();
-  const { data, isLoading, error } = useGetUserByIdQuery(id);
+  const { data } = useGetUserByIdQuery(id);
 
   const userData: any = data
-  console.log("🚀 ~ AccountPopover ~ userData:", userData)
 
   const OPTIONS = [
     {
@@ -40,18 +37,17 @@ export default function AccountPopover({ id }: any) {
     },
     {
       label: 'Booking',
-      linkTo: paths.dashboard.user.account,
+      linkTo: paths.booking(id),
     },
     {
       label: 'Change Password',
-      linkTo: '/',
+      linkTo: paths?.comingSoon,
+    },
+    {
+      label: 'Wishlist',
+      linkTo: paths?.comingSoon,
     },
   ];
-
-
-  const { user } = useMockedUser();
-
-  const { logout } = useAuthContext();
 
   const { enqueueSnackbar } = useSnackbar();
 
@@ -59,8 +55,9 @@ export default function AccountPopover({ id }: any) {
 
   const handleLogout = async () => {
     try {
-      await logout();
+      await localStorageUtil?.clear()
       popover.onClose();
+      enqueueSnackbar('Successfully logout!');
       router.replace('/');
     } catch (error) {
       console.error(error);
@@ -93,7 +90,7 @@ export default function AccountPopover({ id }: any) {
       >
         <Avatar
           src={userData?.data?.profile}
-          alt={user?.displayName}
+          alt={userData?.data?.name}
           sx={{
             width: 36,
             height: 36,

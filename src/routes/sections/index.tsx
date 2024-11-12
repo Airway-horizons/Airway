@@ -6,6 +6,10 @@ import { authRoutes } from './auth';
 import { HomePage, mainRoutes } from './main';
 import { dashboardRoutes } from './dashboard';
 import ProfilePage from 'src/pages/users/profile/profile-page';
+import BookingPage from 'src/pages/booking';
+import { GuestGuard } from 'src/auth/guard';
+import { Suspense } from 'react';
+import { SplashScreen } from 'src/components/loading-screen';
 
 // ----------------------------------------------------------------------
 
@@ -15,9 +19,11 @@ export default function Router() {
     {
       path: '/',
       element: (
-        <MainLayout>
-          <HomePage />
-        </MainLayout>
+        <Suspense fallback={<SplashScreen />}>
+          <MainLayout>
+            <HomePage />
+          </MainLayout>
+        </Suspense>
       ),
     },
 
@@ -27,7 +33,23 @@ export default function Router() {
     // Add the sitemap route
     {
       path: '/profile/:id',
-      element: <MainLayout><ProfilePage /></MainLayout>,
+      element: (
+        <GuestGuard>
+          <MainLayout>
+            <ProfilePage />
+          </MainLayout>
+        </GuestGuard>
+      ),
+    },
+    {
+      path: '/booking/:id',
+      element: (
+        <GuestGuard>
+          <MainLayout>
+            <BookingPage />
+          </MainLayout>
+        </GuestGuard>
+      ),
     },
     {
       path: '/sitemap.xml',
