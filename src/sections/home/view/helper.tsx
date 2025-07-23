@@ -29,6 +29,8 @@ export const tourData = [
     priceSale: 42000,
     totalViews: 5,
     ratingNumber: 4.2,
+    seoTitle: "Book your Thailand tour package with Airway Horizons",
+    seoDes: "Enjoy vibrant markets, serene beaches, and lush jungles with a Thailand travel package. Includes hotel, meals, and local travel services. Book your trip now!",
   },
   {
     id: 'e99f09a7-dd88-49sd5-b1c8-1daf80c2d7b1',
@@ -61,6 +63,8 @@ export const tourData = [
     priceSale: 50000,
     totalViews: 10,
     ratingNumber: 4.6,
+    seoTitle: "Azerbaijan tour package with stay, meals, and travel",
+    seoDes: "Journey through Azerbaijan with a travel package that blends heritage, comfort, and adventure. Book with Airway Horizons and travel worry-free.",
   },
   {
     id: 'e99f09a7-dd88-49d5-b1c8-1daf80c2d7b2',
@@ -97,6 +101,8 @@ export const tourData = [
     priceSale: 36000,
     totalViews: 8,
     ratingNumber: 4.5,
+    seoTitle: "Rajasthan Tour Package – Explore Colours of India",
+    seoDes: "Enjoy Rajasthan’s colours and culture in 5 days. Explore pink Jaipur, blue Jodhpur, lake-filled Udaipur & more. All at a starting price of ₹32,999.",
   },
   {
     id: 'e99f09a7-dd88-49d5-b1c8-1daf80c2d7b3',
@@ -132,6 +138,8 @@ export const tourData = [
     priceSale: 28999,
     totalViews: 6,
     ratingNumber: 4.3,
+    seoTitle: "Punjab Holiday Package - 5 Days of Culture & Fun",
+    seoDes: "Discover Punjab's rich culture and heritage with a 5-day tour. Includes stays, food, sightseeing, and more. Book now with Airway Horizons! ",
   },
   {
     id: 'c1a76e4d-9f1d-4d3a-bc2e-4d5d0eb6b8bc',
@@ -150,7 +158,7 @@ export const tourData = [
     ],
     destination: 'India',
     description: `Ooty, the queen of hill stations, is a picturesque town in Tamil Nadu, India, famous for its lush green Nilgiri Hills, tea plantations, diverse wildlife, pleasant weather, and rich cultural heritage. Which highlights the history of tea cultivation in the Nilgiris.`,
-    highlights:  [
+    highlights: [
       "Ooty Lake: A scenic lake perfect for boating amidst lush surroundings.",
       "Botanical Gardens: Home to a wide variety of flora and beautiful landscapes.",
       "Rose Garden: A vibrant garden showcasing numerous species of roses.",
@@ -165,6 +173,8 @@ export const tourData = [
     priceSale: '',
     totalViews: 8,
     ratingNumber: 4.5,
+    seoTitle: "Ooty travel package with lakes and hill views",
+    seoDes: "From scenic boating to wildlife spotting, explore Ooty the easy way. Includes meals, stay, and transport by Airway Horizons. Plan today.",
   },
   {
     id: 'd1b99a0a-6f2b-4cbe-bdc6-bfbd1295b798',
@@ -184,7 +194,7 @@ export const tourData = [
     ],
     destination: 'India',
     description: `Munnar, a breath-taking hill station in Kerala, is famous for its lush tea plantations, picturesque valleys, rolling hills, and diverse wildlife, making it a popular destination for honeymooners, nature lovers, and adventure enthusiasts alike.`,
-    highlights:  [
+    highlights: [
       "Eravikulam National Park: A protected area known for its rich biodiversity and Nilgiri Tahr.",
       "Mattupetty Dam: A picturesque dam perfect for boating and picnics.",
       "Top Station: The highest point in Munnar, offering breathtaking views.",
@@ -199,6 +209,8 @@ export const tourData = [
     priceSale: 8999,
     totalViews: 12,
     ratingNumber: 4.7,
+    seoTitle: "Munnar tour package with tea gardens and hill views",
+    seoDes: "Explore green valleys, calm lakes, and forest trails. This Munnar tour package includes stay, meals, transport, and local assistance. Book your trip now.",
   },
   {
     id: 'f2d82c4b-6b6e-41ae-8f65-2487f920cf94',
@@ -232,6 +244,8 @@ export const tourData = [
     priceSale: '',
     totalViews: 10,
     ratingNumber: 4.6,
+    seoTitle: "Kodaikanal travel package for nature and peace",
+    seoDes: "Explroe the beauty of Kodaikanal with our scenic tour package. Includes local travel, food, and stays. Book your peaceful hill escape now!",
   },
   {
     id: 'a3b4e2d1-d7b4-4e6a-b12a-bc75d62c97c2',
@@ -262,7 +276,9 @@ export const tourData = [
     price: 19999,
     priceSale: 23000,
     totalViews: 15,
-    ratingNumber: 4.3
+    ratingNumber: 4.3,
+    seoTitle: "Book Golden Triangle travel package with experts",
+    seoDes: "Explore Delhi, Agra, and Jaipur with our Golden Triangle tour package. Includes food, transport, and hotel. Book now with Airway Horizons.",
   },
   {
     id: 'b4a8f2f4-bb58-4cbb-87f5-9edb8e0e6e5f',
@@ -293,7 +309,9 @@ export const tourData = [
     price: 5999,
     priceSale: 7999,
     totalViews: 9,
-    ratingNumber: 4.4
+    ratingNumber: 4.4,
+    seoTitle: "Thekkady travel package for nature and wildlife",
+    seoDes: "Explore Thekkady’s forest charm with a full travel package. Includes boat rides, elephant visits, hotel, and food. Plan your trip with Airway Horizons.",
   },
   {
     id: 'd7b6e3c2-b8c4-4e1a-bf3e-5d839d8f0f7d',
@@ -324,7 +342,9 @@ export const tourData = [
     price: 9999,
     priceSale: 13000,
     totalViews: 7,
-    ratingNumber: 4.2
+    ratingNumber: 4.2,
+    seoTitle: "Alappuzha Travel Package – Backwater Bliss Awaits",
+    seoDes: "Enjoy 3 days in Alleppey with boat rides, beaches & Kerala food. Great for couples, families & solo travellers. Tour starts from just ₹9,999.",
   },
   {
     id: 'e5b7d9e3-4c8f-4f6a-a7b7-44e3d0e6b5d1',
@@ -355,7 +375,9 @@ export const tourData = [
     price: 34999,
     priceSale: '',
     totalViews: 14,
-    ratingNumber: 4.8
+    ratingNumber: 4.8,
+    seoTitle: "Nepal Holiday Package – Culture, Views & Adventure",
+    seoDes: "Explore Kathmandu, the Monkey Temple & stunning lakes. Enjoy deluxe hostels, food, and transport on a 6-day Nepal journey. Book now with Airway Horizons!",
   },
   {
     id: 'b4b5d48e-0d8e-4f28-8c30-cf7a1e5390d6',
@@ -385,7 +407,9 @@ export const tourData = [
     price: 28999,
     priceSale: 31999,
     totalViews: 7,
-    ratingNumber: 4.5
+    ratingNumber: 4.5,
+    seoTitle: "Discover the beauty of Uttarakhand with a tour package",
+    seoDes: "Explore hills, rivers, and lakes in Uttarakhand. Book your travel package with hotel, meals, and full transport. A peaceful journey with Airway Horizons.",
   },
   {
     id: 'c5c6e7e8-2f4e-40d5-92b1-9a7c8e8d5a91',
@@ -417,7 +441,9 @@ export const tourData = [
     price: 19999,
     priceSale: 22999,
     totalViews: 12,
-    ratingNumber: 4.7
+    ratingNumber: 4.7,
+    seoTitle: "Visit Kashmir with a budget-friendly travel plan",
+    seoDes: "Explroe the beauty of Srinagar and Gulmarg. Book a Kashmir tour package with local help, daily meals, pickup, and hotel stay. Make memories today.",
   },
   {
     id: 'd7d8f9a0-3d4e-4b12-9e34-8a9b1c2d3e45',
@@ -449,7 +475,9 @@ export const tourData = [
     price: 24999,
     priceSale: 28999,
     totalViews: 8,
-    ratingNumber: 4.6
+    ratingNumber: 4.6,
+    seoTitle: "Discover Manali with a full travel package deal",
+    seoDes: "Explore snowy peaks and village trails. Airway Horizons offers a complete Manali package with food, hotel, transport, and assistance. Book your trip now!",
   },
   {
     id: 'e8e9f0b1-4d5e-4c67-9f89-0a1b2c3d4e56',
@@ -481,7 +509,9 @@ export const tourData = [
     price: 29999,
     priceSale: 33999,
     totalViews: 9,
-    ratingNumber: 4.8
+    ratingNumber: 4.8,
+    seoTitle: "Explore Ladakh with our adventure tour package",
+    seoDes: "Enjoy trekking, biking, and calm monasteries in Ladakh. Package includes meals, hotel, pickup, and guided sightseeing. Plan your trip now.",
   },
   {
     id: 'f1f2a3b4-5c6d-7e89-0f12-3a4b5c6d7e89',
@@ -511,7 +541,9 @@ export const tourData = [
     price: 36999,
     priceSale: 40999,
     totalViews: 11,
-    ratingNumber: 4.4
+    ratingNumber: 4.4,
+    seoTitle: "Indonesia tour package with Bali and cultural sights",
+    seoDes: "Explore Indonesia’s islands, beaches, temples, and jungles. Book your guided Indonesia tour with hotel, food, and transport included.",
   },
   {
     id: 'g2g3h4i5-6j7k-8l9m-0n12-3o4p5q6r7s89',
@@ -543,7 +575,9 @@ export const tourData = [
     price: 34999,
     priceSale: 37999,
     totalViews: 15,
-    ratingNumber: 4.6
+    ratingNumber: 4.6,
+    seoTitle: "Book your Sri Lanka travel package with full services",
+    seoDes: "Explore tropical landscapes, visit sacred landmarks, and enjoy cultural sites. Package includes food, local transport and accommodation. Book now!",
   },
   {
     id: 'h3i4j5k6-7l8m-9n01-2o34-p5q6r7s8t9u0',
@@ -575,7 +609,9 @@ export const tourData = [
     price: 49999,
     priceSale: '',
     totalViews: 13,
-    ratingNumber: 4.7
+    ratingNumber: 4.7,
+    seoTitle: "Affordable Japan Tour Package with Airway Horizons",
+    seoDes: "Explore Japan with our tour package including temples, cherry blossoms, Tokyo nightlife & more. Book now with Airway Horizons for the best deals!",
   },
   {
     id: 'i4j5k6l7-8m9n-0o12-p3q4-r5s6t7u8v9w0',
@@ -607,7 +643,9 @@ export const tourData = [
     price: 51999,
     priceSale: 55999,
     totalViews: 6,
-    ratingNumber: 4.5
+    ratingNumber: 4.5,
+    seoTitle: "Malaysia holiday tour package for your adventure",
+    seoDes: "Explore Kuala Lumpur, Langkawi, and Cameron Highlands with our Malaysia travel package. Book now and enjoy comfort and adventure in one trip.",
   },
   {
     id: 'j5k6l7m8-9n0o-1p23-q4r5-s6t7u8v9w0x1',
@@ -639,7 +677,9 @@ export const tourData = [
     price: 14999,
     priceSale: 17999,
     totalViews: 5,
-    ratingNumber: 4.5
+    ratingNumber: 4.5,
+    seoTitle: "Lakshadweep tour package for a peaceful island escape",
+    seoDes: "Explore Lakshadweep’s islands, enjoy water activities, and unwind in nature. A complete travel package with meals, stay, and local travel. Book now!",
   },
   {
     id: 'k6l7m8n9-0o1p-2q34-r5s6-t7u8v9w0x1y2',
@@ -671,6 +711,8 @@ export const tourData = [
     price: 29999,
     priceSale: 32999,
     totalViews: 8,
-    ratingNumber: 4.6
+    ratingNumber: 4.6,
+    seoTitle: "Affordable Andaman travel package for your next trip",
+    seoDes: "Airway Horizons offers a serene Andaman travel package with luxury stays, water sports, and local tours. Ideal for families and couples. Book now!",
   }
 ];

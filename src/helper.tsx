@@ -4,7 +4,7 @@ export const socials = [
     name: 'FaceBook',
     icon: 'eva:facebook-fill',
     color: '#1877F2',
-    path: 'https://www.facebook.com/profile.php?id=61565804320732&mibextid=ZbWKwL',
+    path: 'https://www.facebook.com/airwayhorizons',
   },
   {
     value: 'instagram',
@@ -20,13 +20,20 @@ export const socials = [
     color: '#007EBB',
     path: 'https://www.linkedin.com/company/airwayhorizons/',
   },
-  // {
-  //   value: 'twitter',
-  //   name: 'Twitter',
-  //   icon: 'eva:twitter-fill',
-  //   color: '#00AAEC',
-  //   path: 'https://www.twitter.com/',
-  // },
+  {
+    value: 'twitter',
+    name: 'Twitter',
+    icon: 'simple-icons:x',
+    color: '#000',
+    path: 'https://x.com/AirwayHorizons',
+  },
+  {
+    value: 'pinterest',
+    name: 'Pinterest',
+    icon: 'simple-icons:pinterest',
+    color: '#E02D69',
+    path: 'https://www.pinterest.com/airwayhorizons/',
+  },
 ];
 
 export const TOUR_SERVICE_OPTIONS = [
