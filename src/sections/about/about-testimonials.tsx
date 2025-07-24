@@ -50,11 +50,15 @@ export default function AboutTestimonials() {
 
       <m.div variants={varFade().inUp}>
         <Typography sx={{ color: 'common.white' }}>
-          We transform travel into a life-changing adventure! Our tailored trips, from thrilling
-          adventures to enriching cultural immersion programs, provide unforgettable experiences
-          that resonate long after the journey ends. Each trip is thoughtfully designed to reflect
-          real-life lessons, fostering personal growth and a deeper understanding of the world. We
-          can't recommend ourselves enough for anyone seeking an extraordinary travel experience!
+          We transform travel into a life-changing adventure!
+          As the best travel company in India, we specialize in
+          creating unforgettable experiences that go beyond the
+          ordinary. Our tailored trips—from thrilling adventure holidays to enriching cultural
+          immersion programs—resonate long after the journey ends. Whether you're looking for well-organized group tours,
+          fun-filled family tours, or meaningful student tours, we’ve got you covered. Each trip is thoughtfully planned by our expert
+          travel planner team to reflect real-life lessons, inspire personal growth, and
+          build a deeper understanding of the world. If you're seeking something truly extraordinary,
+          Airway Horizons is your perfect travel partner!
         </Typography>
       </m.div>
     </Box>

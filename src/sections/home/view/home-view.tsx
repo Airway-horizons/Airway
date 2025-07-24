@@ -150,7 +150,8 @@ export default function HomeView() {
 
                 <m.div variants={varFade().inUp}>
                   <Typography sx={{ color: 'grey.500' }}>
-                    We offer creativity, adventure, culture, conservation in our trips.
+                    We offer creativity, adventure, culture, and conservation in our trips, making us one of the Best tour operators in South India for budget holidays.
+
                   </Typography>
                 </m.div>
 
@@ -220,8 +221,10 @@ export default function HomeView() {
 
                 <m.div variants={varFade().inUp}>
                   <Typography sx={{ color: 'grey.500' }}>
-                    Experience guided tours, cultural immersions, adventure activities, and
-                    personalized itineraries for unforgettable travel experiences.
+                    Join the Best Travel Agency in Kerala for guided tours, cultural experiences,
+                    adventure activities, and personalized travel plans. Whether you're in Kochi,
+                    Chennai, Bangalore, or Hyderabad, our strong presence across South India
+                    ensures every trip is thoughtfully crafted just for you.
                   </Typography>
                 </m.div>
               </Stack>

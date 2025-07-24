@@ -175,20 +175,56 @@ export default function TourItem({ tour, onView }: any) {
           {item.label}
         </Stack>
       ))}
-      {/* {renderRating} */}
 
-      <Box sx={{ mt: 2, display: 'flex', justifyContent: 'flex-end' }}>
+
+      {/* WhatsApp Button */}
+      <Box sx={{ mt: 1, display: 'flex', justifyContent: 'space-between' }}>
+        <Button
+          size="small"
+          variant="contained"
+          component="a"
+          href={`https://wa.me/917902778775?text=Hi! I’m interested in this package: https://airwayhorizons.com/packages-details/${id}`}
+          target="_blank"
+          rel="noopener"
+          sx={{
+            fontSize: 11,
+            height: 42,
+            width: "48%",
+            backgroundColor: '#25D366',
+            boxShadow: "0 4px 12px rgba(37, 211, 102, 0.3)",
+            textTransform: 'none',
+            '&:hover': {
+              backgroundColor: '#1EBE5D',
+              boxShadow: "0 6px 14px rgba(37, 211, 102, 0.4)",
+            }
+          }}
+        >
+          <Iconify icon="ic:baseline-whatsapp" style={{ marginRight: 10 }} />
+          Book on WhatsApp
+        </Button>
         <Button
           size="small"
           variant="contained"
           onClick={() => onView()}
-          sx={{ height: 42, width: '50%', backgroundColor: '#FF5C37', boxShadow: "3px 7px 6px -4px rgba(255, 92, 55, 0.63)" }}
+          sx={{
+            fontSize: 11,
+            height: 42,
+            width: "48%",
+            backgroundColor: '#109384',
+            boxShadow: "0 4px 12px rgba(16, 147, 132, 0.3)",
+            textTransform: 'none',
+            '&:hover': {
+              backgroundColor: '#0c7b6f',
+              boxShadow: "0 6px 14px rgba(16, 147, 132, 0.4)"
+            }
+          }}
         >
-          <Iconify icon="solar:eye-bold" style={{ marginRight: 10 }} />
+          <Iconify icon="mdi:arrow-right" style={{ marginRight: 10 }} />
           View Package
         </Button>
       </Box>
     </Stack>
+
   );
 
   return (

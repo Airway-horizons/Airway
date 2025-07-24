@@ -30,7 +30,7 @@ export default function HomeDarkMode() {
 
       <m.div variants={varFade().inUp}>
         <Typography sx={{ color: 'grey.500' }}>
-          Unfold top visa-free getaways for smooth journeys.
+          Discover top visa-free destinations and smooth journeys with the support of the Best Travel Agency in south india and our expert guidance from Kochi, Bangalore, Hyderabad, Chennai and more.
         </Typography>
       </m.div>
 

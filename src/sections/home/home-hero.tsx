@@ -214,8 +214,10 @@ export default function HomeHero() {
       </m.div>
       <m.div variants={varFade().in}>
         <Typography variant="body2" sx={{ textAlign: 'center', mb: 2, mt: 4 }}>
-          We create transformative travel experiences through tailored adventures and cultural
-          immersion, inspiring personal growth and lasting memories. Join us!
+          We create transformative travel experiences through tailored adventures and cultural immersion,
+          inspiring personal growth and lasting memories. Join us and travel with the Best Travel Company
+          in Kerala, India and Top Tour Operators in Kochi for your next amazing trip.
+
         </Typography>
       </m.div>
 

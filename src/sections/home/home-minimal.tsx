@@ -57,7 +57,7 @@ export default function HomeMinimal() {
 
         <m.div variants={varFade().inUp}>
           <Typography sx={{ color: 'grey.500' }}>
-            Discover the unrivalled benefits that promise memorable journeys all along.
+            Trusted by travellers across South India, we continue to be a preferred Travel Company in South India with highly rated services.
           </Typography>
         </m.div>
 
