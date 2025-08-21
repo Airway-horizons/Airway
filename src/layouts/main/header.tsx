@@ -8,6 +8,7 @@ import { m } from 'framer-motion';
 
 import { useOffSetTop } from 'src/hooks/use-off-set-top';
 import { useResponsive } from 'src/hooks/use-responsive';
+import Link from '@mui/material/Link';
 
 import { bgBlur } from 'src/theme/css';
 import { useRouter } from 'src/routes/hooks';
@@ -27,6 +28,7 @@ import styled from '@emotion/styled';
 import { paths } from 'src/routes/paths';
 import { localStorageUtil } from 'src/utils/helper';
 import AccountPopover from '../common/account-popover';
+import { RouterLink } from 'src/routes/components';
 
 // ----------------------------------------------------------------------
 
@@ -67,28 +69,25 @@ export default function Header() {
       <Toolbar
         disableGutters
         sx={{
-          height: {
-            xs: HEADER.H_MOBILE,
-            md: HEADER.H_DESKTOP,
-          },
+          // height: {
+          //   xs: HEADER.H_MOBILE,
+          //   md: HEADER.H_DESKTOP,
+          // },
           transition: theme.transitions.create(['height'], {
             easing: theme.transitions.easing.easeInOut,
             duration: theme.transitions.duration.shorter,
           }),
-          ...(offsetTop && {
-            ...bgBlur({
-              color: theme.palette.background.default,
-            }),
-            height: {
-              md: HEADER.H_DESKTOP_OFFSET,
-            },
+          ...bgBlur({
+            color: theme.palette.background.default,
           }),
+          height: {
+            md: HEADER.H_DESKTOP_OFFSET,
+          },
         }}
       >
         <Container maxWidth="xl" sx={{ height: 1, display: 'flex', alignItems: 'center' }}>
           <Logo />
 
-          <Box sx={{ flexGrow: 1 }} />
 
           {mdUp && <NavDesktop data={navConfig} />}
 
@@ -106,10 +105,7 @@ export default function Header() {
             </m.div>
             {token && <AccountPopover id={token?.data?.id} />}
 
-            {mdUp && !token && <>
-              <Button variant="contained" color="primary" sx={{ mr: 2, ml: 1 }} onClick={handleLogin}>Login</Button>
-              <Button variant="outlined" color="primary" sx={{ mr: 2, ml: 1 }} onClick={handleRegister}>Register</Button>
-            </>}
+
 
 
             {!mdUp && <NavMobile data={navConfig} handleLogin={handleLogin} handleRegister={handleRegister} token={!!token} />}
