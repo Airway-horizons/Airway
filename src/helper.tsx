@@ -14,6 +14,13 @@ export const socials = [
     path: 'https://www.instagram.com/airwayhorizons?igsh=M3Z5MTJ4cmx0ZWU2',
   },
   {
+    value: 'instagram',
+    name: 'Instagram',
+    icon: 'ant-design:whats-app-outlined',
+    color: '#25D366',
+    path: 'https://wa.me/917902778775?text=Hi!%20I’m%20interested%20in%20your%20packages.%20Could%20you%20please%20share%20more%20details%3F',
+  },
+  {
     value: 'linkedin',
     name: 'Linkedin',
     icon: 'eva:linkedin-fill',
