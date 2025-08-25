@@ -22,6 +22,9 @@ import StatusRound from './status-round';
 import HomeDarkMode from '../visa/home-dark-mode';
 import { socials } from 'src/helper';
 import Iconify from 'src/components/iconify';
+import CarouselView from './carousel';
+
+import useMediaQuery from '@mui/material/useMediaQuery';
 
 // ----------------------------------------------------------------------
 
@@ -98,60 +101,57 @@ const carouselsData = [
   },
 ];
 
+const carouselsExample = [
+  {
+    id: 1,
+    title: `Explore Beyond Limits`,
+    coverUrl: `/banner.jpg`,
+    description: `We create transformative travel experiences through tailored adventures and cultural immersion, inspiring personal growth and lasting memories. Join us and travel with the Best Travel Company in Kerala, India and Top Tour Operators in Kochi for your next amazing trip.`,
+  },
+  {
+    id: 2,
+    title: `Explore Beyond Limits`,
+    coverUrl: `/banner-2.jpg`,
+    description: `We create transformative travel experiences through tailored adventures and cultural immersion, inspiring personal growth and lasting memories. Join us and travel with the Best Travel Company in Kerala, India and Top Tour Operators in Kochi for your next amazing trip.`,
+  },
+  {
+    id: 3,
+    title: `Explore Beyond Limits`,
+    coverUrl: `/banner-3.jpg`,
+    description: `We create transformative travel experiences through tailored adventures and cultural immersion, inspiring personal growth and lasting memories. Join us and travel with the Best Travel Company in Kerala, India and Top Tour Operators in Kochi for your next amazing trip.`,
+  }
+];
+const carouselsMobile = [
+  {
+    id: 1,
+    title: `Explore Beyond Limits`,
+    coverUrl: `/banner-mb.jpg`,
+    description: `We create transformative travel experiences through tailored adventures and cultural immersion, inspiring personal growth and lasting memories. Join us and travel with the Best Travel Company in Kerala, India and Top Tour Operators in Kochi for your next amazing trip.`,
+  },
+  {
+    id: 2,
+    title: `Explore Beyond Limits`,
+    coverUrl: `/banner-2-mb.jpg`,
+    description: `We create transformative travel experiences through tailored adventures and cultural immersion, inspiring personal growth and lasting memories. Join us and travel with the Best Travel Company in Kerala, India and Top Tour Operators in Kochi for your next amazing trip.`,
+  },
+  {
+    id: 3,
+    title: `Explore Beyond Limits`,
+    coverUrl: `/banner-3-mb.jpg`,
+    description: `We create transformative travel experiences through tailored adventures and cultural immersion, inspiring personal growth and lasting memories. Join us and travel with the Best Travel Company in Kerala, India and Top Tour Operators in Kochi for your next amazing trip.`,
+  }
+];
+
 export default function HomeView() {
+  const theme = useTheme();
   const { scrollYProgress } = useScroll();
+  const isMobile = useMediaQuery(theme.breakpoints.down('md'));
 
   return (
     <>
       <ScrollProgress scrollYProgress={scrollYProgress} />
 
-      {/* <HomeHero /> */}
-
-      <Box sx={{
-        height: "100vh", background: 'linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url(/banner.png) center/cover no-repeat',
-        backgroundSize: 'cover', backgroundPosition: 'center', position: "relative"
-      }}>
-
-        <Box sx={{
-          position: 'absolute',
-          right: 0,
-          bottom: 95,
-          // background: ' #e6edf0',
-          background: 'linear-gradient(90deg, rgb(230 237 240 / 43%) 0%, rgb(255 255 255 / 76%) 50%, rgba(255, 255, 255, 1) 100%);',
-          padding: "10px",
-          borderRadius: "10px 0px 0px 10px",
-        }}>
-          <Stack spacing={2} direction="row" justifyContent="center">
-            {socials?.map((social: any) => (
-              <a href={social?.path} target="_blank" rel="noopener noreferrer">
-                <IconButton
-                  key={social.name}
-                  sx={{
-                    '&:hover': {
-                      bgcolor: alpha(social.color, 0.08),
-                    },
-                  }}
-                >
-                  <Iconify color={social.color} icon={social.icon} />
-                </IconButton>
-              </a>
-            ))}
-          </Stack>
-        </Box>
-        <Box sx={{
-          width: '100%',
-          height: '100%',
-          display: 'flex',
-          alignItems: 'center',
-          flexDirection: 'column',
-          justifyContent: 'center',
-        }}>
-          <Typography variant="h1" sx={{ color: '#F6FF00', }}>Explore Beyond Limits</Typography>
-          <Typography variant="h6" sx={{ color: '#fff', fontSize: '0.8rem !important', textAlign: 'center', fontWeight: 500, mt: 2 }}>We create transformative travel experiences through tailored adventures and cultural immersion,<br /> inspiring personal growth and lasting memories. Join us and travel with the Best Travel Company in Kerala, <br /> India and Top Tour Operators in Kochi for your next amazing trip.</Typography>
-
-        </Box>
-
-      </Box>
+      <CarouselView data={isMobile ? carouselsMobile : carouselsExample} socials={socials} />
 
       <Box
         sx={{
