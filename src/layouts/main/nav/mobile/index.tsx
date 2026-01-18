@@ -59,10 +59,7 @@ export default function NavMobile({ data, handleLogin, handleRegister, token }: 
           ))}
 
         </Scrollbar>
-        {!token && <>
-          <Button variant="contained" color="primary" sx={{ mx: 1 }} onClick={handleLogin}>Login</Button>
-          <Button variant="outlined" color="primary" sx={{ mt: 2, mx: 1 }} onClick={handleRegister}>Register</Button>
-        </>}
+
       </Drawer>
     </>
   );

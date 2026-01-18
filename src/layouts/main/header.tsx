@@ -4,7 +4,7 @@ import AppBar from '@mui/material/AppBar';
 import Toolbar from '@mui/material/Toolbar';
 import { useTheme } from '@mui/material/styles';
 import Container from '@mui/material/Container';
-import { m } from 'framer-motion';
+import { m, AnimatePresence } from 'framer-motion';
 
 import { useOffSetTop } from 'src/hooks/use-off-set-top';
 import { useResponsive } from 'src/hooks/use-responsive';
@@ -23,7 +23,8 @@ import HeaderShadow from '../common/header-shadow';
 import SettingsButton from '../common/settings-button';
 import { useSettingsContext } from 'src/components/settings';
 import { varFade, MotionViewport } from 'src/components/animate';
-import { Button, Switch, Typography } from '@mui/material';
+import { Button, Switch, Typography, IconButton } from '@mui/material';
+import Iconify from 'src/components/iconify';
 import styled from '@emotion/styled';
 import { paths } from 'src/routes/paths';
 import { localStorageUtil } from 'src/utils/helper';
@@ -33,19 +34,7 @@ import { RouterLink } from 'src/routes/components';
 // ----------------------------------------------------------------------
 
 
-const CustomSwitch = styled(Switch)(({ theme }: any) => ({
-  '& .MuiSwitch-thumb': {
-    backgroundColor: theme.palette.common.white,
-  },
-  '&.Mui-checked .MuiSwitch-thumb': {
-    backgroundColor: theme.palette.primary.main,
-  },
-  '&.Mui-checked': {
-    '& .MuiSwitch-track': {
-      backgroundColor: theme.palette.primary.light,
-    },
-  },
-}));
+
 
 
 
@@ -91,17 +80,51 @@ export default function Header() {
 
           {mdUp && <NavDesktop data={navConfig} />}
 
-          <Stack alignItems="center" direction={{ xs: 'row' }}>
+          <Stack alignItems="center" direction={{ xs: 'row' }} sx={{ ml: 'auto' }}>
 
 
             <m.div variants={varFade().inUp}>
-              <CustomSwitch
-                checked={settings.themeMode === 'dark'}
-                onChange={() =>
+              <IconButton
+                component={m.button}
+                whileTap="tap"
+                whileHover="hover"
+                variants={{
+                  hover: { scale: 1.05 },
+                  tap: { scale: 0.95 },
+                }}
+                onClick={() =>
                   settings.onUpdate('themeMode', settings.themeMode === 'light' ? 'dark' : 'light')
                 }
-                color="primary"
-              />
+                sx={{
+                  width: 40,
+                  height: 40,
+                }}
+              >
+                <AnimatePresence mode="wait" initial={false}>
+                  <m.div
+                    key={settings.themeMode}
+                    initial={{ opacity: 0, rotate: -90, scale: 0.5 }}
+                    animate={{ opacity: 1, rotate: 0, scale: 1 }}
+                    exit={{ opacity: 0, rotate: 90, scale: 0.5 }}
+                    transition={{
+                      duration: 0.4,
+                      ease: "backInOut",
+                      type: "spring",
+                      stiffness: 200,
+                      damping: 15
+                    }}
+                  >
+                    <Iconify
+                      icon={settings.themeMode === 'dark' ? 'solar:moon-stars-bold-duotone' : 'solar:sun-fog-bold-duotone'}
+                      width={24}
+                      sx={{
+                        color: settings.themeMode === 'dark' ? 'warning.main' : 'warning.dark',
+                        filter: settings.themeMode === 'dark' ? 'drop-shadow(0 0 8px rgba(255,171,0,0.5))' : 'none'
+                      }}
+                    />
+                  </m.div>
+                </AnimatePresence>
+              </IconButton>
             </m.div>
             {token && <AccountPopover id={token?.data?.id} />}
 
