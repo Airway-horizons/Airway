@@ -12,39 +12,42 @@ import Typography from '@mui/material/Typography';
 import { paths } from 'src/routes/paths';
 import { useRouter } from 'src/routes/hooks';
 
-import { useMockedUser } from 'src/hooks/use-mocked-user';
-
-import { useAuthContext } from 'src/auth/hooks';
 
 import { varHover } from 'src/components/animate';
 import { useSnackbar } from 'src/components/snackbar';
 import CustomPopover, { usePopover } from 'src/components/custom-popover';
+import { useGetUserByIdQuery } from 'src/store/usersApi';
+import { localStorageUtil } from 'src/utils/helper';
 
 // ----------------------------------------------------------------------
 
-const OPTIONS = [
-  {
-    label: 'Home',
-    linkTo: '/',
-  },
-  {
-    label: 'Profile',
-    linkTo: paths.dashboard.user.profile,
-  },
-  {
-    label: 'Settings',
-    linkTo: paths.dashboard.user.account,
-  },
-];
 
 // ----------------------------------------------------------------------
 
-export default function AccountPopover() {
+export default function AccountPopover({ id }: any) {
   const router = useRouter();
+  const { data } = useGetUserByIdQuery(id);
 
-  const { user } = useMockedUser();
+  const userData: any = data
 
-  const { logout } = useAuthContext();
+  const OPTIONS = [
+    {
+      label: 'Profile',
+      linkTo: paths.profile(id),
+    },
+    {
+      label: 'Booking',
+      linkTo: paths.booking(id),
+    },
+    {
+      label: 'Change Password',
+      linkTo: paths?.comingSoon,
+    },
+    {
+      label: 'Wishlist',
+      linkTo: paths?.comingSoon,
+    },
+  ];
 
   const { enqueueSnackbar } = useSnackbar();
 
@@ -52,8 +55,9 @@ export default function AccountPopover() {
 
   const handleLogout = async () => {
     try {
-      await logout();
+      await localStorageUtil?.clear()
       popover.onClose();
+      enqueueSnackbar('Successfully logout!');
       router.replace('/');
     } catch (error) {
       console.error(error);
@@ -85,26 +89,26 @@ export default function AccountPopover() {
         }}
       >
         <Avatar
-          src={user?.photoURL}
-          alt={user?.displayName}
+          src={userData?.data?.profile}
+          alt={userData?.data?.name}
           sx={{
             width: 36,
             height: 36,
             border: (theme) => `solid 2px ${theme.palette.background.default}`,
           }}
         >
-          {user?.displayName?.charAt(0).toUpperCase()}
+          {userData?.data?.name?.charAt(0).toUpperCase() ?? ""}
         </Avatar>
       </IconButton>
 
       <CustomPopover open={popover.open} onClose={popover.onClose} sx={{ width: 200, p: 0 }}>
         <Box sx={{ p: 2, pb: 1.5 }}>
           <Typography variant="subtitle2" noWrap>
-            {user?.displayName}
+            {userData?.data?.name}
           </Typography>
 
           <Typography variant="body2" sx={{ color: 'text.secondary' }} noWrap>
-            {user?.email}
+            {userData?.data?.email}
           </Typography>
         </Box>
 

@@ -3,6 +3,9 @@ import 'src/global.css';
 
 // i18n
 import 'src/locales/i18n';
+import { Provider } from 'react-redux';
+
+import { store } from './store';
 
 // ----------------------------------------------------------------------
 
@@ -25,6 +28,7 @@ export default function App() {
   useScrollToTop();
 
   return (
+    <Provider store={store}>
       <LocalizationProvider>
         <SettingsProvider
           defaultSettings={{
@@ -42,7 +46,6 @@ export default function App() {
                 <CheckoutProvider>
                   <SettingsDrawer />
                   <ProgressBar />
-
                   <Router />
                 </CheckoutProvider>
               </SnackbarProvider>
@@ -50,5 +53,6 @@ export default function App() {
           </ThemeProvider>
         </SettingsProvider>
       </LocalizationProvider>
+    </Provider>
   );
 }

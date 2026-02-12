@@ -10,10 +10,14 @@ import Fab from '@mui/material/Fab';
 
 import { paths } from 'src/routes/paths';
 import { RouterLink } from 'src/routes/components';
+import { alpha } from '@mui/material/styles';
 
-import Logo from 'src/components/logo';
-import BookModal from 'src/sections/packages/book-view/modal';
 import { useState } from 'react';
+import { socials } from 'src/helper';
+import Logo from 'src/components/logo';
+import { IconButton } from '@mui/material';
+import Iconify from 'src/components/iconify';
+import BookModal from 'src/sections/packages/book-view/modal';
 
 // ----------------------------------------------------------------------
 
@@ -133,6 +137,22 @@ export default function Footer() {
               you on unforgettable journeys that combine adventure, education, and the joy of
               discovery.
             </Typography>
+            <Box>
+              {socials?.map((social: any) => (
+                <a href={social?.path} target="_blank" rel="noopener noreferrer">
+                  <IconButton
+                    key={social.name}
+                    sx={{
+                      '&:hover': {
+                        bgcolor: alpha(social.color, 0.08),
+                      },
+                    }}
+                  >
+                    <Iconify color={social.color} icon={social.icon} />
+                  </IconButton>
+                </a>
+              ))}
+            </Box>
           </Grid>
 
           <Grid xs={12} md={8}>

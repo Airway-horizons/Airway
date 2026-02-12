@@ -12,22 +12,22 @@ export const navConfig = [
   },
   {
     title: 'Packages',
-    icon: <Iconify icon="solar:atom-bold-duotone" />,
+    icon: <Iconify icon="solar:box-bold-duotone" />,
     path: paths.packages,
   },
   {
     title: 'Vision/Mission',
-    icon: <Iconify icon="solar:atom-bold-duotone" />,
+    icon: <Iconify icon="solar:target-bold-duotone" />,
     path: paths.visionMission,
   },
   {
     title: 'About us',
-    icon: <Iconify icon="solar:atom-bold-duotone" />,
+    icon: <Iconify icon="solar:users-group-rounded-bold-duotone" />,
     path: paths.about,
   },
   {
     title: 'Contact us',
-    icon: <Iconify icon="solar:atom-bold-duotone" />,
+    icon: <Iconify icon="solar:phone-calling-bold-duotone" />,
     path: paths.contact,
   },
   // {

@@ -118,7 +118,7 @@ export default function MultiLanguageView() {
               </Card>
 
               <Card>
-                <CardHeader title="System (MUI)" sx={{ pb: 2 }} />
+                {/* <CardHeader title="System (MUI)" sx={{ pb: 2 }} /> */}
 
                 <CardContent
                   component={Stack}

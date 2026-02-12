@@ -185,7 +185,7 @@ export default function HomeHero() {
         },
       }}
     >
-      <m.div variants={varFade().in}>
+      <m.div variants={varFade().inUp}>
         <StyledTextGradient
           animate={{ backgroundPosition: '200% center' }}
           transition={{
@@ -198,7 +198,8 @@ export default function HomeHero() {
           Airway Horizons
         </StyledTextGradient>
       </m.div>
-      <m.div variants={varFade().in}>
+
+      <m.div variants={varFade().inUp}>
         <Typography
           // variant="h4"
           sx={{
@@ -212,32 +213,17 @@ export default function HomeHero() {
           -Explore Beyond Limits
         </Typography>
       </m.div>
-      <m.div variants={varFade().in}>
+
+      <m.div variants={varFade().inUp}>
         <Typography variant="body2" sx={{ textAlign: 'center', mb: 2, mt: 4 }}>
-          We create transformative travel experiences through tailored adventures and cultural
-          immersion, inspiring personal growth and lasting memories. Join us!
+          We create transformative travel experiences through tailored adventures and cultural immersion,
+          inspiring personal growth and lasting memories. Join us and travel with the Best Travel Company
+          in Kerala, India and Top Tour Operators in Kochi for your next amazing trip.
         </Typography>
       </m.div>
 
-      {/* <m.div variants={varFade().in}>
-        <Stack
-          spacing={0.75}
-          direction="row"
-          alignItems="center"
-          justifyContent="center"
-          sx={{ my: 3 }}
-        >
-          <Rating readOnly value={4.95} precision={0.1} max={5} />
-          <Typography variant="caption" sx={{ color: 'text.secondary' }}>
-            <Box component="strong" sx={{ mr: 0.5, color: 'text.primary' }}>
-              4.96/5
-            </Box>
-            (99+ reviews)
-          </Typography>
-        </Stack>
-      </m.div> */}
       <Box sx={{ width: '100%', display: 'flex', flexDirection: 'column', alignItems: 'center' }}>
-        <m.div variants={varFade().in}>
+        <m.div variants={varFade().inUp}>
           <Stack
             spacing={1.5}
             direction={{ xs: 'column-reverse', sm: 'row' }}
@@ -260,26 +246,51 @@ export default function HomeHero() {
         </m.div>
 
         <Stack spacing={3} sx={{ textAlign: 'center' }}>
-          <m.div variants={varFade().in}>
+          <m.div variants={varFade().inUp}>
             <Typography variant="overline" sx={{ opacity: 0.48 }}>
-              Available at
+              Follow Us On
             </Typography>
           </m.div>
 
-          <Stack spacing={2} direction="row" justifyContent="center">
+          <Stack
+            component={m.div}
+            variants={varFade().inUp}
+            spacing={2}
+            direction="row"
+            justifyContent="center"
+            sx={{
+              p: 1,
+              borderRadius: 2,
+              position: 'relative',
+              bgcolor: (theme) => alpha(theme.palette.grey[500], 0.08),
+              backdropFilter: 'blur(20px)',
+              border: (theme) => `1px solid ${alpha(theme.palette.grey[500], 0.16)}`,
+            }}
+          >
             {socials?.map((social: any) => (
-              <a href={social?.path} target="_blank" rel="noopener noreferrer">
-                <IconButton
-                  key={social.name}
-                  sx={{
-                    '&:hover': {
-                      bgcolor: alpha(social.color, 0.08),
-                    },
-                  }}
-                >
-                  <Iconify color={social.color} icon={social.icon} />
-                </IconButton>
-              </a>
+              <Box
+                key={social.name}
+                component={m.div}
+                whileHover={{ scale: 1.2, rotate: 10 }}
+                whileTap={{ scale: 0.9 }}
+              >
+                <a href={social?.path} target="_blank" rel="noopener noreferrer">
+                  <IconButton
+                    sx={{
+                      width: 40,
+                      height: 40,
+                      color: social.color,
+                      transition: (theme) => theme.transitions.create('all'),
+                      '&:hover': {
+                        bgcolor: alpha(social.color, 0.16),
+                        boxShadow: (theme) => `0 8px 16px 0 ${alpha(social.color, 0.24)}`,
+                      },
+                    }}
+                  >
+                    <Iconify icon={social.icon} width={24} />
+                  </IconButton>
+                </a>
+              </Box>
             ))}
           </Stack>
         </Stack>
@@ -303,7 +314,7 @@ export default function HomeHero() {
     >
       <Stack
         component={m.div}
-        variants={varFade().in}
+        variants={varFade().inRight}
         sx={{
           width: 344,
           position: 'relative',
@@ -337,7 +348,7 @@ export default function HomeHero() {
 
       <Stack
         component={m.div}
-        variants={varFade().in}
+        variants={varFade().inRight}
         sx={{ width: 720, position: 'relative', ml: -5 }}
       >
         <Box

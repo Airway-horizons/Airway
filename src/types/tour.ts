@@ -47,4 +47,5 @@ export type ITourItem = {
     startDate: Date;
     endDate: Date;
   };
+  accommodation?: string;
 };

@@ -15,40 +15,6 @@ import { useAuthContext } from 'src/auth/hooks';
 
 import Logo from 'src/components/logo';
 
-// ----------------------------------------------------------------------
-
-const METHODS = [
-  {
-    id: 'jwt',
-    label: 'Jwt',
-    path: paths.auth.jwt.login,
-    icon: '/assets/icons/auth/ic_jwt.svg',
-  },
-  {
-    id: 'firebase',
-    label: 'Firebase',
-    path: paths.auth.firebase.login,
-    icon: '/assets/icons/auth/ic_firebase.svg',
-  },
-  {
-    id: 'amplify',
-    label: 'Amplify',
-    path: paths.auth.amplify.login,
-    icon: '/assets/icons/auth/ic_amplify.svg',
-  },
-  {
-    id: 'auth0',
-    label: 'Auth0',
-    path: paths.auth.auth0.login,
-    icon: '/assets/icons/auth/ic_auth0.svg',
-  },
-  {
-    id: 'supabase',
-    label: 'Supabase',
-    path: paths.auth.supabase.login,
-    icon: '/assets/icons/auth/ic_supabase.svg',
-  },
-];
 
 type Props = {
   title?: string;
@@ -111,36 +77,14 @@ export default function AuthClassicLayout({ children, image, title }: Props) {
       <Box
         component="img"
         alt="auth"
-        src={image || '/assets/illustrations/illustration_dashboard.png'}
+        src={image || '/auth/login.svg'}
         sx={{
           maxWidth: {
             xs: 480,
-            lg: 560,
-            xl: 720,
+            xl: 520,
           },
         }}
       />
-
-      <Stack direction="row" spacing={2}>
-        {METHODS.map((option) => (
-          <Tooltip key={option.label} title={option.label}>
-            <Link component={RouterLink} href={option.path}>
-              <Box
-                component="img"
-                alt={option.label}
-                src={option.icon}
-                sx={{
-                  width: 32,
-                  height: 32,
-                  ...(method !== option.id && {
-                    filter: 'grayscale(100%)',
-                  }),
-                }}
-              />
-            </Link>
-          </Tooltip>
-        ))}
-      </Stack>
     </Stack>
   );
 

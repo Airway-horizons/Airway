@@ -11,10 +11,11 @@ import Scrollbar from 'src/components/scrollbar';
 
 import NavList from './nav-list';
 import { NavProps } from '../types';
+import { Button } from '@mui/material';
 
 // ----------------------------------------------------------------------
 
-export default function NavMobile({ data }: NavProps) {
+export default function NavMobile({ data, handleLogin, handleRegister, token }: any) {
   const pathname = usePathname();
 
   const [openMenu, setOpenMenu] = useState(false);
@@ -53,10 +54,12 @@ export default function NavMobile({ data }: NavProps) {
         <Scrollbar>
           <Logo sx={{ mx: 2.5, my: 3 }} />
 
-          {data.map((list) => (
+          {data.map((list: any) => (
             <NavList key={list.title} data={list} />
           ))}
+
         </Scrollbar>
+
       </Drawer>
     </>
   );
